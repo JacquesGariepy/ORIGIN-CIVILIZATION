@@ -1,6 +1,6 @@
 # ORIGIN / CIVILIZATION - v6.1
 
-An original, inspectable life-and-civilization simulation. English interface. HTML, JavaScript and an authoritative Node.js server. A bundled isometric renderer works without a CDN; optional Three.js shows the same world. This is not an EA product or a reproduction of proprietary Sims assets.
+An original, inspectable life-and-civilization simulation. HTML, JavaScript and an authoritative Node.js server. A bundled isometric renderer works without a CDN; optional Three.js shows the same world. This is not an EA product or a reproduction of proprietary Sims assets.
 
 **New voluntary actions require valid Jev decisions.** Rendering, navigation, physical consequences and an already authorized activity are executed by the simulation. There is no production local-policy fallback, synthetic model response, or invented conversation. Tests have explicitly labeled fixtures in `tests/` only.
 
