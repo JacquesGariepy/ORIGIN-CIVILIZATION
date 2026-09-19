@@ -131,13 +131,3 @@ The unreleased planner update (`docs/CHANGES-unreleased.md`) adds 15 fixture tes
 No authenticated TypeSafe, OpenRouter planner, OpenAI-compatible/local LLM, Claude Code, Codex or agy run was executed during this build; the optional Three.js/WebGL path was not visually validated here. Local isometric desktop/mobile scenes were visually inspected.
 
 This is a substantially expanded, bounded prototype, not all of The Sims, not photoreal people, not every Earth's resource, and not a proof of subjective awareness. It has one active bounded region, simplified physiology/economy/material processes, a bounded population, and a programmed action/process vocabulary. Pretrained models do not become blank brains because simulated memories start empty. See the explicit matrix in `docs/IMPLEMENTATION-STATUS.md`.
-
-## En bref (FR)
-
-ORIGIN sépare **décider** et **imaginer**.
-
-- **TypeSafe Jev décide.** Pour chaque personne, il choisit l'action suivante parmi celles réellement possibles et renvoie une réponse typée : le choix, une probabilité pour chaque option et une confiance. Le code vérifie chaque réponse avant d'agir, chaque action a un reçu dans le registre (Full ledger), et sans réponse valide le monde se met en pause au lieu d'inventer un comportement.
-- **Les LLM imaginent.** Une API compatible OpenAI, un LLM local (Ollama, LM Studio, llama.cpp, vLLM), Claude Code, Codex ou agy peuvent proposer un objectif, jusqu'à trois actions et une courte réplique. Ces propositions sont vérifiées (actions disponibles, souvenirs de la personne) puis transmises à Jev comme simples suggestions : elles n'exécutent jamais rien.
-- **Ensemble :** le LLM apporte le langage, les connaissances et les intentions en plusieurs étapes ; Jev apporte des décisions typées, vérifiables et traçables. ORIGIN fonctionne entièrement avec Jev seul.
-
-Configuration des planificateurs : `docs/LLM-PLANNERS.md`. Aucun appel authentifié à ces nouveaux moteurs n'a été effectué pour cette mise à jour.
