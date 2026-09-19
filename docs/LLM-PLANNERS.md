@@ -101,6 +101,8 @@ codex exec --sandbox read-only --skip-git-repo-check --ephemeral --ignore-rules 
 
 The fixed planner system prompt, then one person's perception (body, surroundings, own recent episodes and witnessed events, relationships, learned abilities), the currently feasible actions, and a short observer note. Other people's private memories and intentions are not included. The same content is recorded in the planner ledger entry.
 
+**What the CLIs add on their own.** This comes from the CLI, not from ORIGIN, and cannot be switched off with a subscription sign-in (Claude Code's `--bare` mode removes it but requires `ANTHROPIC_API_KEY`). It goes only to the provider you are signed in to. Observed on 2026-09-19: **Claude Code** (even with `--safe-mode`) adds the signed-in account's email address, the operating system, the date and the temporary working directory path, which contains your Windows user name. **Codex** adds the temporary working directory path, the shell, the date and the time zone, but no account or email address. agy adds its own session context. None of it can authorize an action: proposals are still grounded and Jev still decides.
+
 ## Verification
 
 `tests/llm-planners.test.cjs` covers URL rules, headers, strict schema, tool-call and grounding rejections, opt-in, redaction, bootstrap disclosure, and real child processes that stand in for the CLIs (arguments, stdin, isolated directory, environment allowlist, tool-event rejection). No authenticated call to an OpenAI-compatible provider, a local LLM, Claude Code or Codex was made for this update.
