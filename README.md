@@ -4,6 +4,54 @@ An original, inspectable life-and-civilization simulation. HTML, JavaScript and 
 
 **New voluntary actions require valid Jev decisions.** Rendering, navigation, physical consequences and an already authorized activity are executed by the simulation. There is no production local-policy fallback, synthetic model response, or invented conversation. Tests have explicitly labeled fixtures in `tests/` only.
 
+## Why TypeSafe + LLMs
+
+ORIGIN separates two jobs that are often blurred together: **deciding** what a person does next, and **imagining** what could be worth doing. TypeSafe Jev does the first. Language models (LLMs) can help with the second. Neither can change the world by assertion: the simulation executes only feasible, physically checked actions.
+
+### What TypeSafe Jev brings: the decider
+
+TypeSafe describes Jev as "the first System One model", built "to make fast, structured decisions that software can use directly" ([introduction](https://docs.typesafe.ai/introduction)). In ORIGIN this means:
+
+- **Typed decisions, not prose.** Each request is a set of Choice questions over the actions actually available to one person. Jev returns the selected option, "a probability for every option" and a confidence value ([Choice](https://docs.typesafe.ai/primitives/choice)). There is no generated text to parse or interpret.
+- **Checked by code before anything happens.** `validResponse` in `source/core.js` rejects an answer unless it identifies a Jev model, selects an existing option, gives a probability for every option that sums to 1, and its choice matches the highest probability. An invalid answer changes nothing.
+- **A receipt for every action.** Every call becomes a ledger row with its request, response, status, latency, usage and cost. An activity cannot begin without a Jev authorization receipt (`source/life.js`). **Full ledger** shows all of it.
+- **Visible uncertainty.** The full distribution and confidence are kept with each decision, so a flat distribution is an inspectable doubt, not a hidden guess. TypeSafe itself notes that calibration "does not guarantee that an individual answer is correct" ([System One](https://docs.typesafe.ai/concepts/system-one)).
+- **No fallback, no fabrication.** If Jev is unavailable or returns an invalid answer, the world pauses. No local policy, synthetic response or other model silently takes over.
+- **Private by construction.** Each request carries only the acting person's perception, own memories and feasible options. Other people's private memories and intentions are excluded. Independent questions in one call cannot see each other's answers, so ORIGIN never treats them as an ordered chain (`docs/TYPESAFE-SETUP.md`).
+
+### What LLMs bring: the planners
+
+- **Language and world knowledge.** An LLM can turn a person's situation into an objective, a testable hypothesis and an expected observation.
+- **Multi-step intentions.** It can propose up to three current actions toward a goal (care, work, relationships, testing an uncertainty) instead of a single reaction.
+- **Speech.** Once a person has learned language, it may propose one short utterance grounded in that person's own context.
+- **Your choice of engine.** Use any OpenAI-compatible API, a local model (Ollama, LM Studio, llama.cpp, vLLM) for privacy and no per-call cost, or a CLI you already sign in to: Claude Code, Codex or agy.
+
+### How they work together
+
+```
+one person's own perception + memories + feasible actions
+  -> optional planner (LLM): objective, up to 3 current action IDs, own evidence, optional utterance   [unverified proposal]
+  -> TypeSafe Jev: the next executable action, as a typed Choice with probabilities                  [receipt]
+  -> simulation: preconditions, reservations, execution, recorded outcome
+```
+
+A planner proposal reaches Jev as data (`unverified_planner_proposal`). It is grounded first: action IDs must be currently available, and cited evidence must be the person's own recorded events. It never authorizes anything. Jev remains the only decision source, and ORIGIN runs completely with Jev alone.
+
+### Engines
+
+| Role | Engine | Configure in `.env` | Notes |
+|---|---|---|---|
+| Decider (required) | TypeSafe Jev (`jev-latest`) | `TYPESAFE_API_KEY` | Native `api.typesafe.ai`. Optional OpenRouter alias with `OPENROUTER_API_KEY`. |
+| Planner | OpenAI-compatible API or local LLM | `LLM_BASE_URL`, `LLM_MODEL`, optional `LLM_API_KEY` | OpenAI, OpenRouter, Mistral, Groq; Ollama, LM Studio, llama.cpp, vLLM. Needs JSON-schema structured output. |
+| Planner | Claude Code CLI | `CLAUDE_ENABLED=1`, optional `CLAUDE_MODEL` | Your Claude Code sign-in. No tools, no MCP, nothing persisted. |
+| Planner | Codex CLI | `CODEX_ENABLED=1`, optional `CODEX_MODEL` | Your Codex sign-in. Read-only sandbox, ephemeral run. |
+| Planner | agy (Antigravity) CLI | `AGY_ENABLED=1` | See `docs/AGY-SETUP.md`. |
+| Planner | OpenRouter cloud | `PLANNER_API_KEY`, `PLANNER_MODEL` | See `docs/CLOUD-SETUP.md`. |
+
+Choose the planner in **Connect TypeSafe → Cognitive mode**. Setup and security details: `docs/LLM-PLANNERS.md`.
+
+**Limits.** Probabilities and confidence are model outputs, not truth or inner experience. The OpenAI-compatible, Claude Code and Codex planners are covered by fixture tests and local stand-in processes only; no authenticated call to any of them was made for this update. A planner can propose a useless plan and Jev can still choose poorly; both remain visible in the ledger instead of being hidden or replaced.
+
 ## Start
 
 1. Install Node.js 22 or newer. Extract this folder before launching.
@@ -63,6 +111,7 @@ All model requests and responses, confidence/probabilities, planner proposals, r
 ## Optional planner and 3D
 
 - A native TypeSafe key alone is sufficient for Jev decisions.
+- `docs/LLM-PLANNERS.md` configures an OpenAI-compatible API or local LLM (Ollama, LM Studio, llama.cpp, vLLM), Claude Code or Codex as a planner. Each only proposes; Jev decides.
 - `docs/CLOUD-SETUP.md` configures a separate OpenRouter text-model planner.
 - `docs/AGY-SETUP.md` configures an isolated local agy CLI. It is optional and cannot create a successful physical outcome by assertion.
 - The complete production isometric renderer is bundled. **3D** attempts to load pinned Three.js. `node install-assets.cjs` downloads and embeds that optional library from a connected machine. Failure to load it does not invent decisions or remove the working isometric scene.
@@ -77,6 +126,18 @@ Without **Allow server to continue when this browser closes**, the server pauses
 
 `node --test tests/*.test.cjs` runs the shipped regression suite. The v6.1 delivery was checked with **192 passing Node tests and 38 browser checks**. Browser checks use the exact production isometric renderer and actual Node world service, with explicitly synthetic upstream model responses. See `docs/VALIDATION.md`.
 
-No authenticated TypeSafe, OpenRouter planner or agy run was executed during this build; the optional Three.js/WebGL path was not visually validated here. Local isometric desktop/mobile scenes were visually inspected.
+The unreleased planner update (`docs/CHANGES-unreleased.md`) adds 15 fixture tests, for **207 passing Node tests**; browser checks were not rerun for it.
+
+No authenticated TypeSafe, OpenRouter planner, OpenAI-compatible/local LLM, Claude Code, Codex or agy run was executed during this build; the optional Three.js/WebGL path was not visually validated here. Local isometric desktop/mobile scenes were visually inspected.
 
 This is a substantially expanded, bounded prototype, not all of The Sims, not photoreal people, not every Earth's resource, and not a proof of subjective awareness. It has one active bounded region, simplified physiology/economy/material processes, a bounded population, and a programmed action/process vocabulary. Pretrained models do not become blank brains because simulated memories start empty. See the explicit matrix in `docs/IMPLEMENTATION-STATUS.md`.
+
+## En bref (FR)
+
+ORIGIN sépare **décider** et **imaginer**.
+
+- **TypeSafe Jev décide.** Pour chaque personne, il choisit l'action suivante parmi celles réellement possibles et renvoie une réponse typée : le choix, une probabilité pour chaque option et une confiance. Le code vérifie chaque réponse avant d'agir, chaque action a un reçu dans le registre (Full ledger), et sans réponse valide le monde se met en pause au lieu d'inventer un comportement.
+- **Les LLM imaginent.** Une API compatible OpenAI, un LLM local (Ollama, LM Studio, llama.cpp, vLLM), Claude Code, Codex ou agy peuvent proposer un objectif, jusqu'à trois actions et une courte réplique. Ces propositions sont vérifiées (actions disponibles, souvenirs de la personne) puis transmises à Jev comme simples suggestions : elles n'exécutent jamais rien.
+- **Ensemble :** le LLM apporte le langage, les connaissances et les intentions en plusieurs étapes ; Jev apporte des décisions typées, vérifiables et traçables. ORIGIN fonctionne entièrement avec Jev seul.
+
+Configuration des planificateurs : `docs/LLM-PLANNERS.md`. Aucun appel authentifié à ces nouveaux moteurs n'a été effectué pour cette mise à jour.

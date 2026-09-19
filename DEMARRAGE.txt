@@ -25,6 +25,10 @@ Help > Homestead : foyers preconfigures pour tester le quotidien.
 Help > First Minds : depart sans techniques ni maisons.
 Choisir un nouveau scenario remplace le monde actif, pas les compteurs.
 
+Planificateurs facultatifs (ils proposent, Jev decide) : API compatible
+OpenAI, LLM local (Ollama, LM Studio...), Claude Code, Codex ou agy.
+Voir docs/LLM-PLANNERS.md et la section "En bref (FR)" du README.
+
 Le rendu isometrique est integre. Three.js est facultatif.
 Le serveur doit rester actif. Aucune reprise automatique des depenses.
 Voir docs/CHANGES-v6.1.md et docs/VALIDATION.md.

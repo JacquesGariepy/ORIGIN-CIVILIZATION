@@ -18,7 +18,7 @@ The planner receives a single person's local perception, own evidence and curren
 
 Planner calls occur when no reusable recent proposal exists (approximately after three personal completed actions), not at each animation frame. Both planner and Jev calls share bounded local concurrency, but use separate request allowances. Check **Full ledger** for `planner` entries followed by Jev decisions. JSON-schema/provider errors stop rather than silently creating a plan.
 
-The current adapter calls `https://openrouter.ai/api/v1/chat/completions` with `response_format: json_schema`, strict schema and provider parameter requirements. It is not a generic arbitrary-base-URL adapter. No authenticated planner call was performed during this build.
+The current adapter calls `https://openrouter.ai/api/v1/chat/completions` with `response_format: json_schema`, strict schema and provider parameter requirements. It is not a generic arbitrary-base-URL adapter. For any other OpenAI-compatible endpoint, including local LLMs, use the `openai` planner described in `docs/LLM-PLANNERS.md`. No authenticated planner call was performed during this build.
 
 Primary contract: https://openrouter.ai/docs/guides/features/structured-outputs
 

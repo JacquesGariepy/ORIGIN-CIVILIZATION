@@ -26,6 +26,7 @@ Decisions are calculated in bounded cohorts; activities overlap. Body decay is t
 - `source/life.js`: core person/household/activity mechanics, physiological clock, consent, birth/aging, basic learning and safe arithmetic VM.
 - `source/living-session.js`: actual typed Jev orchestration and transaction receipts.
 - `source/world-service.cjs`: server authority, private credentials, checkpoint queue, detached authorization, run-time cap.
+- `source/planner.cjs`: optional proposal-only planners (OpenRouter cloud, OpenAI-compatible/local LLM, Claude Code, Codex, agy), shared schema and grounding checks.
 - `source/remote-session.js`: state synchronization and explicit commands from browser to server.
 - `source/civic-view.js`: bundled isometric production renderer; optional `civic-three.js` and `living-view.js` adapt the Three.js renderer.
 - `source/civic-panels.js`, `living-ui.js`, `living-shell.html`: application workspaces and controls.
@@ -44,13 +45,13 @@ Water/power uses inspect local capacity. Renewable plants can regrow within boun
 
 The planner and Jev receive only the acting individual's perception, private episodes, bounded witness records, inventory, recorded skills and feasible options. A receiver is queried independently. Actual outcomes, beliefs and spoken messages are separate records. Lessons supply a lead and practice, not telepathic copying of a teacher's skills. A newborn does not receive parent memory/knowledge.
 
-A LLM output is an unverified proposal. The text adapter returns schema-constrained actions/expected observation/evidence and may supply a grounded utterance only under the language/context rules. It cannot change world code or declare that a material experiment succeeded. Harness file/web/command access is neither needed nor authorized by this simulation.
+A LLM output is an unverified proposal, whichever engine produced it: OpenRouter cloud, any OpenAI-compatible or local endpoint, Claude Code, Codex or agy (`docs/LLM-PLANNERS.md`). TypeSafe Jev remains the only decision source. The text adapter returns schema-constrained actions/expected observation/evidence and may supply a grounded utterance only under the language/context rules. It cannot change world code or declare that a material experiment succeeded. Harness file/web/command access is neither needed nor authorized by this simulation.
 
 ## Persistence and security
 
 Atomic write-then-rename checkpoint: `data/world-v6.json`. Credentials are held in server memory or the operator's private `.env`; exports scrub known keys. The server always restores paused and disconnected. A previous detached approval never restarts billable work after process restart. Historical request counters survive migrations/scenario selection.
 
-Loopback host/origin checks, request-size limits and a local CSRF token protect the bridge from ordinary cross-origin drive-by calls. This is not a hardened public service, multi-user authentication platform or operating-system sandbox. Do not expose it to the internet. Child-process isolation/permissions for agy remain the operator's responsibility.
+Loopback host/origin checks, request-size limits and a local CSRF token protect the bridge from ordinary cross-origin drive-by calls. This is not a hardened public service, multi-user authentication platform or operating-system sandbox. Do not expose it to the internet. Child-process isolation/permissions for agy, Claude Code and Codex remain the operator's responsibility; ORIGIN adds tool-less flags, an isolated temporary directory, an environment allowlist and tool-event rejection.
 
 A run requires a finite simulated-time window and Jev/planner request allowances. Time is checked before every physical clock advance, not merely on a timer. No viewer for 30 seconds pauses operation unless detached operation was explicitly approved. Save/restore does not choose behavior and no HTTP retry auto-increases budgets.
 

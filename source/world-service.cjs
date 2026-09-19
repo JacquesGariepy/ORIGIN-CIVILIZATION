@@ -12,7 +12,7 @@ class WorldService{
   this.ready=this.load();
   this.timer=setInterval(()=>{if(this.session.running){if(!this.allowDetached&&Date.now()-this.lastViewer>30000)this.session.pause('No connected viewer for 30 seconds; detached spending was not authorized.');if(this.untilSimTime!==null&&this.session.world.simTime>=this.untilSimTime)this.session.pause('Approved simulated-time window reached. Review and explicitly authorize another run.','budget');}if(this.dirty){this.dirty=false;this.save().catch(e=>{this.lastSaveError=e.message;});}},2000);this.timer.unref();
  }
- secrets(){return [this.#keys.typesafe,this.#keys.openrouter,this.env.TYPESAFE_API_KEY,this.env.OPENROUTER_API_KEY,this.env.PLANNER_API_KEY,this.env.GEMINI_API_KEY,this.env.GOOGLE_API_KEY].filter(Boolean);}
+ secrets(){return [this.#keys.typesafe,this.#keys.openrouter,this.env.TYPESAFE_API_KEY,this.env.OPENROUTER_API_KEY,this.env.PLANNER_API_KEY,this.env.LLM_API_KEY,this.env.ANTHROPIC_API_KEY,this.env.OPENAI_API_KEY,this.env.GEMINI_API_KEY,this.env.GOOGLE_API_KEY].filter(Boolean);}
  clean(x){let s=typeof x==='string'?x:JSON.stringify(x);for(const k of this.secrets())s=s.split(k).join('[REDACTED]');return s;}
  async exchange(request,{signal}){
   const provider=this.session.config.provider,contract=P.get(provider),key=P.keyFor(provider,this.#keys[provider]||this.env[contract.envKey]);if(!key)throw Error('No '+contract.label+' credential. Configure .env or Connect TypeSafe.');

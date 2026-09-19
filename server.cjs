@@ -19,7 +19,7 @@ function createServer({fixture=false,env=process.env,fetchImpl=global.fetch,plan
  const worldService=new WorldService({fixture,env,fetchImpl,planImpl,dataDir});
  const token=crypto.randomBytes(32).toString('hex');let jevAttempts=0,plannerAttempts=0,connectionChecks=0,inFlight=0,saveQueue=Promise.resolve();
  const jevCap=integer(env.SERVER_JEV_CAP,2000,1,10000),plannerCap=integer(env.SERVER_PLANNER_CAP,100,1,1000);
- const secrets=[env.OPENROUTER_API_KEY,env.TYPESAFE_API_KEY,env.PLANNER_API_KEY,env.GEMINI_API_KEY,env.GOOGLE_API_KEY,token];
+ const secrets=[env.OPENROUTER_API_KEY,env.TYPESAFE_API_KEY,env.PLANNER_API_KEY,env.LLM_API_KEY,env.ANTHROPIC_API_KEY,env.OPENAI_API_KEY,env.GEMINI_API_KEY,env.GOOGLE_API_KEY,token];
  const send=(res,status,data)=>{if(res.destroyed)return;const text=redact(data,secrets);res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(text);};
  const server=http.createServer(async(req,res)=>{
   const host=req.headers.host||'',actualPort=server.address()?.port,allowed=['127.0.0.1:'+actualPort,'localhost:'+actualPort];
@@ -31,7 +31,7 @@ function createServer({fixture=false,env=process.env,fetchImpl=global.fetch,plan
   let url;try{url=new URL(req.url,'http://'+host);}catch{send(res,400,{error:'Invalid URL.'});return;}
   if(req.method==='GET'&&url.pathname==='/api/bootstrap'){
    // Token is intentionally returned only here, with no CORS and same-origin checks.
-   const bootstrap={token,version:L.VERSION,defaultProvider:'typesafe',defaultModel:'jev-latest',connectionChecks,hasJevKey:!!(env.OPENROUTER_API_KEY||env.TYPESAFE_API_KEY),hasOpenRouterKey:!!env.OPENROUTER_API_KEY,hasTypeSafeKey:!!env.TYPESAFE_API_KEY,agyEnabled:env.AGY_ENABLED==='1',cloudEnabled:!!(env.PLANNER_API_KEY||env.OPENROUTER_API_KEY),plannerModel:env.PLANNER_MODEL||'',jevAttempts,plannerAttempts,checkpoint:await fs.stat(path.join(dataDir,'latest.json')).then(()=>true,()=>false),suppliedRecovery:await fs.stat(recoveryPath).then(()=>true,()=>false)};
+   const bootstrap={token,version:L.VERSION,defaultProvider:'typesafe',defaultModel:'jev-latest',connectionChecks,hasJevKey:!!(env.OPENROUTER_API_KEY||env.TYPESAFE_API_KEY),hasOpenRouterKey:!!env.OPENROUTER_API_KEY,hasTypeSafeKey:!!env.TYPESAFE_API_KEY,agyEnabled:env.AGY_ENABLED==='1',cloudEnabled:!!(env.PLANNER_API_KEY||env.OPENROUTER_API_KEY),plannerModel:env.PLANNER_MODEL||'',llmEnabled:llmStatus(env)!=='not configured',llmStatus:llmStatus(env),llmModel:env.LLM_MODEL||'',claudeEnabled:env.CLAUDE_ENABLED==='1',claudeModel:env.CLAUDE_MODEL||'',codexEnabled:env.CODEX_ENABLED==='1',codexModel:env.CODEX_MODEL||'',jevAttempts,plannerAttempts,checkpoint:await fs.stat(path.join(dataDir,'latest.json')).then(()=>true,()=>false),suppliedRecovery:await fs.stat(recoveryPath).then(()=>true,()=>false)};
    res.writeHead(200,{'Content-Type':'application/json','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(JSON.stringify(bootstrap));return;
   }
   if(url.pathname.startsWith('/api/')){
@@ -100,6 +100,8 @@ function createServer({fixture=false,env=process.env,fetchImpl=global.fetch,plan
  server.worldService=worldService;const nativeClose=server.close.bind(server);server.close=function(callback){nativeClose(error=>{worldService.close().then(()=>callback?.(error),e=>callback?.(e));});return server;};
  return server;
 }
+// Bootstrap reports only whether the OpenAI-compatible endpoint is local or remote; the URL itself is never returned.
+function llmStatus(env){try{const url=new URL(Planner.llmEndpoint(env));return ['127.0.0.1','localhost','[::1]'].includes(url.hostname)?'local':'remote';}catch{return env.LLM_BASE_URL?'invalid LLM_BASE_URL':'not configured';}}
 function integer(v,fallback,min,max){const n=Number(v);return Number.isInteger(n)&&n>=min&&n<=max?n:fallback;}
 async function readJSON(req,max){if(!String(req.headers['content-type']||'').toLowerCase().startsWith('application/json'))throw Error('Expected application/json.');let bytes=0,parts=[];for await(const part of req){bytes+=part.length;if(bytes>max)throw Error('Request body exceeds the allowed size.');parts.push(part);}return JSON.parse(Buffer.concat(parts).toString('utf8'));}
 async function main(){
@@ -107,7 +109,7 @@ async function main(){
  await loadEnv(path.join(ROOT,'.env'));const port=integer(process.env.PORT,4317,1024,65535),server=createServer();
  for(const signal of ['SIGINT','SIGTERM'])process.once(signal,()=>server.close(()=>process.exit(0)));
  server.on('error',e=>{console.error(e.code==='EADDRINUSE'?'Port '+port+' is busy. Close the other ORIGIN server or change PORT in .env.':e.message);process.exitCode=1;});
- server.listen(port,'127.0.0.1',()=>{const url='http://127.0.0.1:'+port;console.log('\nORIGIN / CIVILIZATION v6.0 / TypeSafe Native\n'+url+'\n\nDefault provider: TypeSafe native / jev-latest.\nSet TYPESAFE_API_KEY in .env or enter it in the page. No OpenRouter key required.\nNo model calls happen before you explicitly test access or run in the page.\nKeys stay out of checkpoints. Keep this terminal open.\nOptional AGY: '+(process.env.AGY_ENABLED==='1'?'enabled':'disabled')+'\n');
+ server.listen(port,'127.0.0.1',()=>{const url='http://127.0.0.1:'+port;console.log('\nORIGIN / CIVILIZATION v'+L.VERSION+' / TypeSafe Native\n'+url+'\n\nDefault provider: TypeSafe native / jev-latest.\nSet TYPESAFE_API_KEY in .env or enter it in the page. No OpenRouter key required.\nNo model calls happen before you explicitly test access or run in the page.\nKeys stay out of checkpoints. Keep this terminal open.\nOptional planners (proposals only; Jev decides): AGY '+(process.env.AGY_ENABLED==='1'?'enabled':'disabled')+', OpenAI-compatible '+llmStatus(process.env)+', Claude Code '+(process.env.CLAUDE_ENABLED==='1'?'enabled':'disabled')+', Codex '+(process.env.CODEX_ENABLED==='1'?'enabled':'disabled')+'\n');
   if(process.argv.includes('--open')){const {spawn}=require('node:child_process');let child;if(process.platform==='win32')child=spawn('cmd.exe',['/c','start','',url],{windowsHide:true,stdio:'ignore'});else child=spawn(process.platform==='darwin'?'open':'xdg-open',[url],{stdio:'ignore'});child.on('error',()=>{});child.unref();}
  });
 }

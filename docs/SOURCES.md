@@ -26,3 +26,10 @@ The HTTP API is called with fetch; no TypeSafe SDK dependency is required in thi
 ## v6 geographic data
 
 See DATA-SOURCES.md for the actual bundled Natural Earth outline, the allowlisted optional Terrarium elevation source and the explicit distinction between observed and generated layers. Application output and model cognition are not validated by map attribution.
+
+## Unreleased planner update, checked 2026-09-19
+
+- TypeSafe wording quoted in README.md: https://docs.typesafe.ai/introduction , https://docs.typesafe.ai/concepts/system-one , https://docs.typesafe.ai/primitives/choice
+- Claude Code CLI flags: `claude --help` of the locally installed Claude Code 2.1.278.
+- Codex CLI flags: `codex exec --help` of the locally installed Codex CLI 0.154.0.
+- The OpenAI-compatible adapter uses the Chat Completions `response_format: json_schema` shape already used by the OpenRouter planner. Support by a given server or model is not established by this repository.

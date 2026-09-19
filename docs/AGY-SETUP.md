@@ -1,3 +1,5 @@
+> **Other planners:** OpenAI-compatible APIs, local LLMs, Claude Code and Codex use the same proposal-only contract. See `docs/LLM-PLANNERS.md`.
+
 > **v6 native TypeSafe note:** the Jev connection defaults to TypeSafe. Set TYPESAFE_API_KEY or paste your TypeSafe key and select TypeSafe native. agy keeps its own authentication and does not need OpenRouter for Jev. Native-only mode requires no harness. The optional cloud-text adapter mentioned below still uses OpenRouter separately.
 
 # Optional agy harness

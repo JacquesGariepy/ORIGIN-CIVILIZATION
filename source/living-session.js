@@ -17,7 +17,7 @@ class Session{
  async bootstrap(){if(typeof location!=='undefined'&&location.protocol==='file:'){this.config.transport='direct';return null;}const r=await fetch('/api/bootstrap',{cache:'no-store'});if(!r.ok)throw Error('Local server unavailable.');const data=await r.json();this.#token=data.token;this.bridgeInfo={...data,token:undefined};if(!this.config.plannerModel)this.config.plannerModel=data.plannerModel||'';return this.bridgeInfo;}
  connect(key,config={}){
   if(this.busy)throw Error('Pause and allow cancelled requests to settle before reconnecting.');const c={...this.config,...config};P.validateModel(c.provider,c.model);
-  if(!['bridge','direct'].includes(c.transport)||!['none','cloud','agy'].includes(c.planner))throw Error('Unknown transport or planner.');
+  if(!['bridge','direct'].includes(c.transport)||!['none','cloud','agy','openai','claude','codex'].includes(c.planner))throw Error('Unknown transport or planner.');
   if(c.transport==='bridge'&&!this.#token&&!this.hooks.exchange)throw Error('Launch the included local server, then reload this page.');
   key=P.keyFor(c.provider,key);const serverKey=this.bridgeInfo?.[c.provider==='typesafe'?'hasTypeSafeKey':'hasOpenRouterKey'];if(!key&&!(c.transport==='bridge'&&serverKey)&&!this.hooks.exchange)throw Error('Enter the matching API key or configure it in .env.');
   for(const [k,min,max]of [['cap',this.attempts+1,2000],['plannerCap',1,500],['parallelCalls',1,8]]){c[k]=Number(c[k]);if(!Number.isInteger(c[k])||c[k]<min||c[k]>max)throw Error(k+' must be '+min+' to '+max+'.');}
