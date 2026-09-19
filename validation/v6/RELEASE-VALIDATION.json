@@ -1,0 +1,14 @@
+{
+  "version": "6.0.0",
+  "language": "en",
+  "nodeTests": 174,
+  "nodeFailures": 0,
+  "browserChecks": 30,
+  "rendererTested": "actual production Canvas/isometric renderer",
+  "serverTested": "actual authoritative Node service",
+  "upstreamModels": "explicit fixtures only; no authenticated calls",
+  "mechanicalStressCompletedActivities": 3169,
+  "webglVisualValidation": false,
+  "elevationLiveDownloadValidation": false,
+  "worldScope": "one bounded active region; actual land outline, optional measured elevation, generated resource layers"
+}

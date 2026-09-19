@@ -1,0 +1,123 @@
+{
+  "renderer": "EXPLICIT UI TEST ADAPTER; not WebGL",
+  "models": "TEST FIXTURES ONLY",
+  "requests": 8,
+  "results": [
+    {
+      "test": "world starts locked and sends no decision request",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "English document",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "homestead seeds two children and objects",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "seeded scenario does not send AI requests",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "multiple lives are active concurrently",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "pause freezes shared time",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "paused activities are retained",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "navigation people",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "navigation build",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "navigation world",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "navigation knowledge",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "navigation chronicle",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "navigation live",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "player request is only a suggestion",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "ledger contains exact action requests",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "ledger expands exact JSON",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "mobile person inspector opens",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "family view is rendered",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "mobile viewport has no horizontal document overflow",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "mobile build catalog renders",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "request limit produces visible budget stop",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "budget approval does not automatically run",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "UI adapter run has no uncaught browser exceptions",
+      "passed": true,
+      "detail": "[]"
+    }
+  ],
+  "errors": []
+}

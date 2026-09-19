@@ -1,0 +1,452 @@
+
+> origin-living-world@5.0.0 test
+> node --test tests/living.test.cjs tests/concurrent-server.test.cjs tests/typesafe.test.cjs
+
+TAP version 13
+# Subtest: server accepts concurrent upstream Jev requests rather than a global single-flight gate
+ok 1 - server accepts concurrent upstream Jev requests rather than a global single-flight gate
+  ---
+  duration_ms: 144.070944
+  type: 'test'
+  ...
+# Subtest: server honors an upstream concurrency cap without leaking keys
+ok 2 - server honors an upstream concurrency cap without leaking keys
+  ---
+  duration_ms: 29.310153
+  type: 'test'
+  ...
+# Subtest: v5 checkpoint accepts a concurrent world and round-trips activity state
+ok 3 - v5 checkpoint accepts a concurrent world and round-trips activity state
+  ---
+  duration_ms: 51.295103
+  type: 'test'
+  ...
+# Subtest: snapshot validator rejects broken ownership and invalid life scales
+ok 4 - snapshot validator rejects broken ownership and invalid life scales
+  ---
+  duration_ms: 1.344185
+  type: 'test'
+  ...
+# Subtest: first minds have no learned techniques, children, active behavior or carried objects
+ok 5 - first minds have no learned techniques, children, active behavior or carried objects
+  ---
+  duration_ms: 7.766055
+  type: 'test'
+  ...
+# Subtest: without a Jev-authorized activity, time and needs remain frozen
+ok 6 - without a Jev-authorized activity, time and needs remain frozen
+  ---
+  duration_ms: 4.801353
+  type: 'test'
+  ...
+# Subtest: homestead is an explicit seeded scenario with children, family and usable objects
+ok 7 - homestead is an explicit seeded scenario with children, family and usable objects
+  ---
+  duration_ms: 1.602735
+  type: 'test'
+  ...
+# Subtest: two activities begin at the same simulated timestamp and make parallel progress
+ok 8 - two activities begin at the same simulated timestamp and make parallel progress
+  ---
+  duration_ms: 18.034414
+  type: 'test'
+  ...
+# Subtest: short activity finishes while another remains active
+ok 9 - short activity finishes while another remains active
+  ---
+  duration_ms: 4.508376
+  type: 'test'
+  ...
+# Subtest: metabolism is based on shared elapsed time, not population or request count
+ok 10 - metabolism is based on shared elapsed time, not population or request count
+  ---
+  duration_ms: 4.674538
+  type: 'test'
+  ...
+# Subtest: the last finite resource is reserved and cannot be collected twice
+ok 11 - the last finite resource is reserved and cannot be collected twice
+  ---
+  duration_ms: 3.466542
+  type: 'test'
+  ...
+# Subtest: interruption releases uncollected resource reservations
+ok 12 - interruption releases uncollected resource reservations
+  ---
+  duration_ms: 2.131928
+  type: 'test'
+  ...
+# Subtest: one sleeping place cannot be occupied by two people
+ok 13 - one sleeping place cannot be occupied by two people
+  ---
+  duration_ms: 2.442575
+  type: 'test'
+  ...
+# Subtest: observation does not bring an individual back to camp
+ok 14 - observation does not bring an individual back to camp
+  ---
+  duration_ms: 1.761034
+  type: 'test'
+  ...
+# Subtest: navigation finds an accessible stone interaction point, not a blocked goal
+ok 15 - navigation finds an accessible stone interaction point, not a blocked goal
+  ---
+  duration_ms: 2.913662
+  type: 'test'
+  ...
+# Subtest: a declined social invitation transfers nothing
+ok 16 - a declined social invitation transfers nothing
+  ---
+  duration_ms: 1.050865
+  type: 'test'
+  ...
+# Subtest: an accepted social invitation transfers ownership exactly once
+ok 17 - an accepted social invitation transfers ownership exactly once
+  ---
+  duration_ms: 1.475717
+  type: 'test'
+  ...
+# Subtest: receiver is not frozen by an unaccepted approach; reply is requested on arrival
+ok 18 - receiver is not frozen by an unaccepted approach; reply is requested on arrival
+  ---
+  duration_ms: 2.577838
+  type: 'test'
+  ...
+# Subtest: counterparty consent cannot silently interrupt a different, newly started activity
+ok 19 - counterparty consent cannot silently interrupt a different, newly started activity
+  ---
+  duration_ms: 1.213336
+  type: 'test'
+  ...
+# Subtest: children cannot court, form partnerships or conceive
+ok 20 - children cannot court, form partnerships or conceive
+  ---
+  duration_ms: 1.221058
+  type: 'test'
+  ...
+# Subtest: family relationship checks exclude ancestors and shared parents
+ok 21 - family relationship checks exclude ancestors and shared parents
+  ---
+  duration_ms: 0.947712
+  type: 'test'
+  ...
+# Subtest: a birth preserves parentage without copying knowledge or memories
+ok 22 - a birth preserves parentage without copying knowledge or memories
+  ---
+  duration_ms: 0.68603
+  type: 'test'
+  ...
+# Subtest: growth uses declared shared time and updates life stage
+ok 23 - growth uses declared shared time and updates life stage
+  ---
+  duration_ms: 1.380022
+  type: 'test'
+  ...
+# Subtest: due pregnancy yields a new independent person only from prior consent record
+ok 24 - due pregnancy yields a new independent person only from prior consent record
+  ---
+  duration_ms: 1.163222
+  type: 'test'
+  ...
+# Subtest: ordinary meals create learning evidence without granting a skill
+ok 25 - ordinary meals create learning evidence without granting a skill
+  ---
+  duration_ms: 2.778363
+  type: 'test'
+  ...
+# Subtest: learning is a separate Jev commit, not a rollback of consumed material
+ok 26 - learning is a separate Jev commit, not a rollback of consumed material
+  ---
+  duration_ms: 2.074424
+  type: 'test'
+  ...
+# Subtest: supported observations plus a Jev inference create personal knowledge only
+ok 27 - supported observations plus a Jev inference create personal knowledge only
+  ---
+  duration_ms: 1.768621
+  type: 'test'
+  ...
+# Subtest: unsupported experimental inference cannot grant knowledge
+ok 28 - unsupported experimental inference cannot grant knowledge
+  ---
+  duration_ms: 3.708913
+  type: 'test'
+  ...
+# Subtest: learned manufacturing processes remain available for repeated production
+ok 29 - learned manufacturing processes remain available for repeated production
+  ---
+  duration_ms: 10.293653
+  type: 'test'
+  ...
+# Subtest: construction consumes finite held material and creates a usable object
+ok 30 - construction consumes finite held material and creates a usable object
+  ---
+  duration_ms: 2.750829
+  type: 'test'
+  ...
+# Subtest: player blueprint is a proposal, not an instant building or free resource
+ok 31 - player blueprint is a proposal, not an instant building or free resource
+  ---
+  duration_ms: 0.329335
+  type: 'test'
+  ...
+# Subtest: household storage transfers a finite portion and reservations survive interruption
+ok 32 - household storage transfers a finite portion and reservations survive interruption
+  ---
+  duration_ms: 1.708728
+  type: 'test'
+  ...
+# Subtest: bounded virtual machine executes numeric instructions; arbitrary code is rejected
+ok 33 - bounded virtual machine executes numeric instructions; arbitrary code is rejected
+  ---
+  duration_ms: 0.77435
+  type: 'test'
+  ...
+# Subtest: AI artifact fits actual input samples and evaluates held-out records
+ok 34 - AI artifact fits actual input samples and evaluates held-out records
+  ---
+  duration_ms: 0.601334
+  type: 'test'
+  ...
+# Subtest: world save preserves concurrently unfinished activity progress and locks
+ok 35 - world save preserves concurrently unfinished activity progress and locks
+  ---
+  duration_ms: 1.650192
+  type: 'test'
+  ...
+# Subtest: v4 recovery migrates material state without granting new cultural knowledge
+ok 36 - v4 recovery migrates material state without granting new cultural knowledge
+  ---
+  duration_ms: 15.547333
+  type: 'test'
+  ...
+# Subtest: simultaneous cognition actually dispatches more than one request at a time
+ok 37 - simultaneous cognition actually dispatches more than one request at a time
+  ---
+  duration_ms: 50.744864
+  type: 'test'
+  ...
+# Subtest: a failed action response cannot start any member of a failed initial cohort
+ok 38 - a failed action response cannot start any member of a failed initial cohort
+  ---
+  duration_ms: 11.397966
+  type: 'test'
+  ...
+# Subtest: request budget is checked before dispatching an unaffordable cohort
+ok 39 - request budget is checked before dispatching an unaffordable cohort
+  ---
+  duration_ms: 0.533847
+  type: 'test'
+  ...
+# Subtest: pause cancels uncommitted decisions while retaining existing activity progress
+ok 40 - pause cancels uncommitted decisions while retaining existing activity progress
+  ---
+  duration_ms: 13.625779
+  type: 'test'
+  ...
+# Subtest: person perceptions do not include another person private memory or intent
+ok 41 - person perceptions do not include another person private memory or intent
+  ---
+  duration_ms: 3.770962
+  type: 'test'
+  ...
+# Subtest: newborn IDs are accepted by optional planner validation
+ok 42 - newborn IDs are accepted by optional planner validation
+  ---
+  duration_ms: 13.01254
+  type: 'test'
+  ...
+# Subtest: unfinished work can be resumed only through a new authorized Jev action
+ok 43 - unfinished work can be resumed only through a new authorized Jev action
+  ---
+  duration_ms: 2.805583
+  type: 'test'
+  ...
+# Subtest: signal reception and witnesses do not acquire the sender private intended referent
+ok 44 - signal reception and witnesses do not acquire the sender private intended referent
+  ---
+  duration_ms: 1.27762
+  type: 'test'
+  ...
+# Subtest: heat-dependent work cannot finish after the fire goes out or consume its held inputs
+ok 45 - heat-dependent work cannot finish after the fire goes out or consume its held inputs
+  ---
+  duration_ms: 9.867959
+  type: 'test'
+  ...
+# Subtest: the bundled HTML is valid JavaScript and preserves literal dollar replacement sequences
+ok 46 - the bundled HTML is valid JavaScript and preserves literal dollar replacement sequences
+  ---
+  duration_ms: 7.183029
+  type: 'test'
+  ...
+# Subtest: v5 native transport uses TypeSafe directly, applies verified replies and exports no key
+ok 47 - v5 native transport uses TypeSafe directly, applies verified replies and exports no key
+  ---
+  duration_ms: 36.511274
+  type: 'test'
+  ...
+# Subtest: v5 authentication errors stop the world with no provider fallback or action
+ok 48 - v5 authentication errors stop the world with no provider fallback or action
+  ---
+  duration_ms: 5.83731
+  type: 'test'
+  ...
+# Subtest: new living session rejects using an OpenRouter key as a TypeSafe credential
+ok 49 - new living session rejects using an OpenRouter key as a TypeSafe credential
+  ---
+  duration_ms: 0.190287
+  type: 'test'
+  ...
+# Subtest: an adult becoming an elder retains adult-scale geometry
+ok 50 - an adult becoming an elder retains adult-scale geometry
+  ---
+  duration_ms: 0.436365
+  type: 'test'
+  ...
+# Subtest: new sessions default to native TypeSafe with native model ID
+ok 51 - new sessions default to native TypeSafe with native model ID
+  ---
+  duration_ms: 2.099616
+  type: 'test'
+  ...
+# Subtest: native API contract accepts official alias, preview and pinned native IDs only
+ok 52 - native API contract accepts official alias, preview and pinned native IDs only
+  ---
+  duration_ms: 0.58831
+  type: 'test'
+  ...
+# Subtest: an OpenRouter server key cannot satisfy a missing TypeSafe key
+ok 53 - an OpenRouter server key cannot satisfy a missing TypeSafe key
+  ---
+  duration_ms: 0.551003
+  type: 'test'
+  ...
+# Subtest: native server key needs no OpenRouter key and is not present in the browser session
+ok 54 - native server key needs no OpenRouter key and is not present in the browser session
+  ---
+  duration_ms: 0.555979
+  type: 'test'
+  ...
+# Subtest: native key is trimmed, kept only in memory, and never written to snapshots
+ok 55 - native key is trimmed, kept only in memory, and never written to snapshots
+  ---
+  duration_ms: 0.496852
+  type: 'test'
+  ...
+# Subtest: standalone native decision actually targets TypeSafe, using Bearer auth and native model
+ok 56 - standalone native decision actually targets TypeSafe, using Bearer auth and native model
+  ---
+  duration_ms: 28.253812
+  type: 'test'
+  ...
+# Subtest: native pinned model survives connection instead of being silently overwritten
+ok 57 - native pinned model survives connection instead of being silently overwritten
+  ---
+  duration_ms: 0.290163
+  type: 'test'
+  ...
+# Subtest: native TypeSafe model ID is accepted by typed response validation
+ok 58 - native TypeSafe model ID is accepted by typed response validation
+  ---
+  duration_ms: 1.112578
+  type: 'test'
+  ...
+# Subtest: TypeSafe 401 freezes the entire turn without a provider fallback
+ok 59 - TypeSafe 401 freezes the entire turn without a provider fallback
+  ---
+  duration_ms: 2.976515
+  type: 'test'
+  ...
+# Subtest: native 422 detail arrays become actionable text while exact body stays in ledger
+ok 60 - native 422 detail arrays become actionable text while exact body stays in ledger
+  ---
+  duration_ms: 2.27542
+  type: 'test'
+  ...
+# Subtest: native 529 is not auto-retried and preserves Retry-After metadata
+ok 61 - native 529 is not auto-retried and preserves Retry-After metadata
+  ---
+  duration_ms: 1.764408
+  type: 'test'
+  ...
+# Subtest: native account access test makes GET models only, leaves decisions and world unchanged
+ok 62 - native account access test makes GET models only, leaves decisions and world unchanged
+  ---
+  duration_ms: 1.332287
+  type: 'test'
+  ...
+# Subtest: failed account checks cannot leak a key echoed by the provider
+ok 63 - failed account checks cannot leak a key echoed by the provider
+  ---
+  duration_ms: 0.956792
+  type: 'test'
+  ...
+# Subtest: account checks bypass renderer dependency without starting any simulation
+ok 64 - account checks bypass renderer dependency without starting any simulation
+  ---
+  duration_ms: 0.740758
+  type: 'test'
+  ...
+# Subtest: native bridge advertises provider-specific credentials, never their values
+ok 65 - native bridge advertises provider-specific credentials, never their values
+  ---
+  duration_ms: 63.031096
+  type: 'test'
+  ...
+# Subtest: native bridge routes to TypeSafe by default without touching OpenRouter
+ok 66 - native bridge routes to TypeSafe by default without touching OpenRouter
+  ---
+  duration_ms: 22.478285
+  type: 'test'
+  ...
+# Subtest: native and legacy keys stay isolated when both are configured
+ok 67 - native and legacy keys stay isolated when both are configured
+  ---
+  duration_ms: 26.79714
+  type: 'test'
+  ...
+# Subtest: wrong native/legacy model is rejected before any upstream call
+ok 68 - wrong native/legacy model is rejected before any upstream call
+  ---
+  duration_ms: 22.628744
+  type: 'test'
+  ...
+# Subtest: missing native key cannot silently fall back to configured OpenRouter credential
+ok 69 - missing native key cannot silently fall back to configured OpenRouter credential
+  ---
+  duration_ms: 14.641559
+  type: 'test'
+  ...
+# Subtest: native bridge propagates upstream 429 and Retry-After without auto retry
+ok 70 - native bridge propagates upstream 429 and Retry-After without auto retry
+  ---
+  duration_ms: 31.187075
+  type: 'test'
+  ...
+# Subtest: native bridge model-list test uses server TypeSafe key and no decision allowance
+ok 71 - native bridge model-list test uses server TypeSafe key and no decision allowance
+  ---
+  duration_ms: 27.936834
+  type: 'test'
+  ...
+# Subtest: ephemeral pasted TypeSafe key is also redacted from bridge exceptions
+ok 72 - ephemeral pasted TypeSafe key is also redacted from bridge exceptions
+  ---
+  duration_ms: 9.855741
+  type: 'test'
+  ...
+# Subtest: native-only environment cannot authenticate optional OpenRouter planner
+ok 73 - native-only environment cannot authenticate optional OpenRouter planner
+  ---
+  duration_ms: 1.574845
+  type: 'test'
+  ...
+1..73
+# tests 73
+# suites 0
+# pass 73
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 393.959645

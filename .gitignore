@@ -1,0 +1,6 @@
+.env
+data/
+node_modules/
+assets/three.min.js
+assets/source.json
+__pycache__/

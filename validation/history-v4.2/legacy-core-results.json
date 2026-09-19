@@ -1,0 +1,96 @@
+{
+  "testedAt": "2026-09-19T04:53:28.163Z",
+  "method": "Node.js unit and integration tests. API responses are explicit test fixtures, not live provider responses. No test policy is shipped in the application.",
+  "passed": 22,
+  "total": 22,
+  "tests": [
+    {
+      "name": "Genesis contains no learned abilities, relationships, vocabulary or carried resources",
+      "passed": true
+    },
+    {
+      "name": "Disconnected step makes zero requests and leaves the entire world unchanged",
+      "passed": true
+    },
+    {
+      "name": "No timer advances an unconnected world",
+      "passed": true
+    },
+    {
+      "name": "Non-Jev identity, unknown option, missing distribution and wrong sums are rejected",
+      "passed": true
+    },
+    {
+      "name": "A valid typed Jev response commits exactly one action and advances one world turn",
+      "passed": true
+    },
+    {
+      "name": "HTTP authentication failure produces no world changes and no automatic retry",
+      "passed": true
+    },
+    {
+      "name": "Malformed success answer cannot trigger a fallback",
+      "passed": true
+    },
+    {
+      "name": "Failed learning phase rolls back the entire uncommitted physical experiment",
+      "passed": true
+    },
+    {
+      "name": "Request cap freezes a multi-phase turn with no partial resource changes",
+      "passed": true
+    },
+    {
+      "name": "Receiver independently accepts an offer; total food is conserved",
+      "passed": true
+    },
+    {
+      "name": "A Jev refusal causes no inventory transfer",
+      "passed": true
+    },
+    {
+      "name": "Receiver gets observable token and gesture, never the current intended referent",
+      "passed": true
+    },
+    {
+      "name": "Successful experiment plus supported Jev inference gives only the learner a skill",
+      "passed": true
+    },
+    {
+      "name": "Unsupported experiment cannot grant a skill even when Jev chooses supported",
+      "passed": true
+    },
+    {
+      "name": "A burning fire warms nearby others and loses finite fuel only on committed turns",
+      "passed": true
+    },
+    {
+      "name": "Learning prerequisites block fire, metalworking and writing at genesis",
+      "passed": true
+    },
+    {
+      "name": "Confidence gate rejects the whole turn without human override or local choice",
+      "passed": true
+    },
+    {
+      "name": "Pause discards a late response even if a transport ignores cancellation",
+      "passed": true
+    },
+    {
+      "name": "Exports never serialize the personal API key",
+      "passed": true
+    },
+    {
+      "name": "World reset does not reset request usage or erase historical receipts",
+      "passed": true
+    },
+    {
+      "name": "A hidden page or missing renderer makes no paid API call",
+      "passed": true
+    },
+    {
+      "name": "Every committed turn references its complete set of Jev request receipts",
+      "passed": true
+    }
+  ]
+}

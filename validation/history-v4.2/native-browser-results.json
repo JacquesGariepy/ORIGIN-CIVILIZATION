@@ -1,0 +1,123 @@
+{
+  "method": "DOM-only with explicit renderer and fetch fixtures; no live TypeSafe call and no WebGL validation.",
+  "results": [
+    {
+      "name": "Native boot issues no model or account-check request",
+      "passed": true
+    },
+    {
+      "name": "Native TypeSafe is selected by default",
+      "passed": true
+    },
+    {
+      "name": "Native jev-latest is displayed, not an OpenRouter model ID",
+      "passed": true
+    },
+    {
+      "name": "No other API is selected by default",
+      "passed": true
+    },
+    {
+      "name": "Native key is required without a matching server key",
+      "passed": true
+    },
+    {
+      "name": "Explicit access check calls protected model-list bridge",
+      "passed": true
+    },
+    {
+      "name": "Access check does not start decisions or change the world",
+      "passed": true
+    },
+    {
+      "name": "Access check has its own visible ledger record",
+      "passed": true
+    },
+    {
+      "name": "Checked key is absent from exported audit data",
+      "passed": true
+    },
+    {
+      "name": "Provider switch clears entered credentials",
+      "passed": true
+    },
+    {
+      "name": "Legacy provider gets its own model menu",
+      "passed": true
+    },
+    {
+      "name": "Native account-check button is not offered to legacy provider",
+      "passed": true
+    },
+    {
+      "name": "Native connection executes one gated intention/action turn",
+      "passed": true
+    },
+    {
+      "name": "Pinned native model is sent unchanged",
+      "passed": true
+    },
+    {
+      "name": "Native decision records contain the actual upstream endpoint",
+      "passed": true
+    },
+    {
+      "name": "No OpenRouter request was made by the native scenario",
+      "passed": true
+    },
+    {
+      "name": "Native checkpoint excludes the pasted credential",
+      "passed": true
+    },
+    {
+      "name": "Native desktop scenario has no uncaught errors",
+      "passed": true
+    },
+    {
+      "name": "Server-held TypeSafe key makes browser key input optional",
+      "passed": true
+    },
+    {
+      "name": "Matching server credential is described by name",
+      "passed": true
+    },
+    {
+      "name": "Native connection form has no horizontal mobile overflow",
+      "passed": true
+    },
+    {
+      "name": "Server-held account test sends no Authorization credential from browser",
+      "passed": true
+    },
+    {
+      "name": "Native server-held key runs without any OpenRouter configuration",
+      "passed": true
+    },
+    {
+      "name": "Native mobile scenario has no uncaught JavaScript errors",
+      "passed": true
+    },
+    {
+      "name": "OpenRouter server key does not remove TypeSafe input requirement",
+      "passed": true
+    },
+    {
+      "name": "Failed native decision keeps the error visible in connection settings",
+      "passed": true
+    },
+    {
+      "name": "Native authentication error leaves the world unmodified",
+      "passed": true
+    },
+    {
+      "name": "Native failure does not call an alternate provider",
+      "passed": true
+    },
+    {
+      "name": "Error scenario has no uncaught JavaScript errors",
+      "passed": true
+    }
+  ],
+  "passed": 29,
+  "total": 29
+}

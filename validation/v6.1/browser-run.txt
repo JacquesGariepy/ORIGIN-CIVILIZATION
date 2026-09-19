@@ -1,0 +1,157 @@
+{
+  "passed": 38,
+  "checks": [
+    {
+      "name": "Real canvas renderer initializes without CDN",
+      "passed": true
+    },
+    {
+      "name": "No API request before authorization",
+      "passed": true
+    },
+    {
+      "name": "Seeded modern scenario has declared homes and objects",
+      "passed": true
+    },
+    {
+      "name": "Scenario selection does not spend credit",
+      "passed": true
+    },
+    {
+      "name": "Workspace build",
+      "passed": true
+    },
+    {
+      "name": "Workspace world",
+      "passed": true
+    },
+    {
+      "name": "Workspace households",
+      "passed": true
+    },
+    {
+      "name": "Workspace economy",
+      "passed": true
+    },
+    {
+      "name": "Workspace civilization",
+      "passed": true
+    },
+    {
+      "name": "Workspace conversations",
+      "passed": true
+    },
+    {
+      "name": "Workspace creator",
+      "passed": true
+    },
+    {
+      "name": "Creator change applied by authoritative server",
+      "passed": true
+    },
+    {
+      "name": "Drawing a room is a plan, not an instant free building",
+      "passed": true
+    },
+    {
+      "name": "Earth canvas uses actual land features",
+      "passed": true
+    },
+    {
+      "name": "Complete Earth map fits its workspace",
+      "passed": true
+    },
+    {
+      "name": "Earth map click updates coordinates",
+      "passed": true
+    },
+    {
+      "name": "Remote transport cannot silently fall back to direct",
+      "passed": true
+    },
+    {
+      "name": "Account check does not change world time",
+      "passed": true
+    },
+    {
+      "name": "Several genuinely simultaneous activities exist",
+      "passed": true
+    },
+    {
+      "name": "Different physical activities run together",
+      "passed": true
+    },
+    {
+      "name": "Shared time advances on the server",
+      "passed": true
+    },
+    {
+      "name": "Pause retains unfinished activities",
+      "passed": true
+    },
+    {
+      "name": "Full ledger shows complete model requests and receipts",
+      "passed": true
+    },
+    {
+      "name": "No runtime JavaScript errors",
+      "passed": true
+    },
+    {
+      "name": "Second browser sees same authoritative world",
+      "passed": true
+    },
+    {
+      "name": "Mobile page has no horizontal document overflow",
+      "passed": true
+    },
+    {
+      "name": "Mobile family workspace accessible",
+      "passed": true
+    },
+    {
+      "name": "Mobile build form remains within viewport",
+      "passed": true
+    },
+    {
+      "name": "Entire Earth atlas fits the mobile workspace",
+      "passed": true
+    },
+    {
+      "name": "No mobile runtime errors",
+      "passed": true
+    },
+    {
+      "name": "Life audit is a read-only gameplay diagnostics view",
+      "passed": true
+    },
+    {
+      "name": "Reading diagnostics causes no inference",
+      "passed": true
+    },
+    {
+      "name": "Actual supplied v6 save restores with all 961 historical requests retained",
+      "passed": true
+    },
+    {
+      "name": "Restoring keeps the three actually recorded acquired skills",
+      "passed": true
+    },
+    {
+      "name": "Imported authorized work is retained without execution",
+      "passed": true
+    },
+    {
+      "name": "Historical clay-loop warning is visible",
+      "passed": true
+    },
+    {
+      "name": "Actual-save audit fits mobile viewport",
+      "passed": true
+    },
+    {
+      "name": "No errors through actual-save restoration",
+      "passed": true
+    }
+  ]
+}

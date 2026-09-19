@@ -1,0 +1,5 @@
+Natural Earth land outline - public domain
+https://www.naturalearthdata.com/about/terms-of-use/
+
+This export derives from the Natural Earth low-resolution geometry distributed in pyogrio's naturalearth_lowres fixture (177 input features). Geometries were dissolved to remove internal boundaries and simplified by 0.07 degrees. It is a land outline only, not a complete source of physical terrain or terrestrial resources.
+The original Natural Earth authors and contributors are gratefully acknowledged.

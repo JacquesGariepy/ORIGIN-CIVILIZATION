@@ -1,0 +1,2 @@
+# Keep every file byte-identical (MANIFEST-SHA256.json and recovery SHA-256 depend on it).
+* -text

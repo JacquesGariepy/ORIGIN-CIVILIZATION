@@ -1,0 +1,112 @@
+PASS UI boots without uncaught JavaScript errors
+PASS Ready idle UI has a frozen world and makes no decision calls
+PASS Connect runs a Jev-gated intention and action through fixture transport
+PASS Inventory and finite shared resources change consistently
+PASS Persistent intention is visible in person inspector
+PASS Intent details tab is functional
+PASS Full ledger has inspectable receipts
+PASS AGY configuration controls are exposed
+PASS Hybrid planner calls have a separate committed ledger entry
+PASS Hybrid proposal cannot bypass Jev decisions
+PASS Checkpoint transport receives full world and log without the API key
+PASS Restore does not automatically run more turns
+PASS Mobile page has no horizontal overflow
+PASS Mobile inspector remains accessible
+PASS Complete DOM scenario has no uncaught JavaScript errors
+PASS Supplied recovery preserves the 74 committed turns and 100 attempted calls
+PASS Recovery invents no learned abilities
+PASS Request cap has a distinct visible limit panel
+PASS Budget stop makes no extra attempted request
+PASS Budget approval preserves counters and does not resume activity
+PASS Budget updates are logged as explicit observer approvals
+PASS New budget and recovery flow has no JavaScript errors
+[
+  {
+    "name": "UI boots without uncaught JavaScript errors",
+    "passed": true
+  },
+  {
+    "name": "Ready idle UI has a frozen world and makes no decision calls",
+    "passed": true
+  },
+  {
+    "name": "Connect runs a Jev-gated intention and action through fixture transport",
+    "passed": true
+  },
+  {
+    "name": "Inventory and finite shared resources change consistently",
+    "passed": true
+  },
+  {
+    "name": "Persistent intention is visible in person inspector",
+    "passed": true
+  },
+  {
+    "name": "Intent details tab is functional",
+    "passed": true
+  },
+  {
+    "name": "Full ledger has inspectable receipts",
+    "passed": true
+  },
+  {
+    "name": "AGY configuration controls are exposed",
+    "passed": true
+  },
+  {
+    "name": "Hybrid planner calls have a separate committed ledger entry",
+    "passed": true
+  },
+  {
+    "name": "Hybrid proposal cannot bypass Jev decisions",
+    "passed": true
+  },
+  {
+    "name": "Checkpoint transport receives full world and log without the API key",
+    "passed": true
+  },
+  {
+    "name": "Restore does not automatically run more turns",
+    "passed": true
+  },
+  {
+    "name": "Mobile page has no horizontal overflow",
+    "passed": true
+  },
+  {
+    "name": "Mobile inspector remains accessible",
+    "passed": true
+  },
+  {
+    "name": "Complete DOM scenario has no uncaught JavaScript errors",
+    "passed": true
+  },
+  {
+    "name": "Supplied recovery preserves the 74 committed turns and 100 attempted calls",
+    "passed": true
+  },
+  {
+    "name": "Recovery invents no learned abilities",
+    "passed": true
+  },
+  {
+    "name": "Request cap has a distinct visible limit panel",
+    "passed": true
+  },
+  {
+    "name": "Budget stop makes no extra attempted request",
+    "passed": true
+  },
+  {
+    "name": "Budget approval preserves counters and does not resume activity",
+    "passed": true
+  },
+  {
+    "name": "Budget updates are logged as explicit observer approvals",
+    "passed": true
+  },
+  {
+    "name": "New budget and recovery flow has no JavaScript errors",
+    "passed": true
+  }
+]

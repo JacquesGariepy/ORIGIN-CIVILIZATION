@@ -1,0 +1,360 @@
+
+> origin-first-minds@4.1.0 test
+> node tests/legacy-core.cjs && node --test tests/v4.test.cjs tests/v41.test.cjs tests/bridge.test.cjs
+
+PASS Genesis contains no learned abilities, relationships, vocabulary or carried resources
+PASS Disconnected step makes zero requests and leaves the entire world unchanged
+PASS No timer advances an unconnected world
+PASS Non-Jev identity, unknown option, missing distribution and wrong sums are rejected
+PASS A valid typed Jev response commits exactly one action and advances one world turn
+PASS HTTP authentication failure produces no world changes and no automatic retry
+PASS Malformed success answer cannot trigger a fallback
+PASS Failed learning phase rolls back the entire uncommitted physical experiment
+PASS Request cap freezes a multi-phase turn with no partial resource changes
+PASS Receiver independently accepts an offer; total food is conserved
+PASS A Jev refusal causes no inventory transfer
+PASS Receiver gets observable token and gesture, never the current intended referent
+PASS Successful experiment plus supported Jev inference gives only the learner a skill
+PASS Unsupported experiment cannot grant a skill even when Jev chooses supported
+PASS A burning fire warms nearby others and loses finite fuel only on committed turns
+PASS Learning prerequisites block fire, metalworking and writing at genesis
+PASS Confidence gate rejects the whole turn without human override or local choice
+PASS Pause discards a late response even if a transport ignores cancellation
+PASS Exports never serialize the personal API key
+PASS World reset does not reset request usage or erase historical receipts
+PASS A hidden page or missing renderer makes no paid API call
+PASS Every committed turn references its complete set of Jev request receipts
+TAP version 13
+# Subtest: bootstrap never reveals configured API credentials
+ok 1 - bootstrap never reveals configured API credentials
+  ---
+  duration_ms: 46.247252
+  type: 'test'
+  ...
+# Subtest: cross-origin requests and wrong Host headers are rejected
+ok 2 - cross-origin requests and wrong Host headers are rejected
+  ---
+  duration_ms: 18.052005
+  type: 'test'
+  ...
+# Subtest: model calls need a local session token
+ok 3 - model calls need a local session token
+  ---
+  duration_ms: 10.007098
+  type: 'test'
+  ...
+# Subtest: private files and source paths are not served by the HTTP server
+ok 4 - private files and source paths are not served by the HTTP server
+  ---
+  duration_ms: 13.78579
+  type: 'test'
+  ...
+# Subtest: Jev bridge forwards only to its fixed provider endpoint and redacts secrets
+ok 5 - Jev bridge forwards only to its fixed provider endpoint and redacts secrets
+  ---
+  duration_ms: 10.070413
+  type: 'test'
+  ...
+# Subtest: server spending cap counts failed upstream attempts
+ok 6 - server spending cap counts failed upstream attempts
+  ---
+  duration_ms: 8.661923
+  type: 'test'
+  ...
+# Subtest: checkpoints save and restore the full state but not server keys
+ok 7 - checkpoints save and restore the full state but not server keys
+  ---
+  duration_ms: 10.000337
+  type: 'test'
+  ...
+# Subtest: planner contract rejects invented action IDs and fabricated evidence citations
+ok 8 - planner contract rejects invented action IDs and fabricated evidence citations
+  ---
+  duration_ms: 0.545498
+  type: 'test'
+  ...
+# Subtest: planner input uses one subject without other people private memories
+ok 9 - planner input uses one subject without other people private memories
+  ---
+  duration_ms: 1.093399
+  type: 'test'
+  ...
+# Subtest: AGY requires explicit server opt-in
+ok 10 - AGY requires explicit server opt-in
+  ---
+  duration_ms: 1.370504
+  type: 'test'
+  ...
+# Subtest: AGY adapter accepts schema result while keeping it an unverified proposal
+ok 11 - AGY adapter accepts schema result while keeping it an unverified proposal
+  ---
+  duration_ms: 1.259718
+  type: 'test'
+  ...
+# Subtest: cloud planner uses no tools, fixed endpoint and JSON schema with explicit model
+ok 12 - cloud planner uses no tools, fixed endpoint and JSON schema with explicit model
+  ---
+  duration_ms: 0.949923
+  type: 'test'
+  ...
+# Subtest: CLI child environment strips Jev and unrelated credential variables
+ok 13 - CLI child environment strips Jev and unrelated credential variables
+  ---
+  duration_ms: 0.189624
+  type: 'test'
+  ...
+# Subtest: actual child-process adapter sends the prompt via stdin, without shell interpolation
+ok 14 - actual child-process adapter sends the prompt via stdin, without shell interpolation
+  ---
+  duration_ms: 34.612976
+  type: 'test'
+  ...
+# Subtest: a CLI tool event is rejected and the child is stopped
+ok 15 - a CLI tool event is rejected and the child is stopped
+  ---
+  duration_ms: 31.650375
+  type: 'test'
+  ...
+# Subtest: look observes in place for all six subjects; no forced gathering at camp
+ok 16 - look observes in place for all six subjects; no forced gathering at camp
+  ---
+  duration_ms: 7.429004
+  type: 'test'
+  ...
+# Subtest: rest also stays in place unless a named shelter is chosen
+ok 17 - rest also stays in place unless a named shelter is chosen
+  ---
+  duration_ms: 1.099017
+  type: 'test'
+  ...
+# Subtest: first observation records concrete facts; unchanged repeats are marked low-information
+ok 18 - first observation records concrete facts; unchanged repeats are marked low-information
+  ---
+  duration_ms: 0.906348
+  type: 'test'
+  ...
+# Subtest: scene novelty ignores clock ticks but notices another visible person moving
+ok 19 - scene novelty ignores clock ticks but notices another visible person moving
+  ---
+  duration_ms: 0.773539
+  type: 'test'
+  ...
+# Subtest: an explicitly chosen inspection moves to its specific location
+ok 20 - an explicitly chosen inspection moves to its specific location
+  ---
+  duration_ms: 0.524656
+  type: 'test'
+  ...
+# Subtest: Jev chooses intention before action and both receipts are committed
+ok 21 - Jev chooses intention before action and both receipts are committed
+  ---
+  duration_ms: 29.117784
+  type: 'test'
+  ...
+# Subtest: intent persists for three personal turns without a new goal API call
+ok 22 - intent persists for three personal turns without a new goal API call
+  ---
+  duration_ms: 33.104314
+  type: 'test'
+  ...
+# Subtest: failure after a staged Jev intention does not mutate intent or body
+ok 23 - failure after a staged Jev intention does not mutate intent or body
+  ---
+  duration_ms: 1.897954
+  type: 'test'
+  ...
+# Subtest: forced repeated look responses stop spending at STALLED instead of looping forever
+ok 24 - forced repeated look responses stop spending at STALLED instead of looping forever
+  ---
+  duration_ms: 69.757828
+  type: 'test'
+  ...
+# Subtest: new useful action resets the individual low-information streak
+ok 25 - new useful action resets the individual low-information streak
+  ---
+  duration_ms: 2.265506
+  type: 'test'
+  ...
+# Subtest: nearby witnesses remember visible action but never inherit private knowledge
+ok 26 - nearby witnesses remember visible action but never inherit private knowledge
+  ---
+  duration_ms: 1.058436
+  type: 'test'
+  ...
+# Subtest: remote subjects do not receive a private witness memory
+ok 27 - remote subjects do not receive a private witness memory
+  ---
+  duration_ms: 0.476033
+  type: 'test'
+  ...
+# Subtest: plan is staged, shown to Jev, and cannot itself execute an action
+ok 28 - plan is staged, shown to Jev, and cannot itself execute an action
+  ---
+  duration_ms: 2.977062
+  type: 'test'
+  ...
+# Subtest: unavailable planner action is rejected before any Jev request or world mutation
+ok 29 - unavailable planner action is rejected before any Jev request or world mutation
+  ---
+  duration_ms: 1.028131
+  type: 'test'
+  ...
+# Subtest: explicit pause reason is preserved in the rejected request and ledger
+ok 30 - explicit pause reason is preserved in the rejected request and ledger
+  ---
+  duration_ms: 16.508712
+  type: 'test'
+  ...
+# Subtest: restoring a checkpoint restores full history but no credentials or automatic execution
+ok 31 - restoring a checkpoint restores full history but no credentials or automatic execution
+  ---
+  duration_ms: 4.187836
+  type: 'test'
+  ...
+# Subtest: browser bridge token is excluded from exported checkpoints
+ok 32 - browser bridge token is excluded from exported checkpoints
+  ---
+  duration_ms: 0.536764
+  type: 'test'
+  ...
+# Subtest: the uploaded v4 journal replays with all 74 exact commit diffs
+ok 33 - the uploaded v4 journal replays with all 74 exact commit diffs
+  ---
+  duration_ms: 124.099617
+  type: 'test'
+  ...
+# Subtest: reported counts match the full user ledger, not a sample
+ok 34 - reported counts match the full user ledger, not a sample
+  ---
+  duration_ms: 7.779579
+  type: 'test'
+  ...
+# Subtest: body perception makes fullness direction and fulfilled intent explicit
+ok 35 - body perception makes fullness direction and fulfilled intent explicit
+  ---
+  duration_ms: 1.089313
+  type: 'test'
+  ...
+# Subtest: fullness feedback neither changes state nor bans a physically available action
+ok 36 - fullness feedback neither changes state nor bans a physically available action
+  ---
+  duration_ms: 1.045316
+  type: 'test'
+  ...
+# Subtest: satisfied nourishment is reconsidered before its three-action horizon expires
+ok 37 - satisfied nourishment is reconsidered before its three-action horizon expires
+  ---
+  duration_ms: 25.47141
+  type: 'test'
+  ...
+# Subtest: one ordinary meal records measurable evidence but grants no skill or inference
+ok 38 - one ordinary meal records measurable evidence but grants no skill or inference
+  ---
+  duration_ms: 0.700179
+  type: 'test'
+  ...
+# Subtest: a second ordinary meal produces a candidate, not an automatically unlocked skill
+ok 39 - a second ordinary meal produces a candidate, not an automatically unlocked skill
+  ---
+  duration_ms: 1.189213
+  type: 'test'
+  ...
+# Subtest: a saturated meal with no gain cannot fabricate food evidence
+ok 40 - a saturated meal with no gain cannot fabricate food evidence
+  ---
+  duration_ms: 0.539829
+  type: 'test'
+  ...
+# Subtest: ordinary food recognition requires a real inference phase in the session pipeline
+ok 41 - ordinary food recognition requires a real inference phase in the session pipeline
+  ---
+  duration_ms: 2.614929
+  type: 'test'
+  ...
+# Subtest: an uncertain inference preserves evidence without granting knowledge
+ok 42 - an uncertain inference preserves evidence without granting knowledge
+  ---
+  duration_ms: 2.56856
+  type: 'test'
+  ...
+# Subtest: failed required inference rolls back the meal, evidence and the whole turn
+ok 43 - failed required inference rolls back the meal, evidence and the whole turn
+  ---
+  duration_ms: 2.447959
+  type: 'test'
+  ...
+# Subtest: food and water effects log actual clamped gains rather than nominal gains
+ok 44 - food and water effects log actual clamped gains rather than nominal gains
+  ---
+  duration_ms: 0.849613
+  type: 'test'
+  ...
+# Subtest: alternating low-benefit actions are detected even without a three-action streak
+ok 45 - alternating low-benefit actions are detected even without a three-action streak
+  ---
+  duration_ms: 0.175894
+  type: 'test'
+  ...
+# Subtest: useful repeated survival actions do not trigger a diversity quota
+ok 46 - useful repeated survival actions do not trigger a diversity quota
+  ---
+  duration_ms: 0.118077
+  type: 'test'
+  ...
+# Subtest: an adopted new belief interrupts the low-benefit cycle guard
+ok 47 - an adopted new belief interrupts the low-benefit cycle guard
+  ---
+  duration_ms: 0.102824
+  type: 'test'
+  ...
+# Subtest: an exhausted budget never sends an HTTP request, never resets the count
+ok 48 - an exhausted budget never sends an HTTP request, never resets the count
+  ---
+  duration_ms: 0.496174
+  type: 'test'
+  ...
+# Subtest: minimum phase budget is checked before spending on a new intention
+ok 49 - minimum phase budget is checked before spending on a new intention
+  ---
+  duration_ms: 0.307871
+  type: 'test'
+  ...
+# Subtest: limit changes require explicit validation and never start calls or lose credentials
+ok 50 - limit changes require explicit validation and never start calls or lose credentials
+  ---
+  duration_ms: 0.417626
+  type: 'test'
+  ...
+# Subtest: restoration preserves the spent count but never raises the spending cap
+ok 51 - restoration preserves the spent count but never raises the spending cap
+  ---
+  duration_ms: 29.334395
+  type: 'test'
+  ...
+# Subtest: connection logs include actual mode and planner configuration
+ok 52 - connection logs include actual mode and planner configuration
+  ---
+  duration_ms: 0.476334
+  type: 'test'
+  ...
+# Subtest: invalid imported food evidence and outcome-history shapes are rejected
+ok 53 - invalid imported food evidence and outcome-history shapes are rejected
+  ---
+  duration_ms: 0.365108
+  type: 'test'
+  ...
+# Subtest: supplied-session recovery route requires a local token and sends no model request
+ok 54 - supplied-session recovery route requires a local token and sends no model request
+  ---
+  duration_ms: 84.55559
+  type: 'test'
+  ...
+1..54
+# tests 54
+# suites 0
+# pass 54
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 352.59911

@@ -1,0 +1,5 @@
+{
+  "passed": 23,
+  "checks": 23,
+  "errors": []
+}

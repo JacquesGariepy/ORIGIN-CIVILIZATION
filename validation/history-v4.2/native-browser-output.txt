@@ -1,0 +1,29 @@
+PASS Native boot issues no model or account-check request
+PASS Native TypeSafe is selected by default
+PASS Native jev-latest is displayed, not an OpenRouter model ID
+PASS No other API is selected by default
+PASS Native key is required without a matching server key
+PASS Explicit access check calls protected model-list bridge
+PASS Access check does not start decisions or change the world
+PASS Access check has its own visible ledger record
+PASS Checked key is absent from exported audit data
+PASS Provider switch clears entered credentials
+PASS Legacy provider gets its own model menu
+PASS Native account-check button is not offered to legacy provider
+PASS Native connection executes one gated intention/action turn
+PASS Pinned native model is sent unchanged
+PASS Native decision records contain the actual upstream endpoint
+PASS No OpenRouter request was made by the native scenario
+PASS Native checkpoint excludes the pasted credential
+PASS Native desktop scenario has no uncaught errors
+PASS Server-held TypeSafe key makes browser key input optional
+PASS Matching server credential is described by name
+PASS Native connection form has no horizontal mobile overflow
+PASS Server-held account test sends no Authorization credential from browser
+PASS Native server-held key runs without any OpenRouter configuration
+PASS Native mobile scenario has no uncaught JavaScript errors
+PASS OpenRouter server key does not remove TypeSafe input requirement
+PASS Failed native decision keeps the error visible in connection settings
+PASS Native authentication error leaves the world unmodified
+PASS Native failure does not call an alternate provider
+PASS Error scenario has no uncaught JavaScript errors

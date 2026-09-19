@@ -1,0 +1,1054 @@
+TAP version 13
+# Subtest: bootstrap never reveals configured API credentials
+ok 1 - bootstrap never reveals configured API credentials
+  ---
+  duration_ms: 78.458345
+  type: 'test'
+  ...
+# Subtest: cross-origin requests and wrong Host headers are rejected
+ok 2 - cross-origin requests and wrong Host headers are rejected
+  ---
+  duration_ms: 57.245738
+  type: 'test'
+  ...
+# Subtest: model calls need a local session token
+ok 3 - model calls need a local session token
+  ---
+  duration_ms: 29.076471
+  type: 'test'
+  ...
+# Subtest: private files and source paths are not served by the HTTP server
+ok 4 - private files and source paths are not served by the HTTP server
+  ---
+  duration_ms: 25.167727
+  type: 'test'
+  ...
+# Subtest: Jev bridge forwards only to its fixed provider endpoint and redacts secrets
+ok 5 - Jev bridge forwards only to its fixed provider endpoint and redacts secrets
+  ---
+  duration_ms: 26.671013
+  type: 'test'
+  ...
+# Subtest: server spending cap counts failed upstream attempts
+ok 6 - server spending cap counts failed upstream attempts
+  ---
+  duration_ms: 23.485516
+  type: 'test'
+  ...
+# Subtest: checkpoints save and restore the full state but not server keys
+ok 7 - checkpoints save and restore the full state but not server keys
+  ---
+  duration_ms: 30.08323
+  type: 'test'
+  ...
+# Subtest: planner contract rejects invented action IDs and fabricated evidence citations
+ok 8 - planner contract rejects invented action IDs and fabricated evidence citations
+  ---
+  duration_ms: 0.885999
+  type: 'test'
+  ...
+# Subtest: planner input uses one subject without other people private memories
+ok 9 - planner input uses one subject without other people private memories
+  ---
+  duration_ms: 0.807069
+  type: 'test'
+  ...
+# Subtest: AGY requires explicit server opt-in
+ok 10 - AGY requires explicit server opt-in
+  ---
+  duration_ms: 1.203733
+  type: 'test'
+  ...
+# Subtest: AGY adapter accepts schema result while keeping it an unverified proposal
+ok 11 - AGY adapter accepts schema result while keeping it an unverified proposal
+  ---
+  duration_ms: 1.147437
+  type: 'test'
+  ...
+# Subtest: cloud planner uses no tools, fixed endpoint and JSON schema with explicit model
+ok 12 - cloud planner uses no tools, fixed endpoint and JSON schema with explicit model
+  ---
+  duration_ms: 0.951707
+  type: 'test'
+  ...
+# Subtest: CLI child environment strips Jev and unrelated credential variables
+ok 13 - CLI child environment strips Jev and unrelated credential variables
+  ---
+  duration_ms: 0.140002
+  type: 'test'
+  ...
+# Subtest: actual child-process adapter sends the prompt via stdin, without shell interpolation
+ok 14 - actual child-process adapter sends the prompt via stdin, without shell interpolation
+  ---
+  duration_ms: 49.626709
+  type: 'test'
+  ...
+# Subtest: a CLI tool event is rejected and the child is stopped
+ok 15 - a CLI tool event is rejected and the child is stopped
+  ---
+  duration_ms: 31.94667
+  type: 'test'
+  ...
+# Subtest: v6 generates actual finite localized stocks preserving aggregate counts
+ok 16 - v6 generates actual finite localized stocks preserving aggregate counts
+  ---
+  duration_ms: 9.325602
+  type: 'test'
+  ...
+# Subtest: generation alone does not create actions, knowledge, rooms or conversations
+ok 17 - generation alone does not create actions, knowledge, rooms or conversations
+  ---
+  duration_ms: 6.833891
+  type: 'test'
+  ...
+# Subtest: two workers cannot collect the same last local stock
+ok 18 - two workers cannot collect the same last local stock
+  ---
+  duration_ms: 11.262481
+  type: 'test'
+  ...
+# Subtest: local gathering produces exactly the reserved units
+ok 19 - local gathering produces exactly the reserved units
+  ---
+  duration_ms: 11.608778
+  type: 'test'
+  ...
+# Subtest: carrying capacity removes physically impossible gathering choices
+ok 20 - carrying capacity removes physically impossible gathering choices
+  ---
+  duration_ms: 2.214627
+  type: 'test'
+  ...
+# Subtest: a water use spends one actual unit at a source
+ok 21 - a water use spends one actual unit at a source
+  ---
+  duration_ms: 6.929137
+  type: 'test'
+  ...
+# Subtest: household reservations prevent duplication and release on cancellation
+ok 22 - household reservations prevent duplication and release on cancellation
+  ---
+  duration_ms: 9.17908
+  type: 'test'
+  ...
+# Subtest: completed household deposit and withdrawal conserve matter
+ok 23 - completed household deposit and withdrawal conserve matter
+  ---
+  duration_ms: 5.318287
+  type: 'test'
+  ...
+# Subtest: a room remains a plan until four separately paid authorized phases
+ok 24 - a room remains a plan until four separately paid authorized phases
+  ---
+  duration_ms: 21.203174
+  type: 'test'
+  ...
+# Subtest: two simultaneous room builders cannot double-complete one phase
+ok 25 - two simultaneous room builders cannot double-complete one phase
+  ---
+  duration_ms: 7.223399
+  type: 'test'
+  ...
+# Subtest: walkable doorway allows entry while solid walls block the route
+ok 26 - walkable doorway allows entry while solid walls block the route
+  ---
+  duration_ms: 3.877424
+  type: 'test'
+  ...
+# Subtest: overlapping or invalid-household room plans are rejected
+ok 27 - overlapping or invalid-household room plans are rejected
+  ---
+  duration_ms: 2.456913
+  type: 'test'
+  ...
+# Subtest: accepted barter exchanges exact finite goods in both directions
+ok 28 - accepted barter exchanges exact finite goods in both directions
+  ---
+  duration_ms: 5.313711
+  type: 'test'
+  ...
+# Subtest: refusing a barter does not consume offered goods
+ok 29 - refusing a barter does not consume offered goods
+  ---
+  duration_ms: 3.466947
+  type: 'test'
+  ...
+# Subtest: funded contract holds real currency, delivery pays from escrow
+ok 30 - funded contract holds real currency, delivery pays from escrow
+  ---
+  duration_ms: 10.181194
+  type: 'test'
+  ...
+# Subtest: cancelled contract work reopens only the escrowed contract
+ok 31 - cancelled contract work reopens only the escrowed contract
+  ---
+  duration_ms: 3.398013
+  type: 'test'
+  ...
+# Subtest: modern scenario explicitly seeds initial assets, never calls them discoveries
+ok 32 - modern scenario explicitly seeds initial assets, never calls them discoveries
+  ---
+  duration_ms: 5.354388
+  type: 'test'
+  ...
+# Subtest: creator edits are validated and individually logged
+ok 33 - creator edits are validated and individually logged
+  ---
+  duration_ms: 1.948477
+  type: 'test'
+  ...
+# Subtest: child inherits selected appearance but never parental knowledge
+ok 34 - child inherits selected appearance but never parental knowledge
+  ---
+  duration_ms: 1.93194
+  type: 'test'
+  ...
+# Subtest: an accepted lesson creates evidence requiring independent practice
+ok 35 - an accepted lesson creates evidence requiring independent practice
+  ---
+  duration_ms: 11.12528
+  type: 'test'
+  ...
+# Subtest: recorded knowledge persists as a physical authored work
+ok 36 - recorded knowledge persists as a physical authored work
+  ---
+  duration_ms: 10.484444
+  type: 'test'
+  ...
+# Subtest: new project progress requires chosen and completed matching activities
+ok 37 - new project progress requires chosen and completed matching activities
+  ---
+  duration_ms: 4.170037
+  type: 'test'
+  ...
+# Subtest: a local partial resource context does not reveal other private thoughts
+ok 38 - a local partial resource context does not reveal other private thoughts
+  ---
+  duration_ms: 3.206937
+  type: 'test'
+  ...
+# Subtest: a consumed ordinary meal is not rolled back on a failed learning interpretation
+ok 39 - a consumed ordinary meal is not rolled back on a failed learning interpretation
+  ---
+  duration_ms: 2.59831
+  type: 'test'
+  ...
+# Subtest: Earth data is real land outline metadata and has no invented borders
+ok 40 - Earth data is real land outline metadata and has no invented borders
+  ---
+  duration_ms: 4.497377
+  type: 'test'
+  ...
+# Subtest: DEM heights are actually used and bad imports are rejected
+ok 41 - DEM heights are actually used and bad imports are rejected
+  ---
+  duration_ms: 2.421931
+  type: 'test'
+  ...
+# Subtest: a running activity prevents replacing the geography underneath it
+ok 42 - a running activity prevents replacing the geography underneath it
+  ---
+  duration_ms: 4.285733
+  type: 'test'
+  ...
+# Subtest: renewable stock never exceeds capacity and minerals do not regrow
+ok 43 - renewable stock never exceeds capacity and minerals do not regrow
+  ---
+  duration_ms: 25.113053
+  type: 'test'
+  ...
+# Subtest: time-based spoilage retains material as compost in household inventory
+ok 44 - time-based spoilage retains material as compost in household inventory
+  ---
+  duration_ms: 27.725436
+  type: 'test'
+  ...
+# Subtest: unpowered utility objects cannot promise powered services
+ok 45 - unpowered utility objects cannot promise powered services
+  ---
+  duration_ms: 5.733873
+  type: 'test'
+  ...
+# Subtest: all seeded scenarios and their serialized forms validate
+ok 46 - all seeded scenarios and their serialized forms validate
+  ---
+  duration_ms: 22.223429
+  type: 'test'
+  ...
+# Subtest: server accepts concurrent upstream Jev requests rather than a global single-flight gate
+ok 47 - server accepts concurrent upstream Jev requests rather than a global single-flight gate
+  ---
+  duration_ms: 113.682476
+  type: 'test'
+  ...
+# Subtest: server honors an upstream concurrency cap without leaking keys
+ok 48 - server honors an upstream concurrency cap without leaking keys
+  ---
+  duration_ms: 32.294612
+  type: 'test'
+  ...
+# Subtest: v5 checkpoint accepts a concurrent world and round-trips activity state
+ok 49 - v5 checkpoint accepts a concurrent world and round-trips activity state
+  ---
+  duration_ms: 70.635417
+  type: 'test'
+  ...
+# Subtest: snapshot validator rejects broken ownership and invalid life scales
+ok 50 - snapshot validator rejects broken ownership and invalid life scales
+  ---
+  duration_ms: 4.307571
+  type: 'test'
+  ...
+# Subtest: first minds have no learned techniques, children, active behavior or carried objects
+ok 51 - first minds have no learned techniques, children, active behavior or carried objects
+  ---
+  duration_ms: 12.228631
+  type: 'test'
+  ...
+# Subtest: without a Jev-authorized activity, time and needs remain frozen
+ok 52 - without a Jev-authorized activity, time and needs remain frozen
+  ---
+  duration_ms: 15.48111
+  type: 'test'
+  ...
+# Subtest: homestead is an explicit seeded scenario with children, family and usable objects
+ok 53 - homestead is an explicit seeded scenario with children, family and usable objects
+  ---
+  duration_ms: 5.446872
+  type: 'test'
+  ...
+# Subtest: two activities begin at the same simulated timestamp and make parallel progress
+ok 54 - two activities begin at the same simulated timestamp and make parallel progress
+  ---
+  duration_ms: 31.64613
+  type: 'test'
+  ...
+# Subtest: short activity finishes while another remains active
+ok 55 - short activity finishes while another remains active
+  ---
+  duration_ms: 9.173848
+  type: 'test'
+  ...
+# Subtest: metabolism is based on shared elapsed time, not population or request count
+ok 56 - metabolism is based on shared elapsed time, not population or request count
+  ---
+  duration_ms: 10.974369
+  type: 'test'
+  ...
+# Subtest: the last finite resource is reserved and cannot be collected twice
+ok 57 - the last finite resource is reserved and cannot be collected twice
+  ---
+  duration_ms: 7.08883
+  type: 'test'
+  ...
+# Subtest: interruption releases uncollected resource reservations
+ok 58 - interruption releases uncollected resource reservations
+  ---
+  duration_ms: 6.796552
+  type: 'test'
+  ...
+# Subtest: one sleeping place cannot be occupied by two people
+ok 59 - one sleeping place cannot be occupied by two people
+  ---
+  duration_ms: 14.808127
+  type: 'test'
+  ...
+# Subtest: observation does not bring an individual back to camp
+ok 60 - observation does not bring an individual back to camp
+  ---
+  duration_ms: 4.193187
+  type: 'test'
+  ...
+# Subtest: navigation finds an accessible stone interaction point, not a blocked goal
+ok 61 - navigation finds an accessible stone interaction point, not a blocked goal
+  ---
+  duration_ms: 6.808117
+  type: 'test'
+  ...
+# Subtest: a declined social invitation transfers nothing
+ok 62 - a declined social invitation transfers nothing
+  ---
+  duration_ms: 3.209453
+  type: 'test'
+  ...
+# Subtest: an accepted social invitation transfers ownership exactly once
+ok 63 - an accepted social invitation transfers ownership exactly once
+  ---
+  duration_ms: 3.51474
+  type: 'test'
+  ...
+# Subtest: receiver is not frozen by an unaccepted approach; reply is requested on arrival
+ok 64 - receiver is not frozen by an unaccepted approach; reply is requested on arrival
+  ---
+  duration_ms: 4.956323
+  type: 'test'
+  ...
+# Subtest: counterparty consent cannot silently interrupt a different, newly started activity
+ok 65 - counterparty consent cannot silently interrupt a different, newly started activity
+  ---
+  duration_ms: 3.896984
+  type: 'test'
+  ...
+# Subtest: children cannot court, form partnerships or conceive
+ok 66 - children cannot court, form partnerships or conceive
+  ---
+  duration_ms: 4.526536
+  type: 'test'
+  ...
+# Subtest: family relationship checks exclude ancestors and shared parents
+ok 67 - family relationship checks exclude ancestors and shared parents
+  ---
+  duration_ms: 2.858493
+  type: 'test'
+  ...
+# Subtest: a birth preserves parentage without copying knowledge or memories
+ok 68 - a birth preserves parentage without copying knowledge or memories
+  ---
+  duration_ms: 1.864527
+  type: 'test'
+  ...
+# Subtest: growth uses declared shared time and updates life stage
+ok 69 - growth uses declared shared time and updates life stage
+  ---
+  duration_ms: 2.524434
+  type: 'test'
+  ...
+# Subtest: due pregnancy yields a new independent person only from prior consent record
+ok 70 - due pregnancy yields a new independent person only from prior consent record
+  ---
+  duration_ms: 4.052357
+  type: 'test'
+  ...
+# Subtest: ordinary meals create learning evidence without granting a skill
+ok 71 - ordinary meals create learning evidence without granting a skill
+  ---
+  duration_ms: 4.88222
+  type: 'test'
+  ...
+# Subtest: learning is a separate Jev commit, not a rollback of consumed material
+ok 72 - learning is a separate Jev commit, not a rollback of consumed material
+  ---
+  duration_ms: 4.332625
+  type: 'test'
+  ...
+# Subtest: supported observations plus a Jev inference create personal knowledge only
+ok 73 - supported observations plus a Jev inference create personal knowledge only
+  ---
+  duration_ms: 4.792078
+  type: 'test'
+  ...
+# Subtest: unsupported experimental inference cannot grant knowledge
+ok 74 - unsupported experimental inference cannot grant knowledge
+  ---
+  duration_ms: 4.888846
+  type: 'test'
+  ...
+# Subtest: learned manufacturing processes remain available for repeated production
+ok 75 - learned manufacturing processes remain available for repeated production
+  ---
+  duration_ms: 13.031925
+  type: 'test'
+  ...
+# Subtest: construction consumes finite held material and creates a usable object
+ok 76 - construction consumes finite held material and creates a usable object
+  ---
+  duration_ms: 5.985622
+  type: 'test'
+  ...
+# Subtest: player blueprint is a proposal, not an instant building or free resource
+ok 77 - player blueprint is a proposal, not an instant building or free resource
+  ---
+  duration_ms: 2.315007
+  type: 'test'
+  ...
+# Subtest: household storage transfers a finite portion and reservations survive interruption
+ok 78 - household storage transfers a finite portion and reservations survive interruption
+  ---
+  duration_ms: 4.380482
+  type: 'test'
+  ...
+# Subtest: bounded virtual machine executes numeric instructions; arbitrary code is rejected
+ok 79 - bounded virtual machine executes numeric instructions; arbitrary code is rejected
+  ---
+  duration_ms: 0.424971
+  type: 'test'
+  ...
+# Subtest: AI artifact fits actual input samples and evaluates held-out records
+ok 80 - AI artifact fits actual input samples and evaluates held-out records
+  ---
+  duration_ms: 0.429416
+  type: 'test'
+  ...
+# Subtest: world save preserves concurrently unfinished activity progress and locks
+ok 81 - world save preserves concurrently unfinished activity progress and locks
+  ---
+  duration_ms: 10.17499
+  type: 'test'
+  ...
+# Subtest: v4 recovery migrates material state without granting new cultural knowledge
+ok 82 - v4 recovery migrates material state without granting new cultural knowledge
+  ---
+  duration_ms: 24.836692
+  type: 'test'
+  ...
+# Subtest: simultaneous cognition actually dispatches more than one request at a time
+ok 83 - simultaneous cognition actually dispatches more than one request at a time
+  ---
+  duration_ms: 103.130912
+  type: 'test'
+  ...
+# Subtest: a failed action response cannot start any member of a failed initial cohort
+ok 84 - a failed action response cannot start any member of a failed initial cohort
+  ---
+  duration_ms: 29.013244
+  type: 'test'
+  ...
+# Subtest: request budget is checked before dispatching an unaffordable cohort
+ok 85 - request budget is checked before dispatching an unaffordable cohort
+  ---
+  duration_ms: 1.512154
+  type: 'test'
+  ...
+# Subtest: pause cancels uncommitted decisions while retaining existing activity progress
+ok 86 - pause cancels uncommitted decisions while retaining existing activity progress
+  ---
+  duration_ms: 19.528427
+  type: 'test'
+  ...
+# Subtest: person perceptions do not include another person private memory or intent
+ok 87 - person perceptions do not include another person private memory or intent
+  ---
+  duration_ms: 1.831877
+  type: 'test'
+  ...
+# Subtest: newborn IDs are accepted by optional planner validation
+ok 88 - newborn IDs are accepted by optional planner validation
+  ---
+  duration_ms: 1.87945
+  type: 'test'
+  ...
+# Subtest: unfinished work can be resumed only through a new authorized Jev action
+ok 89 - unfinished work can be resumed only through a new authorized Jev action
+  ---
+  duration_ms: 8.23955
+  type: 'test'
+  ...
+# Subtest: signal reception and witnesses do not acquire the sender private intended referent
+ok 90 - signal reception and witnesses do not acquire the sender private intended referent
+  ---
+  duration_ms: 4.778053
+  type: 'test'
+  ...
+# Subtest: heat-dependent work cannot finish after the fire goes out or consume its held inputs
+ok 91 - heat-dependent work cannot finish after the fire goes out or consume its held inputs
+  ---
+  duration_ms: 5.752197
+  type: 'test'
+  ...
+# Subtest: the bundled HTML is valid JavaScript and preserves literal dollar replacement sequences
+ok 92 - the bundled HTML is valid JavaScript and preserves literal dollar replacement sequences
+  ---
+  duration_ms: 14.939274
+  type: 'test'
+  ...
+# Subtest: v5 native transport uses TypeSafe directly, applies verified replies and exports no key
+ok 93 - v5 native transport uses TypeSafe directly, applies verified replies and exports no key
+  ---
+  duration_ms: 74.06031
+  type: 'test'
+  ...
+# Subtest: v5 authentication errors stop the world with no provider fallback or action
+ok 94 - v5 authentication errors stop the world with no provider fallback or action
+  ---
+  duration_ms: 29.608209
+  type: 'test'
+  ...
+# Subtest: new living session rejects using an OpenRouter key as a TypeSafe credential
+ok 95 - new living session rejects using an OpenRouter key as a TypeSafe credential
+  ---
+  duration_ms: 1.641126
+  type: 'test'
+  ...
+# Subtest: an adult becoming an elder retains adult-scale geometry
+ok 96 - an adult becoming an elder retains adult-scale geometry
+  ---
+  duration_ms: 4.003931
+  type: 'test'
+  ...
+# Subtest: Terrarium PNG decoding produces known heights, including sub-metre values
+ok 97 - Terrarium PNG decoding produces known heights, including sub-metre values
+  ---
+  duration_ms: 3.141317
+  type: 'test'
+  ...
+# Subtest: bounded elevation decoder rejects invalid and oversized input
+ok 98 - bounded elevation decoder rejects invalid and oversized input
+  ---
+  duration_ms: 2.5088
+  type: 'test'
+  ...
+# Subtest: lat/lon conversion chooses bounded actual tile indices
+ok 99 - lat/lon conversion chooses bounded actual tile indices
+  ---
+  duration_ms: 0.412523
+  type: 'test'
+  ...
+# Subtest: elevation loader uses a fixed public endpoint and preserves source metadata
+ok 100 - elevation loader uses a fixed public endpoint and preserves source metadata
+  ---
+  duration_ms: 38.321788
+  type: 'test'
+  ...
+# Subtest: new sessions default to native TypeSafe with native model ID
+ok 101 - new sessions default to native TypeSafe with native model ID
+  ---
+  duration_ms: 2.237193
+  type: 'test'
+  ...
+# Subtest: native API contract accepts official alias, preview and pinned native IDs only
+ok 102 - native API contract accepts official alias, preview and pinned native IDs only
+  ---
+  duration_ms: 1.404972
+  type: 'test'
+  ...
+# Subtest: an OpenRouter server key cannot satisfy a missing TypeSafe key
+ok 103 - an OpenRouter server key cannot satisfy a missing TypeSafe key
+  ---
+  duration_ms: 1.094704
+  type: 'test'
+  ...
+# Subtest: native server key needs no OpenRouter key and is not present in the browser session
+ok 104 - native server key needs no OpenRouter key and is not present in the browser session
+  ---
+  duration_ms: 2.44996
+  type: 'test'
+  ...
+# Subtest: native key is trimmed, kept only in memory, and never written to snapshots
+ok 105 - native key is trimmed, kept only in memory, and never written to snapshots
+  ---
+  duration_ms: 1.308228
+  type: 'test'
+  ...
+# Subtest: standalone native decision actually targets TypeSafe, using Bearer auth and native model
+ok 106 - standalone native decision actually targets TypeSafe, using Bearer auth and native model
+  ---
+  duration_ms: 25.81916
+  type: 'test'
+  ...
+# Subtest: native pinned model survives connection instead of being silently overwritten
+ok 107 - native pinned model survives connection instead of being silently overwritten
+  ---
+  duration_ms: 0.296392
+  type: 'test'
+  ...
+# Subtest: native TypeSafe model ID is accepted by typed response validation
+ok 108 - native TypeSafe model ID is accepted by typed response validation
+  ---
+  duration_ms: 1.984001
+  type: 'test'
+  ...
+# Subtest: TypeSafe 401 freezes the entire turn without a provider fallback
+ok 109 - TypeSafe 401 freezes the entire turn without a provider fallback
+  ---
+  duration_ms: 1.690441
+  type: 'test'
+  ...
+# Subtest: native 422 detail arrays become actionable text while exact body stays in ledger
+ok 110 - native 422 detail arrays become actionable text while exact body stays in ledger
+  ---
+  duration_ms: 2.614613
+  type: 'test'
+  ...
+# Subtest: native 529 is not auto-retried and preserves Retry-After metadata
+ok 111 - native 529 is not auto-retried and preserves Retry-After metadata
+  ---
+  duration_ms: 1.943555
+  type: 'test'
+  ...
+# Subtest: native account access test makes GET models only, leaves decisions and world unchanged
+ok 112 - native account access test makes GET models only, leaves decisions and world unchanged
+  ---
+  duration_ms: 1.204271
+  type: 'test'
+  ...
+# Subtest: failed account checks cannot leak a key echoed by the provider
+ok 113 - failed account checks cannot leak a key echoed by the provider
+  ---
+  duration_ms: 0.991832
+  type: 'test'
+  ...
+# Subtest: account checks bypass renderer dependency without starting any simulation
+ok 114 - account checks bypass renderer dependency without starting any simulation
+  ---
+  duration_ms: 0.609318
+  type: 'test'
+  ...
+# Subtest: native bridge advertises provider-specific credentials, never their values
+ok 115 - native bridge advertises provider-specific credentials, never their values
+  ---
+  duration_ms: 51.922009
+  type: 'test'
+  ...
+# Subtest: native bridge routes to TypeSafe by default without touching OpenRouter
+ok 116 - native bridge routes to TypeSafe by default without touching OpenRouter
+  ---
+  duration_ms: 43.365038
+  type: 'test'
+  ...
+# Subtest: native and legacy keys stay isolated when both are configured
+ok 117 - native and legacy keys stay isolated when both are configured
+  ---
+  duration_ms: 29.216357
+  type: 'test'
+  ...
+# Subtest: wrong native/legacy model is rejected before any upstream call
+ok 118 - wrong native/legacy model is rejected before any upstream call
+  ---
+  duration_ms: 13.718564
+  type: 'test'
+  ...
+# Subtest: missing native key cannot silently fall back to configured OpenRouter credential
+ok 119 - missing native key cannot silently fall back to configured OpenRouter credential
+  ---
+  duration_ms: 33.929097
+  type: 'test'
+  ...
+# Subtest: native bridge propagates upstream 429 and Retry-After without auto retry
+ok 120 - native bridge propagates upstream 429 and Retry-After without auto retry
+  ---
+  duration_ms: 40.847202
+  type: 'test'
+  ...
+# Subtest: native bridge model-list test uses server TypeSafe key and no decision allowance
+ok 121 - native bridge model-list test uses server TypeSafe key and no decision allowance
+  ---
+  duration_ms: 21.885817
+  type: 'test'
+  ...
+# Subtest: ephemeral pasted TypeSafe key is also redacted from bridge exceptions
+ok 122 - ephemeral pasted TypeSafe key is also redacted from bridge exceptions
+  ---
+  duration_ms: 10.105037
+  type: 'test'
+  ...
+# Subtest: native-only environment cannot authenticate optional OpenRouter planner
+ok 123 - native-only environment cannot authenticate optional OpenRouter planner
+  ---
+  duration_ms: 1.718534
+  type: 'test'
+  ...
+# Subtest: look observes in place for all six subjects; no forced gathering at camp
+ok 124 - look observes in place for all six subjects; no forced gathering at camp
+  ---
+  duration_ms: 13.738673
+  type: 'test'
+  ...
+# Subtest: rest also stays in place unless a named shelter is chosen
+ok 125 - rest also stays in place unless a named shelter is chosen
+  ---
+  duration_ms: 1.454661
+  type: 'test'
+  ...
+# Subtest: first observation records concrete facts; unchanged repeats are marked low-information
+ok 126 - first observation records concrete facts; unchanged repeats are marked low-information
+  ---
+  duration_ms: 1.783697
+  type: 'test'
+  ...
+# Subtest: scene novelty ignores clock ticks but notices another visible person moving
+ok 127 - scene novelty ignores clock ticks but notices another visible person moving
+  ---
+  duration_ms: 1.508234
+  type: 'test'
+  ...
+# Subtest: an explicitly chosen inspection moves to its specific location
+ok 128 - an explicitly chosen inspection moves to its specific location
+  ---
+  duration_ms: 1.153136
+  type: 'test'
+  ...
+# Subtest: Jev chooses intention before action and both receipts are committed
+ok 129 - Jev chooses intention before action and both receipts are committed
+  ---
+  duration_ms: 42.271009
+  type: 'test'
+  ...
+# Subtest: intent persists for three personal turns without a new goal API call
+ok 130 - intent persists for three personal turns without a new goal API call
+  ---
+  duration_ms: 56.85005
+  type: 'test'
+  ...
+# Subtest: failure after a staged Jev intention does not mutate intent or body
+ok 131 - failure after a staged Jev intention does not mutate intent or body
+  ---
+  duration_ms: 2.599747
+  type: 'test'
+  ...
+# Subtest: forced repeated look responses stop spending at STALLED instead of looping forever
+ok 132 - forced repeated look responses stop spending at STALLED instead of looping forever
+  ---
+  duration_ms: 100.950866
+  type: 'test'
+  ...
+# Subtest: new useful action resets the individual low-information streak
+ok 133 - new useful action resets the individual low-information streak
+  ---
+  duration_ms: 3.398818
+  type: 'test'
+  ...
+# Subtest: nearby witnesses remember visible action but never inherit private knowledge
+ok 134 - nearby witnesses remember visible action but never inherit private knowledge
+  ---
+  duration_ms: 1.99709
+  type: 'test'
+  ...
+# Subtest: remote subjects do not receive a private witness memory
+ok 135 - remote subjects do not receive a private witness memory
+  ---
+  duration_ms: 0.525264
+  type: 'test'
+  ...
+# Subtest: plan is staged, shown to Jev, and cannot itself execute an action
+ok 136 - plan is staged, shown to Jev, and cannot itself execute an action
+  ---
+  duration_ms: 7.682569
+  type: 'test'
+  ...
+# Subtest: unavailable planner action is rejected before any Jev request or world mutation
+ok 137 - unavailable planner action is rejected before any Jev request or world mutation
+  ---
+  duration_ms: 1.280318
+  type: 'test'
+  ...
+# Subtest: explicit pause reason is preserved in the rejected request and ledger
+ok 138 - explicit pause reason is preserved in the rejected request and ledger
+  ---
+  duration_ms: 16.912835
+  type: 'test'
+  ...
+# Subtest: restoring a checkpoint restores full history but no credentials or automatic execution
+ok 139 - restoring a checkpoint restores full history but no credentials or automatic execution
+  ---
+  duration_ms: 6.397839
+  type: 'test'
+  ...
+# Subtest: browser bridge token is excluded from exported checkpoints
+ok 140 - browser bridge token is excluded from exported checkpoints
+  ---
+  duration_ms: 0.813917
+  type: 'test'
+  ...
+# Subtest: the uploaded v4 journal replays with all 74 exact commit diffs
+ok 141 - the uploaded v4 journal replays with all 74 exact commit diffs
+  ---
+  duration_ms: 96.077502
+  type: 'test'
+  ...
+# Subtest: reported counts match the full user ledger, not a sample
+ok 142 - reported counts match the full user ledger, not a sample
+  ---
+  duration_ms: 8.700873
+  type: 'test'
+  ...
+# Subtest: body perception makes fullness direction and fulfilled intent explicit
+ok 143 - body perception makes fullness direction and fulfilled intent explicit
+  ---
+  duration_ms: 2.374911
+  type: 'test'
+  ...
+# Subtest: fullness feedback neither changes state nor bans a physically available action
+ok 144 - fullness feedback neither changes state nor bans a physically available action
+  ---
+  duration_ms: 1.699318
+  type: 'test'
+  ...
+# Subtest: satisfied nourishment is reconsidered before its three-action horizon expires
+ok 145 - satisfied nourishment is reconsidered before its three-action horizon expires
+  ---
+  duration_ms: 35.932001
+  type: 'test'
+  ...
+# Subtest: one ordinary meal records measurable evidence but grants no skill or inference
+ok 146 - one ordinary meal records measurable evidence but grants no skill or inference
+  ---
+  duration_ms: 2.211314
+  type: 'test'
+  ...
+# Subtest: a second ordinary meal produces a candidate, not an automatically unlocked skill
+ok 147 - a second ordinary meal produces a candidate, not an automatically unlocked skill
+  ---
+  duration_ms: 1.197705
+  type: 'test'
+  ...
+# Subtest: a saturated meal with no gain cannot fabricate food evidence
+ok 148 - a saturated meal with no gain cannot fabricate food evidence
+  ---
+  duration_ms: 0.538575
+  type: 'test'
+  ...
+# Subtest: ordinary food recognition requires a real inference phase in the session pipeline
+ok 149 - ordinary food recognition requires a real inference phase in the session pipeline
+  ---
+  duration_ms: 3.13607
+  type: 'test'
+  ...
+# Subtest: an uncertain inference preserves evidence without granting knowledge
+ok 150 - an uncertain inference preserves evidence without granting knowledge
+  ---
+  duration_ms: 3.020596
+  type: 'test'
+  ...
+# Subtest: failed required inference rolls back the meal, evidence and the whole turn
+ok 151 - failed required inference rolls back the meal, evidence and the whole turn
+  ---
+  duration_ms: 2.635329
+  type: 'test'
+  ...
+# Subtest: food and water effects log actual clamped gains rather than nominal gains
+ok 152 - food and water effects log actual clamped gains rather than nominal gains
+  ---
+  duration_ms: 0.887618
+  type: 'test'
+  ...
+# Subtest: alternating low-benefit actions are detected even without a three-action streak
+ok 153 - alternating low-benefit actions are detected even without a three-action streak
+  ---
+  duration_ms: 0.176088
+  type: 'test'
+  ...
+# Subtest: useful repeated survival actions do not trigger a diversity quota
+ok 154 - useful repeated survival actions do not trigger a diversity quota
+  ---
+  duration_ms: 0.093264
+  type: 'test'
+  ...
+# Subtest: an adopted new belief interrupts the low-benefit cycle guard
+ok 155 - an adopted new belief interrupts the low-benefit cycle guard
+  ---
+  duration_ms: 0.080215
+  type: 'test'
+  ...
+# Subtest: an exhausted budget never sends an HTTP request, never resets the count
+ok 156 - an exhausted budget never sends an HTTP request, never resets the count
+  ---
+  duration_ms: 0.669455
+  type: 'test'
+  ...
+# Subtest: minimum phase budget is checked before spending on a new intention
+ok 157 - minimum phase budget is checked before spending on a new intention
+  ---
+  duration_ms: 0.26424
+  type: 'test'
+  ...
+# Subtest: limit changes require explicit validation and never start calls or lose credentials
+ok 158 - limit changes require explicit validation and never start calls or lose credentials
+  ---
+  duration_ms: 0.493527
+  type: 'test'
+  ...
+# Subtest: restoration preserves the spent count but never raises the spending cap
+ok 159 - restoration preserves the spent count but never raises the spending cap
+  ---
+  duration_ms: 21.487459
+  type: 'test'
+  ...
+# Subtest: connection logs include actual mode and planner configuration
+ok 160 - connection logs include actual mode and planner configuration
+  ---
+  duration_ms: 0.587793
+  type: 'test'
+  ...
+# Subtest: invalid imported food evidence and outcome-history shapes are rejected
+ok 161 - invalid imported food evidence and outcome-history shapes are rejected
+  ---
+  duration_ms: 0.407892
+  type: 'test'
+  ...
+# Subtest: supplied-session recovery route requires a local token and sends no model request
+ok 162 - supplied-session recovery route requires a local token and sends no model request
+  ---
+  duration_ms: 120.137413
+  type: 'test'
+  ...
+# Subtest: server startup and state reads cannot cause any inference or world time
+ok 163 - server startup and state reads cannot cause any inference or world time
+  ---
+  duration_ms: 47.161539
+  type: 'test'
+  ...
+# Subtest: authenticated connection config does not by itself authorize a call
+ok 164 - authenticated connection config does not by itself authorize a call
+  ---
+  duration_ms: 25.855686
+  type: 'test'
+  ...
+# Subtest: server lives start in parallel and preserve provider receipts
+ok 165 - server lives start in parallel and preserve provider receipts
+  ---
+  duration_ms: 102.117267
+  type: 'test'
+  ...
+# Subtest: run authorization is a hard simulated-time limit rather than an unchecked timer
+ok 166 - run authorization is a hard simulated-time limit rather than an unchecked timer
+  ---
+  duration_ms: 85.403427
+  type: 'test'
+  ...
+# Subtest: an unaffordable cohort never dispatches upstream
+ok 167 - an unaffordable cohort never dispatches upstream
+  ---
+  duration_ms: 35.661723
+  type: 'test'
+  ...
+# Subtest: provider rejection is logged with its HTTP status, never replaced by a local decision
+ok 168 - provider rejection is logged with its HTTP status, never replaced by a local decision
+  ---
+  duration_ms: 42.202956
+  type: 'test'
+  ...
+# Subtest: checkpoint excludes all secrets and reopens paused with activities and budget intact
+ok 169 - checkpoint excludes all secrets and reopens paused with activities and budget intact
+  ---
+  duration_ms: 60.834692
+  type: 'test'
+  ...
+# Subtest: new scenario retains prior usage and records seeded setup
+ok 170 - new scenario retains prior usage and records seeded setup
+  ---
+  duration_ms: 16.262621
+  type: 'test'
+  ...
+# Subtest: server edits are explicit commands and do not silently run lives
+ok 171 - server edits are explicit commands and do not silently run lives
+  ---
+  duration_ms: 18.511954
+  type: 'test'
+  ...
+# Subtest: v5-style save and retained reservations survive server round trip
+ok 172 - v5-style save and retained reservations survive server round trip
+  ---
+  duration_ms: 62.935476
+  type: 'test'
+  ...
+# Subtest: read views share one authoritative world rather than duplicating simulations
+ok 173 - read views share one authoritative world rather than duplicating simulations
+  ---
+  duration_ms: 18.238197
+  type: 'test'
+  ...
+# Subtest: invalid terrain import leaves world and time unchanged
+ok 174 - invalid terrain import leaves world and time unchanged
+  ---
+  duration_ms: 7.433484
+  type: 'test'
+  ...
+1..174
+# tests 174
+# suites 0
+# pass 174
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1475.538623

@@ -1,0 +1,193 @@
+{
+  "source": "recovery/supplied-v6.snapshot.json",
+  "version": "6.0.0",
+  "attempts": 961,
+  "plannerAttempts": 0,
+  "completedInitiated": 332,
+  "elapsedSimMinutes": 796.4022743999981,
+  "requests": 961,
+  "http": {
+    "200": 961
+  },
+  "statuses": {
+    "valid": 961
+  },
+  "phases": {
+    "Choose activity domain": 431,
+    "Choose next activity": 441,
+    "Independent response at encounter": 68,
+    "Review an observed result": 21
+  },
+  "worldEvents": {
+    "activity_started": 407,
+    "weather": 3,
+    "encounter_arrived": 72,
+    "interruption": 71,
+    "encounter_response": 67,
+    "activity_finished": 332,
+    "learning_review": 18,
+    "learning": 3
+  },
+  "unfinishedActivities": 4,
+  "people": [
+    {
+      "id": "S01",
+      "name": "Aru",
+      "completedInitiated": 5,
+      "practice": {
+        "explore": 4,
+        "drink_node": 1
+      },
+      "body": {
+        "satiety": 28.1978749080005,
+        "hydration": 66.25184079200035,
+        "energy": 60.12592039599989,
+        "warmth": 65.32100491040036,
+        "health": 100,
+        "hygiene": 57.47914996320008,
+        "bladder": 35.569093103200146,
+        "social": 99.90941422599998,
+        "fun": 99.88928405400002,
+        "comfort": 100
+      },
+      "learned": [],
+      "unfinished": "collect_N_food_0"
+    },
+    {
+      "id": "S02",
+      "name": "Ena",
+      "completedInitiated": 53,
+      "practice": {
+        "chat": 51,
+        "drink_node": 1,
+        "gather_node": 1
+      },
+      "body": {
+        "satiety": 26.197874908000372,
+        "hydration": 65.25184079200011,
+        "energy": 58.12592039599992,
+        "warmth": 65.32100491040036,
+        "health": 100,
+        "hygiene": 54.479149963200314,
+        "bladder": 33.56909310320013,
+        "social": 99.90941422599998,
+        "fun": 99.88928405400002,
+        "comfort": 100
+      },
+      "learned": [],
+      "unfinished": null
+    },
+    {
+      "id": "S03",
+      "name": "Koa",
+      "completedInitiated": 117,
+      "practice": {
+        "gather_node": 1,
+        "store_item": 59,
+        "take_item": 56,
+        "drink_node": 1
+      },
+      "body": {
+        "satiety": 24.197874908000344,
+        "hydration": 64.25184079200037,
+        "energy": 56.1259203959999,
+        "warmth": 65.32100491040036,
+        "health": 100,
+        "hygiene": 51.47914996320054,
+        "bladder": 31.569093103200064,
+        "social": 46.66475906079956,
+        "fun": 36.47914996320041,
+        "comfort": 60
+      },
+      "learned": [],
+      "unfinished": null
+    },
+    {
+      "id": "S04",
+      "name": "Ila",
+      "completedInitiated": 62,
+      "practice": {
+        "explore": 33,
+        "gather_node": 11,
+        "relieve": 1,
+        "store_item": 1,
+        "self": 16
+      },
+      "body": {
+        "satiety": 22.1978749080002,
+        "hydration": 23.251840792000397,
+        "energy": 54.125920396,
+        "warmth": 65.32100491040036,
+        "health": 100,
+        "hygiene": 40.47914996320032,
+        "bladder": 71.30030978979943,
+        "social": 49.66475906079956,
+        "fun": 91.52566425760034,
+        "comfort": 60
+      },
+      "learned": [
+        "self"
+      ],
+      "unfinished": null
+    },
+    {
+      "id": "S05",
+      "name": "Noa",
+      "completedInitiated": 61,
+      "practice": {
+        "explore": 3,
+        "gather_node": 23,
+        "store_item": 17,
+        "stone": 7,
+        "carpentry": 1,
+        "self": 2,
+        "take_item": 1,
+        "drink_node": 1,
+        "store": 4,
+        "retrieve": 2
+      },
+      "body": {
+        "satiety": 20.19787490800001,
+        "hydration": 62.251840792000024,
+        "energy": 52.12592039600021,
+        "warmth": 65.32100491040036,
+        "health": 100,
+        "hygiene": 45.47914996320041,
+        "bladder": 27.569093103200174,
+        "social": 52.66475906079974,
+        "fun": 53.47914996320034,
+        "comfort": 60
+      },
+      "learned": [
+        "stone",
+        "self"
+      ],
+      "unfinished": null
+    },
+    {
+      "id": "S06",
+      "name": "Sia",
+      "completedInitiated": 34,
+      "practice": {
+        "run": 9,
+        "play": 25,
+        "self": 7
+      },
+      "body": {
+        "satiety": 18.19787490800002,
+        "hydration": 21.251840792000376,
+        "energy": 0,
+        "warmth": 65.32100491040036,
+        "health": 100,
+        "hygiene": 42.47914996320041,
+        "bladder": 32.569093103200274,
+        "social": 55.66475906080013,
+        "fun": 92.22803864240035,
+        "comfort": 60
+      },
+      "learned": [],
+      "unfinished": "drink_N_water_0"
+    }
+  ],
+  "notice": "Derived from an editable supplied file; not a provider attestation. No inference or source file mutation."
+}

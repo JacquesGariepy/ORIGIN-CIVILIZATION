@@ -1,0 +1,177 @@
+{
+  "version": "4.1.0",
+  "checks": {
+    "legacy": 22,
+    "node": 54,
+    "dom": 22,
+    "replayedCommits": 74
+  },
+  "liveProviderValidation": false,
+  "webglValidation": false,
+  "files": {
+    ".env.example": {
+      "bytes": 611,
+      "sha256": "ed36c9ca719734b852fe4cee1a4afd862ea30cf229e9420ea57e6989e6034448"
+    },
+    ".gitignore": {
+      "bytes": 77,
+      "sha256": "2325d790778fa8bad6213fe6d037c1002ec843ce62b97d592cb705565f5a02a8"
+    },
+    "LICENSE": {
+      "bytes": 1260,
+      "sha256": "4baa398dcff85f56730be070d56057c471815086a16afcf7fa07c67ccd56ed54"
+    },
+    "ORIGIN.html": {
+      "bytes": 179962,
+      "sha256": "83ed2755d7e506b570944acbac126a9ec7e41385dedfca8d5d4b3b9d099aecb0"
+    },
+    "README.md": {
+      "bytes": 5708,
+      "sha256": "68bb06489c392e462fbf10c94f1867241c80baf40b26f006a2cdd7b1e9326524"
+    },
+    "START-MAC-LINUX.sh": {
+      "bytes": 202,
+      "sha256": "e012e6603ce73579d221a982a07eff7c3c91bd26de5303067f2c7a99adb45374"
+    },
+    "START-WINDOWS.cmd": {
+      "bytes": 221,
+      "sha256": "5fa4582eab51e67f7c6bd582e3057605c1e871b86ce48c6e5d6aa4988db6c4aa"
+    },
+    "assets/README.md": {
+      "bytes": 896,
+      "sha256": "321627a63129703ef46d621c1ec064baf1547eea64b66fbf5b4e7e57f04f6949"
+    },
+    "build.cjs": {
+      "bytes": 1056,
+      "sha256": "2b0b28bfbbbfd4147f2c4f9acca9e4a1a9236e7ad425802a72e717986ed45804"
+    },
+    "docs/AGY-SETUP.md": {
+      "bytes": 5181,
+      "sha256": "30b3adeb39929595e8c153a20d4af89e1959b9f1094d57df4f007bdd0cfcd4bd"
+    },
+    "docs/ARCHITECTURE.md": {
+      "bytes": 5054,
+      "sha256": "652210b225f64b8b6bebaada2850099e599acd913b3c6e25f710b9ceac5699b3"
+    },
+    "docs/CHANGES-v4.1.md": {
+      "bytes": 4526,
+      "sha256": "b03469d53d7599defd4ea0b02c389073125946fe3e8c7de92d8f73eee05234be"
+    },
+    "docs/SOURCES.md": {
+      "bytes": 1380,
+      "sha256": "98d2e7c981af335896244d4ca9fe929bc9665e2a547642d1ee74e52c0d09ceca"
+    },
+    "docs/START-HERE.md": {
+      "bytes": 7784,
+      "sha256": "da7cf23cc6d69e17ffb538c5ada6cf9a4c26f9084e07fb680ea36f0e6f676b18"
+    },
+    "install-assets.cjs": {
+      "bytes": 1575,
+      "sha256": "f05bd09dcc8e29213ab91206cce81b1bb6c52b59d487de5a2a0d50455232a97f"
+    },
+    "package.json": {
+      "bytes": 456,
+      "sha256": "54ac2e62ce8b0616c99a0f9292fbda41932e13e7c53bf9f18955e7dac146aece"
+    },
+    "recovery/original-v4-ledger.jsonl": {
+      "bytes": 1454385,
+      "sha256": "ddf8bd960f35981dd783abb5ab4b197e0bb61dc665587b4214328ccb6f08ccfd"
+    },
+    "recovery/turn-74.snapshot.json": {
+      "bytes": 1543832,
+      "sha256": "fd719c9da524308207dbca379edeafef5f1aac36e2d4e7c84eb8f8ce4ed68aab"
+    },
+    "server.cjs": {
+      "bytes": 10283,
+      "sha256": "ab0ed1daa885e3fae0d8c08b2f7061db4abb95cefde60e1672b11c4f361baf34"
+    },
+    "source/core.js": {
+      "bytes": 49018,
+      "sha256": "7d9a5dbe45202c8f5f738278c2bf528e5c466ca51100bf0295143bd6e21e977f"
+    },
+    "source/planner.cjs": {
+      "bytes": 9928,
+      "sha256": "d985ee11bddf000f9dd23e1d59b8b47939196b898b92c971836553f77fdc9460"
+    },
+    "source/renderer.js": {
+      "bytes": 24706,
+      "sha256": "1d5fa317ba0825b56d50170113c53e383b353b9d4637484738dc31ad8fc5aeba"
+    },
+    "source/session.js": {
+      "bytes": 27279,
+      "sha256": "f30aefd6e7082f88246616fb5ab7400f6282f3280a6fc9e59551b4dcf6775ba4"
+    },
+    "source/shell.html": {
+      "bytes": 47499,
+      "sha256": "79c596acfd605b7c05409f30ed21adf0899f6276e0c0d528dfe0f9cbdecdbff3"
+    },
+    "source/ui.js": {
+      "bytes": 31441,
+      "sha256": "d10a51959edbe3902e6b19de749eb153f1f887aecf0ccdf3afc321f8bc20de0e"
+    },
+    "tests/bridge.test.cjs": {
+      "bytes": 8098,
+      "sha256": "2273bde542905a8ba823ac3cef7d98a39dcbc5394690e18acd1fd88e4eb48955"
+    },
+    "tests/browser_check.py": {
+      "bytes": 8384,
+      "sha256": "8d7ece679f9e171de26ed4861ed3563b1a6d4add704f74ee7ea97819052ccf72"
+    },
+    "tests/fixtures/v4-core.cjs": {
+      "bytes": 42646,
+      "sha256": "20c504358171bc68f32488ed133ae2fbf6ca6fbea02c0e865a83493cbb6efef3"
+    },
+    "tests/legacy-core.cjs": {
+      "bytes": 10640,
+      "sha256": "6428a9d92afc57b899154bb88b53e95766b86093c8a9a63e97a80add57471ca6"
+    },
+    "tests/v4.test.cjs": {
+      "bytes": 7853,
+      "sha256": "4d2910ea7aaa64a2fae60528b832e77dbb3a6ac558a5dc1047c10aca90062cfb"
+    },
+    "tests/v41.test.cjs": {
+      "bytes": 11946,
+      "sha256": "fb0b8871d818fa52323c76cd5264256fafc3ca8a214670e68bec40ad38cc036d"
+    },
+    "validation/VALIDATION.md": {
+      "bytes": 1781,
+      "sha256": "800b0db58c48637cf4eab42883a31f0f95bf486a39c96ebf6f674cf77a001d3c"
+    },
+    "validation/all-node-tests.txt": {
+      "bytes": 13165,
+      "sha256": "af07ed1aa2b4e10b6a0c83fa5dc0ad9613eb93c9e20929eb4fa73081e9b0635f"
+    },
+    "validation/browser-test-output.txt": {
+      "bytes": 3311,
+      "sha256": "723aa214909f3bb03ed30e3e9234ec4ead25ca748304902c57f86984dfe751e1"
+    },
+    "validation/browser-ui-results.json": {
+      "bytes": 2521,
+      "sha256": "501f42351996935a9a698adce19bab45516add9ecdb36c340f9f2eb2b05be459"
+    },
+    "validation/desktop-budget-stop.png": {
+      "bytes": 778720,
+      "sha256": "6bdbe41787df5f02f39a40355ff44100b495cb11391716e20aabb83f0a7fec19"
+    },
+    "validation/desktop-ui-test.png": {
+      "bytes": 780760,
+      "sha256": "a91244b3d68e9a9f8173c7a34c2f665ea98573bf594b3ca052ab9bfdb0a0d990"
+    },
+    "validation/legacy-core-results.json": {
+      "bytes": 2917,
+      "sha256": "cb71d783f9e9cce06dd2dc0390646c31573e904ec4790e4a64cf5ddb9565db7f"
+    },
+    "validation/mobile-budget-stop.png": {
+      "bytes": 224399,
+      "sha256": "ba3b6fc29350bcd94fd6c76df171e6f5a5b9caef9bdf6fa8324f8dbe0d3fa4e9"
+    },
+    "validation/mobile-ui-test.png": {
+      "bytes": 122158,
+      "sha256": "8a59999e31536705d2caa8f79a1457772577f1b5cf71298f325bf0e01cd33208"
+    },
+    "validation/recorded-run-analysis.json": {
+      "bytes": 5353,
+      "sha256": "0f159cc97d17eac929794a24cbc1d57e8daa753dd3e1768c1b62aa746fb3a6b5"
+    }
+  }
+}

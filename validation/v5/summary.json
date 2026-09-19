@@ -1,0 +1,20 @@
+{
+  "version": "5.0.0",
+  "node": {
+    "checks": 73,
+    "passed": 73,
+    "failed": 0,
+    "providerMode": "explicit fixtures",
+    "serverMode": "real local HTTP, fixture upstream"
+  },
+  "ui": {
+    "checks": 23,
+    "passed": 23,
+    "failed": 0,
+    "renderer": "explicit DOM test adapter, not actual WebGL",
+    "providerMode": "explicit fixtures"
+  },
+  "authenticatedProviderTest": false,
+  "webGLVisualTest": false,
+  "limitations": "See docs/IMPLEMENTATION-STATUS.md and docs/VALIDATION.md"
+}

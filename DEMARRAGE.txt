@@ -1,0 +1,30 @@
+ORIGIN / CIVILIZATION v6.1 - application en anglais
+
+1. Extraire ce ZIP dans un nouveau dossier. Node.js 22 ou plus recent.
+2. Fermer l'ancien serveur, puis lancer START-WINDOWS.cmd.
+   Sur macOS/Linux : sh START-MAC-LINUX.sh
+3. Pour reprendre la partie fournie : Help >
+   Restore supplied v6 / 332 completions.
+   La restauration conserve les 961 appels historiques et reste en pause.
+4. Ouvrir Life audit pour inspecter les boucles et interruptions.
+5. Connect TypeSafe : cle native TypeSafe, jev-latest, Jev only.
+   La cle peut etre configuree dans .env (TYPESAFE_API_KEY).
+6. Approuver un plafond TOTAL superieur a 961 : par exemple 1200
+   autorise au plus 239 nouvelles tentatives. Aucun ajout automatique.
+   Choisir la duree simulee puis Connect and run / Run lives.
+
+La sauvegarde originale est dans recovery/supplied-v6.snapshot.json.
+Ne remplacez pas votre seule ancienne sauvegarde ou votre .env prive.
+
+Life audit est une lecture seule. Une alerte ne choisit pas de comportement.
+Si le moteur suspend les depenses pour repetition : inspecter le motif,
+cliquer Review, puis relancer explicitement pour une reevaluation par Jev.
+Cela conserve les preuves, mais ne garantit pas un choix different.
+
+Help > Homestead : foyers preconfigures pour tester le quotidien.
+Help > First Minds : depart sans techniques ni maisons.
+Choisir un nouveau scenario remplace le monde actif, pas les compteurs.
+
+Le rendu isometrique est integre. Three.js est facultatif.
+Le serveur doit rester actif. Aucune reprise automatique des depenses.
+Voir docs/CHANGES-v6.1.md et docs/VALIDATION.md.

@@ -1,0 +1,73 @@
+{
+  "method": "Deterministic artificial action selector, not Jev. No network, no production policy. Testing state invariants and concurrent mechanics only.",
+  "seed": 77,
+  "scenarios": [
+    {
+      "scenario": "first-minds",
+      "cycles": 200,
+      "simulatedMinutes": 3711.5,
+      "completedActivities": 991,
+      "expectedStartConflicts": 36,
+      "conflictExamples": [
+        {
+          "option": "collect_N_stone_1",
+          "message": "Path blocked by terrain, walls or occupancy."
+        },
+        {
+          "option": "fill_N_water_2",
+          "message": "Path blocked by terrain, walls or occupancy."
+        },
+        {
+          "option": "collect_N_stone_1",
+          "message": "Path blocked by terrain, walls or occupancy."
+        }
+      ],
+      "executionErrors": 0
+    },
+    {
+      "scenario": "homestead",
+      "cycles": 200,
+      "simulatedMinutes": 3970.75,
+      "completedActivities": 1105,
+      "expectedStartConflicts": 44,
+      "conflictExamples": [
+        {
+          "option": "build_toy_box",
+          "message": "Reserved by another concurrent activity: site:0,9"
+        },
+        {
+          "option": "build_latrine",
+          "message": "Reserved by another concurrent activity: site:5,12"
+        },
+        {
+          "option": "build_latrine",
+          "message": "Reserved by another concurrent activity: site:0,11"
+        }
+      ],
+      "executionErrors": 0
+    },
+    {
+      "scenario": "modern",
+      "cycles": 200,
+      "simulatedMinutes": 3974.75,
+      "completedActivities": 1073,
+      "expectedStartConflicts": 40,
+      "conflictExamples": [
+        {
+          "option": "build_market_stall",
+          "message": "Reserved by another concurrent activity: site:5,22"
+        },
+        {
+          "option": "build_bench",
+          "message": "Reserved by another concurrent activity: site:0,21"
+        },
+        {
+          "option": "build_chair",
+          "message": "Reserved by another concurrent activity: site:-6,23"
+        }
+      ],
+      "executionErrors": 0
+    }
+  ],
+  "completedActivities": 3169
+}

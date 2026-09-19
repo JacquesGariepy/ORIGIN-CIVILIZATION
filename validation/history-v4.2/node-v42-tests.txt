@@ -1,0 +1,498 @@
+
+> origin-first-minds@4.2.0 test
+> node tests/legacy-core.cjs && node --test tests/v4.test.cjs tests/v41.test.cjs tests/bridge.test.cjs tests/typesafe.test.cjs
+
+PASS Genesis contains no learned abilities, relationships, vocabulary or carried resources
+PASS Disconnected step makes zero requests and leaves the entire world unchanged
+PASS No timer advances an unconnected world
+PASS Non-Jev identity, unknown option, missing distribution and wrong sums are rejected
+PASS A valid typed Jev response commits exactly one action and advances one world turn
+PASS HTTP authentication failure produces no world changes and no automatic retry
+PASS Malformed success answer cannot trigger a fallback
+PASS Failed learning phase rolls back the entire uncommitted physical experiment
+PASS Request cap freezes a multi-phase turn with no partial resource changes
+PASS Receiver independently accepts an offer; total food is conserved
+PASS A Jev refusal causes no inventory transfer
+PASS Receiver gets observable token and gesture, never the current intended referent
+PASS Successful experiment plus supported Jev inference gives only the learner a skill
+PASS Unsupported experiment cannot grant a skill even when Jev chooses supported
+PASS A burning fire warms nearby others and loses finite fuel only on committed turns
+PASS Learning prerequisites block fire, metalworking and writing at genesis
+PASS Confidence gate rejects the whole turn without human override or local choice
+PASS Pause discards a late response even if a transport ignores cancellation
+PASS Exports never serialize the personal API key
+PASS World reset does not reset request usage or erase historical receipts
+PASS A hidden page or missing renderer makes no paid API call
+PASS Every committed turn references its complete set of Jev request receipts
+TAP version 13
+# Subtest: bootstrap never reveals configured API credentials
+ok 1 - bootstrap never reveals configured API credentials
+  ---
+  duration_ms: 43.614641
+  type: 'test'
+  ...
+# Subtest: cross-origin requests and wrong Host headers are rejected
+ok 2 - cross-origin requests and wrong Host headers are rejected
+  ---
+  duration_ms: 19.743336
+  type: 'test'
+  ...
+# Subtest: model calls need a local session token
+ok 3 - model calls need a local session token
+  ---
+  duration_ms: 9.314039
+  type: 'test'
+  ...
+# Subtest: private files and source paths are not served by the HTTP server
+ok 4 - private files and source paths are not served by the HTTP server
+  ---
+  duration_ms: 8.948669
+  type: 'test'
+  ...
+# Subtest: Jev bridge forwards only to its fixed provider endpoint and redacts secrets
+ok 5 - Jev bridge forwards only to its fixed provider endpoint and redacts secrets
+  ---
+  duration_ms: 14.186067
+  type: 'test'
+  ...
+# Subtest: server spending cap counts failed upstream attempts
+ok 6 - server spending cap counts failed upstream attempts
+  ---
+  duration_ms: 14.085236
+  type: 'test'
+  ...
+# Subtest: checkpoints save and restore the full state but not server keys
+ok 7 - checkpoints save and restore the full state but not server keys
+  ---
+  duration_ms: 14.264266
+  type: 'test'
+  ...
+# Subtest: planner contract rejects invented action IDs and fabricated evidence citations
+ok 8 - planner contract rejects invented action IDs and fabricated evidence citations
+  ---
+  duration_ms: 0.568876
+  type: 'test'
+  ...
+# Subtest: planner input uses one subject without other people private memories
+ok 9 - planner input uses one subject without other people private memories
+  ---
+  duration_ms: 0.824851
+  type: 'test'
+  ...
+# Subtest: AGY requires explicit server opt-in
+ok 10 - AGY requires explicit server opt-in
+  ---
+  duration_ms: 1.172383
+  type: 'test'
+  ...
+# Subtest: AGY adapter accepts schema result while keeping it an unverified proposal
+ok 11 - AGY adapter accepts schema result while keeping it an unverified proposal
+  ---
+  duration_ms: 0.969939
+  type: 'test'
+  ...
+# Subtest: cloud planner uses no tools, fixed endpoint and JSON schema with explicit model
+ok 12 - cloud planner uses no tools, fixed endpoint and JSON schema with explicit model
+  ---
+  duration_ms: 0.814054
+  type: 'test'
+  ...
+# Subtest: CLI child environment strips Jev and unrelated credential variables
+ok 13 - CLI child environment strips Jev and unrelated credential variables
+  ---
+  duration_ms: 0.145558
+  type: 'test'
+  ...
+# Subtest: actual child-process adapter sends the prompt via stdin, without shell interpolation
+ok 14 - actual child-process adapter sends the prompt via stdin, without shell interpolation
+  ---
+  duration_ms: 37.657741
+  type: 'test'
+  ...
+# Subtest: a CLI tool event is rejected and the child is stopped
+ok 15 - a CLI tool event is rejected and the child is stopped
+  ---
+  duration_ms: 24.212684
+  type: 'test'
+  ...
+# Subtest: new sessions default to native TypeSafe with native model ID
+ok 16 - new sessions default to native TypeSafe with native model ID
+  ---
+  duration_ms: 2.546179
+  type: 'test'
+  ...
+# Subtest: native API contract accepts official alias, preview and pinned native IDs only
+ok 17 - native API contract accepts official alias, preview and pinned native IDs only
+  ---
+  duration_ms: 0.427432
+  type: 'test'
+  ...
+# Subtest: an OpenRouter server key cannot satisfy a missing TypeSafe key
+ok 18 - an OpenRouter server key cannot satisfy a missing TypeSafe key
+  ---
+  duration_ms: 0.4588
+  type: 'test'
+  ...
+# Subtest: native server key needs no OpenRouter key and is not present in the browser session
+ok 19 - native server key needs no OpenRouter key and is not present in the browser session
+  ---
+  duration_ms: 0.805251
+  type: 'test'
+  ...
+# Subtest: native key is trimmed, kept only in memory, and never written to snapshots
+ok 20 - native key is trimmed, kept only in memory, and never written to snapshots
+  ---
+  duration_ms: 0.402726
+  type: 'test'
+  ...
+# Subtest: standalone native decision actually targets TypeSafe, using Bearer auth and native model
+ok 21 - standalone native decision actually targets TypeSafe, using Bearer auth and native model
+  ---
+  duration_ms: 19.488744
+  type: 'test'
+  ...
+# Subtest: native pinned model survives connection instead of being silently overwritten
+ok 22 - native pinned model survives connection instead of being silently overwritten
+  ---
+  duration_ms: 0.254152
+  type: 'test'
+  ...
+# Subtest: native TypeSafe model ID is accepted by typed response validation
+ok 23 - native TypeSafe model ID is accepted by typed response validation
+  ---
+  duration_ms: 0.809678
+  type: 'test'
+  ...
+# Subtest: TypeSafe 401 freezes the entire turn without a provider fallback
+ok 24 - TypeSafe 401 freezes the entire turn without a provider fallback
+  ---
+  duration_ms: 1.44306
+  type: 'test'
+  ...
+# Subtest: native 422 detail arrays become actionable text while exact body stays in ledger
+ok 25 - native 422 detail arrays become actionable text while exact body stays in ledger
+  ---
+  duration_ms: 2.299739
+  type: 'test'
+  ...
+# Subtest: native 529 is not auto-retried and preserves Retry-After metadata
+ok 26 - native 529 is not auto-retried and preserves Retry-After metadata
+  ---
+  duration_ms: 1.207366
+  type: 'test'
+  ...
+# Subtest: native account access test makes GET models only, leaves decisions and world unchanged
+ok 27 - native account access test makes GET models only, leaves decisions and world unchanged
+  ---
+  duration_ms: 0.907515
+  type: 'test'
+  ...
+# Subtest: failed account checks cannot leak a key echoed by the provider
+ok 28 - failed account checks cannot leak a key echoed by the provider
+  ---
+  duration_ms: 0.704119
+  type: 'test'
+  ...
+# Subtest: account checks bypass renderer dependency without starting any simulation
+ok 29 - account checks bypass renderer dependency without starting any simulation
+  ---
+  duration_ms: 0.418569
+  type: 'test'
+  ...
+# Subtest: native bridge advertises provider-specific credentials, never their values
+ok 30 - native bridge advertises provider-specific credentials, never their values
+  ---
+  duration_ms: 36.340801
+  type: 'test'
+  ...
+# Subtest: native bridge routes to TypeSafe by default without touching OpenRouter
+ok 31 - native bridge routes to TypeSafe by default without touching OpenRouter
+  ---
+  duration_ms: 14.313159
+  type: 'test'
+  ...
+# Subtest: native and legacy keys stay isolated when both are configured
+ok 32 - native and legacy keys stay isolated when both are configured
+  ---
+  duration_ms: 11.716453
+  type: 'test'
+  ...
+# Subtest: wrong native/legacy model is rejected before any upstream call
+ok 33 - wrong native/legacy model is rejected before any upstream call
+  ---
+  duration_ms: 13.713091
+  type: 'test'
+  ...
+# Subtest: missing native key cannot silently fall back to configured OpenRouter credential
+ok 34 - missing native key cannot silently fall back to configured OpenRouter credential
+  ---
+  duration_ms: 10.985824
+  type: 'test'
+  ...
+# Subtest: native bridge propagates upstream 429 and Retry-After without auto retry
+ok 35 - native bridge propagates upstream 429 and Retry-After without auto retry
+  ---
+  duration_ms: 10.35827
+  type: 'test'
+  ...
+# Subtest: native bridge model-list test uses server TypeSafe key and no decision allowance
+ok 36 - native bridge model-list test uses server TypeSafe key and no decision allowance
+  ---
+  duration_ms: 8.468788
+  type: 'test'
+  ...
+# Subtest: ephemeral pasted TypeSafe key is also redacted from bridge exceptions
+ok 37 - ephemeral pasted TypeSafe key is also redacted from bridge exceptions
+  ---
+  duration_ms: 6.602941
+  type: 'test'
+  ...
+# Subtest: native-only environment cannot authenticate optional OpenRouter planner
+ok 38 - native-only environment cannot authenticate optional OpenRouter planner
+  ---
+  duration_ms: 0.861596
+  type: 'test'
+  ...
+# Subtest: look observes in place for all six subjects; no forced gathering at camp
+ok 39 - look observes in place for all six subjects; no forced gathering at camp
+  ---
+  duration_ms: 8.679976
+  type: 'test'
+  ...
+# Subtest: rest also stays in place unless a named shelter is chosen
+ok 40 - rest also stays in place unless a named shelter is chosen
+  ---
+  duration_ms: 1.413055
+  type: 'test'
+  ...
+# Subtest: first observation records concrete facts; unchanged repeats are marked low-information
+ok 41 - first observation records concrete facts; unchanged repeats are marked low-information
+  ---
+  duration_ms: 1.373646
+  type: 'test'
+  ...
+# Subtest: scene novelty ignores clock ticks but notices another visible person moving
+ok 42 - scene novelty ignores clock ticks but notices another visible person moving
+  ---
+  duration_ms: 1.075738
+  type: 'test'
+  ...
+# Subtest: an explicitly chosen inspection moves to its specific location
+ok 43 - an explicitly chosen inspection moves to its specific location
+  ---
+  duration_ms: 0.77132
+  type: 'test'
+  ...
+# Subtest: Jev chooses intention before action and both receipts are committed
+ok 44 - Jev chooses intention before action and both receipts are committed
+  ---
+  duration_ms: 22.252571
+  type: 'test'
+  ...
+# Subtest: intent persists for three personal turns without a new goal API call
+ok 45 - intent persists for three personal turns without a new goal API call
+  ---
+  duration_ms: 23.728571
+  type: 'test'
+  ...
+# Subtest: failure after a staged Jev intention does not mutate intent or body
+ok 46 - failure after a staged Jev intention does not mutate intent or body
+  ---
+  duration_ms: 1.475149
+  type: 'test'
+  ...
+# Subtest: forced repeated look responses stop spending at STALLED instead of looping forever
+ok 47 - forced repeated look responses stop spending at STALLED instead of looping forever
+  ---
+  duration_ms: 60.531862
+  type: 'test'
+  ...
+# Subtest: new useful action resets the individual low-information streak
+ok 48 - new useful action resets the individual low-information streak
+  ---
+  duration_ms: 1.689402
+  type: 'test'
+  ...
+# Subtest: nearby witnesses remember visible action but never inherit private knowledge
+ok 49 - nearby witnesses remember visible action but never inherit private knowledge
+  ---
+  duration_ms: 1.317983
+  type: 'test'
+  ...
+# Subtest: remote subjects do not receive a private witness memory
+ok 50 - remote subjects do not receive a private witness memory
+  ---
+  duration_ms: 0.269746
+  type: 'test'
+  ...
+# Subtest: plan is staged, shown to Jev, and cannot itself execute an action
+ok 51 - plan is staged, shown to Jev, and cannot itself execute an action
+  ---
+  duration_ms: 2.460541
+  type: 'test'
+  ...
+# Subtest: unavailable planner action is rejected before any Jev request or world mutation
+ok 52 - unavailable planner action is rejected before any Jev request or world mutation
+  ---
+  duration_ms: 0.733713
+  type: 'test'
+  ...
+# Subtest: explicit pause reason is preserved in the rejected request and ledger
+ok 53 - explicit pause reason is preserved in the rejected request and ledger
+  ---
+  duration_ms: 17.51827
+  type: 'test'
+  ...
+# Subtest: restoring a checkpoint restores full history but no credentials or automatic execution
+ok 54 - restoring a checkpoint restores full history but no credentials or automatic execution
+  ---
+  duration_ms: 5.827695
+  type: 'test'
+  ...
+# Subtest: browser bridge token is excluded from exported checkpoints
+ok 55 - browser bridge token is excluded from exported checkpoints
+  ---
+  duration_ms: 0.628225
+  type: 'test'
+  ...
+# Subtest: the uploaded v4 journal replays with all 74 exact commit diffs
+ok 56 - the uploaded v4 journal replays with all 74 exact commit diffs
+  ---
+  duration_ms: 76.76876
+  type: 'test'
+  ...
+# Subtest: reported counts match the full user ledger, not a sample
+ok 57 - reported counts match the full user ledger, not a sample
+  ---
+  duration_ms: 6.795452
+  type: 'test'
+  ...
+# Subtest: body perception makes fullness direction and fulfilled intent explicit
+ok 58 - body perception makes fullness direction and fulfilled intent explicit
+  ---
+  duration_ms: 1.056569
+  type: 'test'
+  ...
+# Subtest: fullness feedback neither changes state nor bans a physically available action
+ok 59 - fullness feedback neither changes state nor bans a physically available action
+  ---
+  duration_ms: 1.058121
+  type: 'test'
+  ...
+# Subtest: satisfied nourishment is reconsidered before its three-action horizon expires
+ok 60 - satisfied nourishment is reconsidered before its three-action horizon expires
+  ---
+  duration_ms: 19.944488
+  type: 'test'
+  ...
+# Subtest: one ordinary meal records measurable evidence but grants no skill or inference
+ok 61 - one ordinary meal records measurable evidence but grants no skill or inference
+  ---
+  duration_ms: 1.419495
+  type: 'test'
+  ...
+# Subtest: a second ordinary meal produces a candidate, not an automatically unlocked skill
+ok 62 - a second ordinary meal produces a candidate, not an automatically unlocked skill
+  ---
+  duration_ms: 0.925812
+  type: 'test'
+  ...
+# Subtest: a saturated meal with no gain cannot fabricate food evidence
+ok 63 - a saturated meal with no gain cannot fabricate food evidence
+  ---
+  duration_ms: 0.404729
+  type: 'test'
+  ...
+# Subtest: ordinary food recognition requires a real inference phase in the session pipeline
+ok 64 - ordinary food recognition requires a real inference phase in the session pipeline
+  ---
+  duration_ms: 2.300671
+  type: 'test'
+  ...
+# Subtest: an uncertain inference preserves evidence without granting knowledge
+ok 65 - an uncertain inference preserves evidence without granting knowledge
+  ---
+  duration_ms: 2.262553
+  type: 'test'
+  ...
+# Subtest: failed required inference rolls back the meal, evidence and the whole turn
+ok 66 - failed required inference rolls back the meal, evidence and the whole turn
+  ---
+  duration_ms: 1.893929
+  type: 'test'
+  ...
+# Subtest: food and water effects log actual clamped gains rather than nominal gains
+ok 67 - food and water effects log actual clamped gains rather than nominal gains
+  ---
+  duration_ms: 0.639522
+  type: 'test'
+  ...
+# Subtest: alternating low-benefit actions are detected even without a three-action streak
+ok 68 - alternating low-benefit actions are detected even without a three-action streak
+  ---
+  duration_ms: 0.131177
+  type: 'test'
+  ...
+# Subtest: useful repeated survival actions do not trigger a diversity quota
+ok 69 - useful repeated survival actions do not trigger a diversity quota
+  ---
+  duration_ms: 0.096004
+  type: 'test'
+  ...
+# Subtest: an adopted new belief interrupts the low-benefit cycle guard
+ok 70 - an adopted new belief interrupts the low-benefit cycle guard
+  ---
+  duration_ms: 0.093901
+  type: 'test'
+  ...
+# Subtest: an exhausted budget never sends an HTTP request, never resets the count
+ok 71 - an exhausted budget never sends an HTTP request, never resets the count
+  ---
+  duration_ms: 0.493111
+  type: 'test'
+  ...
+# Subtest: minimum phase budget is checked before spending on a new intention
+ok 72 - minimum phase budget is checked before spending on a new intention
+  ---
+  duration_ms: 0.263286
+  type: 'test'
+  ...
+# Subtest: limit changes require explicit validation and never start calls or lose credentials
+ok 73 - limit changes require explicit validation and never start calls or lose credentials
+  ---
+  duration_ms: 0.389085
+  type: 'test'
+  ...
+# Subtest: restoration preserves the spent count but never raises the spending cap
+ok 74 - restoration preserves the spent count but never raises the spending cap
+  ---
+  duration_ms: 17.048152
+  type: 'test'
+  ...
+# Subtest: connection logs include actual mode and planner configuration
+ok 75 - connection logs include actual mode and planner configuration
+  ---
+  duration_ms: 0.627844
+  type: 'test'
+  ...
+# Subtest: invalid imported food evidence and outcome-history shapes are rejected
+ok 76 - invalid imported food evidence and outcome-history shapes are rejected
+  ---
+  duration_ms: 0.399622
+  type: 'test'
+  ...
+# Subtest: supplied-session recovery route requires a local token and sends no model request
+ok 77 - supplied-session recovery route requires a local token and sends no model request
+  ---
+  duration_ms: 65.088821
+  type: 'test'
+  ...
+1..77
+# tests 77
+# suites 0
+# pass 77
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 470.670371

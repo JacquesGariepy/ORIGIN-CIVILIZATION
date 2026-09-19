@@ -1,0 +1,246 @@
+{
+  "records": 180,
+  "requests": 100,
+  "validHTTP200": 100,
+  "commits": 74,
+  "intentions": 26,
+  "actionCounts": {
+    "eat": 40,
+    "gather_food": 17,
+    "drink": 17
+  },
+  "learningCalls": 0,
+  "plannerCalls": 0,
+  "endReason": "Session request cap reached. The world is frozen. Increase the cap explicitly to continue.",
+  "lowBenefitMaintenance": 39,
+  "examples": [
+    {
+      "turn": 25,
+      "subject": "S01",
+      "action": "eat",
+      "before": {
+        "satiety": 96.04000000000002,
+        "hydration": 70.96000000000015,
+        "energy": 80.40000000000015,
+        "warmth": 71.91999999999996,
+        "health": 100
+      },
+      "gain": {
+        "satiety": 3.9599999999999795,
+        "hydration": 0
+      }
+    },
+    {
+      "turn": 26,
+      "subject": "S02",
+      "action": "eat",
+      "before": {
+        "satiety": 96.04000000000002,
+        "hydration": 69.50000000000016,
+        "energy": 78.30000000000015,
+        "warmth": 71.74999999999996,
+        "health": 100
+      },
+      "gain": {
+        "satiety": 3.9599999999999795,
+        "hydration": 0
+      }
+    },
+    {
+      "turn": 27,
+      "subject": "S03",
+      "action": "eat",
+      "before": {
+        "satiety": 96.04000000000002,
+        "hydration": 68.04000000000016,
+        "energy": 76.20000000000016,
+        "warmth": 71.57999999999996,
+        "health": 100
+      },
+      "gain": {
+        "satiety": 3.9599999999999795,
+        "hydration": 0
+      }
+    },
+    {
+      "turn": 28,
+      "subject": "S04",
+      "action": "eat",
+      "before": {
+        "satiety": 96.04000000000002,
+        "hydration": 66.58000000000017,
+        "energy": 74.10000000000016,
+        "warmth": 71.40999999999995,
+        "health": 100
+      },
+      "gain": {
+        "satiety": 3.9599999999999795,
+        "hydration": 0
+      }
+    },
+    {
+      "turn": 29,
+      "subject": "S05",
+      "action": "eat",
+      "before": {
+        "satiety": 96.04000000000002,
+        "hydration": 65.12000000000018,
+        "energy": 72.00000000000017,
+        "warmth": 71.23999999999995,
+        "health": 100
+      },
+      "gain": {
+        "satiety": 3.9599999999999795,
+        "hydration": 0
+      }
+    }
+  ],
+  "finalState": [
+    {
+      "id": "S01",
+      "body": {
+        "satiety": 99.34,
+        "hydration": 93.56000000000009,
+        "energy": 63.70000000000044,
+        "warmth": 63.419999999999874,
+        "health": 100
+      },
+      "inventory": {
+        "food": 2,
+        "wood": 0,
+        "stone": 0,
+        "fibre": 0,
+        "seed": 7,
+        "clay": 0,
+        "ore": 0,
+        "meat": 0,
+        "stone_tool": 0,
+        "metal_tool": 0,
+        "pot": 0
+      },
+      "known": {}
+    },
+    {
+      "id": "S02",
+      "body": {
+        "satiety": 99.67,
+        "hydration": 96.78000000000004,
+        "energy": 61.70000000000041,
+        "warmth": 63.419999999999874,
+        "health": 100
+      },
+      "inventory": {
+        "food": 5,
+        "wood": 0,
+        "stone": 0,
+        "fibre": 0,
+        "seed": 7,
+        "clay": 0,
+        "ore": 0,
+        "meat": 0,
+        "stone_tool": 0,
+        "metal_tool": 0,
+        "pot": 0
+      },
+      "known": {}
+    },
+    {
+      "id": "S03",
+      "body": {
+        "satiety": 96.04000000000002,
+        "hydration": 97.24000000000004,
+        "energy": 61.00000000000037,
+        "warmth": 63.419999999999874,
+        "health": 100
+      },
+      "inventory": {
+        "food": 0,
+        "wood": 0,
+        "stone": 0,
+        "fibre": 0,
+        "seed": 6,
+        "clay": 0,
+        "ore": 0,
+        "meat": 0,
+        "stone_tool": 0,
+        "metal_tool": 0,
+        "pot": 0
+      },
+      "known": {}
+    },
+    {
+      "id": "S04",
+      "body": {
+        "satiety": 98.35000000000001,
+        "hydration": 94.94000000000007,
+        "energy": 59.000000000000334,
+        "warmth": 63.419999999999874,
+        "health": 100
+      },
+      "inventory": {
+        "food": 2,
+        "wood": 0,
+        "stone": 0,
+        "fibre": 0,
+        "seed": 7,
+        "clay": 0,
+        "ore": 0,
+        "meat": 0,
+        "stone_tool": 0,
+        "metal_tool": 0,
+        "pot": 0
+      },
+      "known": {}
+    },
+    {
+      "id": "S05",
+      "body": {
+        "satiety": 98.68,
+        "hydration": 95.40000000000006,
+        "energy": 57.0000000000003,
+        "warmth": 63.419999999999874,
+        "health": 100
+      },
+      "inventory": {
+        "food": 2,
+        "wood": 0,
+        "stone": 0,
+        "fibre": 0,
+        "seed": 7,
+        "clay": 0,
+        "ore": 0,
+        "meat": 0,
+        "stone_tool": 0,
+        "metal_tool": 0,
+        "pot": 0
+      },
+      "known": {}
+    },
+    {
+      "id": "S06",
+      "body": {
+        "satiety": 97.03000000000002,
+        "hydration": 98.62000000000002,
+        "energy": 55.00000000000026,
+        "warmth": 63.419999999999874,
+        "health": 100
+      },
+      "inventory": {
+        "food": 0,
+        "wood": 0,
+        "stone": 0,
+        "fibre": 0,
+        "seed": 6,
+        "clay": 0,
+        "ore": 0,
+        "meat": 0,
+        "stone_tool": 0,
+        "metal_tool": 0,
+        "pot": 0
+      },
+      "known": {}
+    }
+  ],
+  "reportedCost": 0.017198999999999996,
+  "replay": "All 74 v4 commit diffs verified against the supplied journal, using the bundled v4 core. No new API call."
+}

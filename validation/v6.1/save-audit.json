@@ -1,0 +1,421 @@
+{
+  "source": "ORIGIN-civilization.save.json",
+  "version": "6.0.0",
+  "attempts": 961,
+  "plannerAttempts": 0,
+  "simMinutes": 796.4022743999981,
+  "worldTick": 332,
+  "scenario": "first-minds",
+  "status": {
+    "valid": 961
+  },
+  "http": {
+    "200": 961
+  },
+  "phase": {
+    "Choose activity domain": 431,
+    "Choose next activity": 441,
+    "Independent response at encounter": 68,
+    "Review an observed result": 21
+  },
+  "models": {
+    "jev-1.13.0": 961
+  },
+  "applied": {
+    "True": 892,
+    "False": 69
+  },
+  "actions": {
+    "explore_grove": 26,
+    "collect_N_clay_0": 14,
+    "explore_pool": 31,
+    "chat_S01": 81,
+    "run": 9,
+    "explore_camp": 1,
+    "explore_hearth": 1,
+    "store_clay": 70,
+    "collect_N_wood_0": 2,
+    "resume_explore_grove": 24,
+    "take_H1_clay": 57,
+    "store_wood": 3,
+    "play": 30,
+    "fill_N_water_0": 4,
+    "collect_N_clay_1": 7,
+    "collect_N_stone_0": 2,
+    "explore_copper": 1,
+    "store_stone": 1,
+    "collect_N_copper_0": 2,
+    "relieve": 1,
+    "try_stone": 2,
+    "explore_bank": 1,
+    "make_stone": 5,
+    "try_carpentry": 1,
+    "try_self": 4,
+    "take_H2_wood": 1,
+    "teach_S06_self": 23,
+    "resume_play": 5,
+    "drink_N_water_0": 9,
+    "store_stone_tool": 1,
+    "store_copper": 1,
+    "collect_N_food_0": 10,
+    "store_food": 5,
+    "take_food": 2,
+    "explore_garden": 1,
+    "collect_N_fibre_0": 1,
+    "store_fibre": 1,
+    "share_S01": 1
+  },
+  "chronicle": {
+    "activity_started": 407,
+    "weather": 3,
+    "encounter_arrived": 72,
+    "interruption": 71,
+    "encounter_response": 67,
+    "activity_finished": 332,
+    "learning_review": 18,
+    "learning": 3
+  },
+  "worldAssets": {
+    "rooms": 0,
+    "objects": 0,
+    "artifacts": 0,
+    "projects": 0,
+    "conversations": 51,
+    "plots": 0
+  },
+  "persons": [
+    {
+      "id": "S01",
+      "name": "Aru",
+      "completedInitiated": 5,
+      "practice": {
+        "explore": 4,
+        "drink_node": 1
+      },
+      "known": {},
+      "body": {
+        "satiety": 28.1978749080005,
+        "hydration": 66.25184079200035,
+        "energy": 60.12592039599989,
+        "warmth": 65.32100491040036,
+        "health": 100,
+        "hygiene": 57.47914996320008,
+        "bladder": 35.569093103200146,
+        "social": 99.90941422599998,
+        "fun": 99.88928405400002,
+        "comfort": 100
+      },
+      "resume": {
+        "activity": "A001444",
+        "option": {
+          "id": "collect_N_food_0",
+          "label": "Collect 3 food from N_food_0; 18 remaining",
+          "kind": "gather_node",
+          "duration": 10,
+          "point": {
+            "x": -12,
+            "z": -8
+          },
+          "resource": "food",
+          "node": "N_food_0",
+          "nodeQuantity": 3,
+          "category": "resources"
+        },
+        "remaining": 9.125047400000039,
+        "reason": "Interrupted only after S01 accepted a present invitation."
+      },
+      "interruptionCount": 51,
+      "stagnant": 0,
+      "stalled": false
+    },
+    {
+      "id": "S02",
+      "name": "Ena",
+      "completedInitiated": 53,
+      "practice": {
+        "chat": 51,
+        "drink_node": 1,
+        "gather_node": 1
+      },
+      "known": {},
+      "body": {
+        "satiety": 26.197874908000372,
+        "hydration": 65.25184079200011,
+        "energy": 58.12592039599992,
+        "warmth": 65.32100491040036,
+        "health": 100,
+        "hygiene": 54.479149963200314,
+        "bladder": 33.56909310320013,
+        "social": 99.90941422599998,
+        "fun": 99.88928405400002,
+        "comfort": 100
+      },
+      "resume": null,
+      "interruptionCount": 3,
+      "stagnant": 0,
+      "stalled": false
+    },
+    {
+      "id": "S03",
+      "name": "Koa",
+      "completedInitiated": 117,
+      "practice": {
+        "gather_node": 1,
+        "store_item": 59,
+        "take_item": 56,
+        "drink_node": 1
+      },
+      "known": {},
+      "body": {
+        "satiety": 24.197874908000344,
+        "hydration": 64.25184079200037,
+        "energy": 56.1259203959999,
+        "warmth": 65.32100491040036,
+        "health": 100,
+        "hygiene": 51.47914996320054,
+        "bladder": 31.569093103200064,
+        "social": 46.66475906079956,
+        "fun": 36.47914996320041,
+        "comfort": 60
+      },
+      "resume": null,
+      "interruptionCount": 0,
+      "stagnant": 0,
+      "stalled": false
+    },
+    {
+      "id": "S04",
+      "name": "Ila",
+      "completedInitiated": 62,
+      "practice": {
+        "explore": 33,
+        "gather_node": 11,
+        "relieve": 1,
+        "store_item": 1,
+        "self": 16
+      },
+      "known": {
+        "self": {
+          "turn": 211,
+          "time": 451.2389897999994,
+          "evidence": "E000844",
+          "receipt": "R0001170",
+          "teacher": null
+        }
+      },
+      "body": {
+        "satiety": 22.1978749080002,
+        "hydration": 23.251840792000397,
+        "energy": 54.125920396,
+        "warmth": 65.32100491040036,
+        "health": 100,
+        "hygiene": 40.47914996320032,
+        "bladder": 71.30030978979943,
+        "social": 49.66475906079956,
+        "fun": 91.52566425760034,
+        "comfort": 60
+      },
+      "resume": null,
+      "interruptionCount": 2,
+      "stagnant": 0,
+      "stalled": false
+    },
+    {
+      "id": "S05",
+      "name": "Noa",
+      "completedInitiated": 61,
+      "practice": {
+        "explore": 3,
+        "gather_node": 23,
+        "store_item": 17,
+        "stone": 7,
+        "carpentry": 1,
+        "self": 2,
+        "take_item": 1,
+        "drink_node": 1,
+        "store": 4,
+        "retrieve": 2
+      },
+      "known": {
+        "stone": {
+          "turn": 154,
+          "time": 322.4078007999998,
+          "evidence": "E000615",
+          "receipt": "R0000858",
+          "teacher": null
+        },
+        "self": {
+          "turn": 198,
+          "time": 422.53479779999975,
+          "evidence": "E000789",
+          "receipt": "R0001097",
+          "teacher": null
+        }
+      },
+      "body": {
+        "satiety": 20.19787490800001,
+        "hydration": 62.251840792000024,
+        "energy": 52.12592039600021,
+        "warmth": 65.32100491040036,
+        "health": 100,
+        "hygiene": 45.47914996320041,
+        "bladder": 27.569093103200174,
+        "social": 52.66475906079974,
+        "fun": 53.47914996320034,
+        "comfort": 60
+      },
+      "resume": null,
+      "interruptionCount": 0,
+      "stagnant": 0,
+      "stalled": false
+    },
+    {
+      "id": "S06",
+      "name": "Sia",
+      "completedInitiated": 34,
+      "practice": {
+        "run": 9,
+        "play": 25,
+        "self": 7
+      },
+      "known": {},
+      "body": {
+        "satiety": 18.19787490800002,
+        "hydration": 21.251840792000376,
+        "energy": 0,
+        "warmth": 65.32100491040036,
+        "health": 100,
+        "hygiene": 42.47914996320041,
+        "bladder": 32.569093103200274,
+        "social": 55.66475906080013,
+        "fun": 92.22803864240035,
+        "comfort": 60
+      },
+      "resume": {
+        "activity": "A001430",
+        "option": {
+          "id": "drink_N_water_0",
+          "label": "Drink at N_water_0; hydration 22/100",
+          "kind": "drink_node",
+          "duration": 6,
+          "point": {
+            "x": 11.1,
+            "z": 1
+          },
+          "node": "N_water_0",
+          "nodeQuantity": 1,
+          "category": "body"
+        },
+        "remaining": 5.39936679999996,
+        "reason": "Interrupted only after S06 accepted a present invitation."
+      },
+      "interruptionCount": 15,
+      "stagnant": 0,
+      "stalled": false
+    }
+  ],
+  "rejectedRequests": [],
+  "pauses": [
+    {
+      "id": "R0000204",
+      "at": "2026-09-19T14:53:17.334Z",
+      "time": 65.63571060000008,
+      "type": "pause",
+      "text": "Budget too small for 1 independent action decisions. Increase Request budget explicitly.",
+      "activeActivitiesRetained": 4
+    },
+    {
+      "id": "R0000207",
+      "at": "2026-09-19T14:53:52.655Z",
+      "time": 65.63571060000008,
+      "type": "pause",
+      "text": "Budget too small for 1 independent action decisions. Increase Request budget explicitly.",
+      "activeActivitiesRetained": 4
+    },
+    {
+      "id": "R0000209",
+      "at": "2026-09-19T14:53:56.543Z",
+      "time": 65.63571060000008,
+      "type": "pause",
+      "text": "Budget too small for 1 independent action decisions. Increase Request budget explicitly.",
+      "activeActivitiesRetained": 4
+    },
+    {
+      "id": "R0000211",
+      "at": "2026-09-19T14:54:02.245Z",
+      "time": 65.63571060000008,
+      "type": "pause",
+      "text": "Budget too small for 1 independent action decisions. Increase Request budget explicitly.",
+      "activeActivitiesRetained": 4
+    },
+    {
+      "id": "R0000213",
+      "at": "2026-09-19T14:54:10.842Z",
+      "time": 65.63571060000008,
+      "type": "pause",
+      "text": "Budget too small for 1 independent action decisions. Increase Request budget explicitly.",
+      "activeActivitiesRetained": 4
+    },
+    {
+      "id": "R0000215",
+      "at": "2026-09-19T14:54:11.239Z",
+      "time": 65.63571060000008,
+      "type": "pause",
+      "text": "Budget too small for 1 independent action decisions. Increase Request budget explicitly.",
+      "activeActivitiesRetained": 4
+    },
+    {
+      "id": "R0000217",
+      "at": "2026-09-19T14:54:11.423Z",
+      "time": 65.63571060000008,
+      "type": "pause",
+      "text": "Budget too small for 1 independent action decisions. Increase Request budget explicitly.",
+      "activeActivitiesRetained": 4
+    },
+    {
+      "id": "R0000219",
+      "at": "2026-09-19T14:54:11.903Z",
+      "time": 65.63571060000008,
+      "type": "pause",
+      "text": "Budget too small for 1 independent action decisions. Increase Request budget explicitly.",
+      "activeActivitiesRetained": 4
+    },
+    {
+      "id": "R0000221",
+      "at": "2026-09-19T14:54:12.261Z",
+      "time": 65.63571060000008,
+      "type": "pause",
+      "text": "Budget too small for 1 independent action decisions. Increase Request budget explicitly.",
+      "activeActivitiesRetained": 4
+    },
+    {
+      "id": "R0000223",
+      "at": "2026-09-19T14:54:14.952Z",
+      "time": 65.63571060000008,
+      "type": "pause",
+      "text": "Budget too small for 1 independent action decisions. Increase Request budget explicitly.",
+      "activeActivitiesRetained": 4
+    },
+    {
+      "id": "R0000225",
+      "at": "2026-09-19T14:54:28.136Z",
+      "time": 65.63571060000008,
+      "type": "pause",
+      "text": "Budget too small for 1 independent action decisions. Increase Request budget explicitly.",
+      "activeActivitiesRetained": 4
+    },
+    {
+      "id": "R0000227",
+      "at": "2026-09-19T14:54:34.989Z",
+      "time": 65.63571060000008,
+      "type": "pause",
+      "text": "Budget too small for 1 independent action decisions. Increase Request budget explicitly.",
+      "activeActivitiesRetained": 4
+    }
+  ],
+  "conflicts": {
+    "Counterparty already assigned in this cohort.": 33,
+    "The selected action is no longer feasible.": 1,
+    "Receiver moved out of contact; reassessment is required.": 1
+  }
+}

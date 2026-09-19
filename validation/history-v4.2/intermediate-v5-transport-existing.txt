@@ -1,0 +1,148 @@
+TAP version 13
+# Subtest: new sessions default to native TypeSafe with native model ID
+ok 1 - new sessions default to native TypeSafe with native model ID
+  ---
+  duration_ms: 2.325556
+  type: 'test'
+  ...
+# Subtest: native API contract accepts official alias, preview and pinned native IDs only
+ok 2 - native API contract accepts official alias, preview and pinned native IDs only
+  ---
+  duration_ms: 0.60051
+  type: 'test'
+  ...
+# Subtest: an OpenRouter server key cannot satisfy a missing TypeSafe key
+ok 3 - an OpenRouter server key cannot satisfy a missing TypeSafe key
+  ---
+  duration_ms: 0.508075
+  type: 'test'
+  ...
+# Subtest: native server key needs no OpenRouter key and is not present in the browser session
+ok 4 - native server key needs no OpenRouter key and is not present in the browser session
+  ---
+  duration_ms: 0.617311
+  type: 'test'
+  ...
+# Subtest: native key is trimmed, kept only in memory, and never written to snapshots
+ok 5 - native key is trimmed, kept only in memory, and never written to snapshots
+  ---
+  duration_ms: 0.513496
+  type: 'test'
+  ...
+# Subtest: standalone native decision actually targets TypeSafe, using Bearer auth and native model
+ok 6 - standalone native decision actually targets TypeSafe, using Bearer auth and native model
+  ---
+  duration_ms: 29.369508
+  type: 'test'
+  ...
+# Subtest: native pinned model survives connection instead of being silently overwritten
+ok 7 - native pinned model survives connection instead of being silently overwritten
+  ---
+  duration_ms: 0.285754
+  type: 'test'
+  ...
+# Subtest: native TypeSafe model ID is accepted by typed response validation
+ok 8 - native TypeSafe model ID is accepted by typed response validation
+  ---
+  duration_ms: 1.173358
+  type: 'test'
+  ...
+# Subtest: TypeSafe 401 freezes the entire turn without a provider fallback
+ok 9 - TypeSafe 401 freezes the entire turn without a provider fallback
+  ---
+  duration_ms: 2.628123
+  type: 'test'
+  ...
+# Subtest: native 422 detail arrays become actionable text while exact body stays in ledger
+ok 10 - native 422 detail arrays become actionable text while exact body stays in ledger
+  ---
+  duration_ms: 2.328946
+  type: 'test'
+  ...
+# Subtest: native 529 is not auto-retried and preserves Retry-After metadata
+ok 11 - native 529 is not auto-retried and preserves Retry-After metadata
+  ---
+  duration_ms: 1.567282
+  type: 'test'
+  ...
+# Subtest: native account access test makes GET models only, leaves decisions and world unchanged
+ok 12 - native account access test makes GET models only, leaves decisions and world unchanged
+  ---
+  duration_ms: 1.337092
+  type: 'test'
+  ...
+# Subtest: failed account checks cannot leak a key echoed by the provider
+ok 13 - failed account checks cannot leak a key echoed by the provider
+  ---
+  duration_ms: 1.002588
+  type: 'test'
+  ...
+# Subtest: account checks bypass renderer dependency without starting any simulation
+ok 14 - account checks bypass renderer dependency without starting any simulation
+  ---
+  duration_ms: 0.609976
+  type: 'test'
+  ...
+# Subtest: native bridge advertises provider-specific credentials, never their values
+ok 15 - native bridge advertises provider-specific credentials, never their values
+  ---
+  duration_ms: 41.893106
+  type: 'test'
+  ...
+# Subtest: native bridge routes to TypeSafe by default without touching OpenRouter
+ok 16 - native bridge routes to TypeSafe by default without touching OpenRouter
+  ---
+  duration_ms: 16.401366
+  type: 'test'
+  ...
+# Subtest: native and legacy keys stay isolated when both are configured
+ok 17 - native and legacy keys stay isolated when both are configured
+  ---
+  duration_ms: 25.56156
+  type: 'test'
+  ...
+# Subtest: wrong native/legacy model is rejected before any upstream call
+ok 18 - wrong native/legacy model is rejected before any upstream call
+  ---
+  duration_ms: 11.758526
+  type: 'test'
+  ...
+# Subtest: missing native key cannot silently fall back to configured OpenRouter credential
+ok 19 - missing native key cannot silently fall back to configured OpenRouter credential
+  ---
+  duration_ms: 12.230312
+  type: 'test'
+  ...
+# Subtest: native bridge propagates upstream 429 and Retry-After without auto retry
+ok 20 - native bridge propagates upstream 429 and Retry-After without auto retry
+  ---
+  duration_ms: 9.364732
+  type: 'test'
+  ...
+# Subtest: native bridge model-list test uses server TypeSafe key and no decision allowance
+ok 21 - native bridge model-list test uses server TypeSafe key and no decision allowance
+  ---
+  duration_ms: 9.321631
+  type: 'test'
+  ...
+# Subtest: ephemeral pasted TypeSafe key is also redacted from bridge exceptions
+ok 22 - ephemeral pasted TypeSafe key is also redacted from bridge exceptions
+  ---
+  duration_ms: 6.130156
+  type: 'test'
+  ...
+# Subtest: native-only environment cannot authenticate optional OpenRouter planner
+ok 23 - native-only environment cannot authenticate optional OpenRouter planner
+  ---
+  duration_ms: 1.576884
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 249.687512

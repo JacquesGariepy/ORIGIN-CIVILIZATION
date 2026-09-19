@@ -1,0 +1,255 @@
+TAP version 13
+# Subtest: first minds have no learned techniques, children, active behavior or carried objects
+ok 1 - first minds have no learned techniques, children, active behavior or carried objects
+  ---
+  duration_ms: 2.740482
+  type: 'test'
+  ...
+# Subtest: without a Jev-authorized activity, time and needs remain frozen
+ok 2 - without a Jev-authorized activity, time and needs remain frozen
+  ---
+  duration_ms: 3.806289
+  type: 'test'
+  ...
+# Subtest: homestead is an explicit seeded scenario with children, family and usable objects
+ok 3 - homestead is an explicit seeded scenario with children, family and usable objects
+  ---
+  duration_ms: 1.084133
+  type: 'test'
+  ...
+# Subtest: two activities begin at the same simulated timestamp and make parallel progress
+ok 4 - two activities begin at the same simulated timestamp and make parallel progress
+  ---
+  duration_ms: 11.028447
+  type: 'test'
+  ...
+# Subtest: short activity finishes while another remains active
+ok 5 - short activity finishes while another remains active
+  ---
+  duration_ms: 3.070161
+  type: 'test'
+  ...
+# Subtest: metabolism is based on shared elapsed time, not population or request count
+ok 6 - metabolism is based on shared elapsed time, not population or request count
+  ---
+  duration_ms: 3.006025
+  type: 'test'
+  ...
+# Subtest: the last finite resource is reserved and cannot be collected twice
+ok 7 - the last finite resource is reserved and cannot be collected twice
+  ---
+  duration_ms: 2.281673
+  type: 'test'
+  ...
+# Subtest: interruption releases uncollected resource reservations
+ok 8 - interruption releases uncollected resource reservations
+  ---
+  duration_ms: 1.452064
+  type: 'test'
+  ...
+# Subtest: one sleeping place cannot be occupied by two people
+ok 9 - one sleeping place cannot be occupied by two people
+  ---
+  duration_ms: 1.662535
+  type: 'test'
+  ...
+# Subtest: observation does not bring an individual back to camp
+ok 10 - observation does not bring an individual back to camp
+  ---
+  duration_ms: 1.184328
+  type: 'test'
+  ...
+# Subtest: navigation finds an accessible stone interaction point, not a blocked goal
+ok 11 - navigation finds an accessible stone interaction point, not a blocked goal
+  ---
+  duration_ms: 2.120466
+  type: 'test'
+  ...
+# Subtest: a declined social invitation transfers nothing
+ok 12 - a declined social invitation transfers nothing
+  ---
+  duration_ms: 1.012499
+  type: 'test'
+  ...
+# Subtest: an accepted social invitation transfers ownership exactly once
+ok 13 - an accepted social invitation transfers ownership exactly once
+  ---
+  duration_ms: 0.947661
+  type: 'test'
+  ...
+# Subtest: receiver is not frozen by an unaccepted approach; reply is requested on arrival
+ok 14 - receiver is not frozen by an unaccepted approach; reply is requested on arrival
+  ---
+  duration_ms: 1.099507
+  type: 'test'
+  ...
+# Subtest: counterparty consent cannot silently interrupt a different, newly started activity
+ok 15 - counterparty consent cannot silently interrupt a different, newly started activity
+  ---
+  duration_ms: 1.193835
+  type: 'test'
+  ...
+# Subtest: children cannot court, form partnerships or conceive
+ok 16 - children cannot court, form partnerships or conceive
+  ---
+  duration_ms: 0.545974
+  type: 'test'
+  ...
+# Subtest: family relationship checks exclude ancestors and shared parents
+ok 17 - family relationship checks exclude ancestors and shared parents
+  ---
+  duration_ms: 0.771744
+  type: 'test'
+  ...
+# Subtest: a birth preserves parentage without copying knowledge or memories
+ok 18 - a birth preserves parentage without copying knowledge or memories
+  ---
+  duration_ms: 0.310628
+  type: 'test'
+  ...
+# Subtest: growth uses declared shared time and updates life stage
+ok 19 - growth uses declared shared time and updates life stage
+  ---
+  duration_ms: 0.415828
+  type: 'test'
+  ...
+# Subtest: due pregnancy yields a new independent person only from prior consent record
+ok 20 - due pregnancy yields a new independent person only from prior consent record
+  ---
+  duration_ms: 0.954651
+  type: 'test'
+  ...
+# Subtest: ordinary meals create learning evidence without granting a skill
+ok 21 - ordinary meals create learning evidence without granting a skill
+  ---
+  duration_ms: 2.562503
+  type: 'test'
+  ...
+# Subtest: learning is a separate Jev commit, not a rollback of consumed material
+ok 22 - learning is a separate Jev commit, not a rollback of consumed material
+  ---
+  duration_ms: 2.018504
+  type: 'test'
+  ...
+# Subtest: supported observations plus a Jev inference create personal knowledge only
+ok 23 - supported observations plus a Jev inference create personal knowledge only
+  ---
+  duration_ms: 0.788958
+  type: 'test'
+  ...
+# Subtest: unsupported experimental inference cannot grant knowledge
+ok 24 - unsupported experimental inference cannot grant knowledge
+  ---
+  duration_ms: 2.40857
+  type: 'test'
+  ...
+# Subtest: learned manufacturing processes remain available for repeated production
+not ok 25 - learned manufacturing processes remain available for repeated production
+  ---
+  duration_ms: 0.980179
+  type: 'test'
+  location: '/mnt/data/origin-v5-work/ORIGIN-COMPLETE/tests/living.test.cjs:33:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing make_iron'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    option (/mnt/data/origin-v5-work/ORIGIN-COMPLETE/tests/living.test.cjs:5:74)
+    doAction (/mnt/data/origin-v5-work/ORIGIN-COMPLETE/tests/living.test.cjs:6:57)
+    TestContext.<anonymous> (/mnt/data/origin-v5-work/ORIGIN-COMPLETE/tests/living.test.cjs:33:209)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: construction consumes finite held material and creates a usable object
+ok 26 - construction consumes finite held material and creates a usable object
+  ---
+  duration_ms: 2.033929
+  type: 'test'
+  ...
+# Subtest: player blueprint is a proposal, not an instant building or free resource
+ok 27 - player blueprint is a proposal, not an instant building or free resource
+  ---
+  duration_ms: 0.29284
+  type: 'test'
+  ...
+# Subtest: household storage transfers a finite portion and reservations survive interruption
+ok 28 - household storage transfers a finite portion and reservations survive interruption
+  ---
+  duration_ms: 1.611512
+  type: 'test'
+  ...
+# Subtest: bounded virtual machine executes numeric instructions; arbitrary code is rejected
+ok 29 - bounded virtual machine executes numeric instructions; arbitrary code is rejected
+  ---
+  duration_ms: 0.23016
+  type: 'test'
+  ...
+# Subtest: AI artifact fits actual input samples and evaluates held-out records
+ok 30 - AI artifact fits actual input samples and evaluates held-out records
+  ---
+  duration_ms: 0.342828
+  type: 'test'
+  ...
+# Subtest: world save preserves concurrently unfinished activity progress and locks
+ok 31 - world save preserves concurrently unfinished activity progress and locks
+  ---
+  duration_ms: 1.104243
+  type: 'test'
+  ...
+# Subtest: v4 recovery migrates material state without granting new cultural knowledge
+ok 32 - v4 recovery migrates material state without granting new cultural knowledge
+  ---
+  duration_ms: 18.6821
+  type: 'test'
+  ...
+# Subtest: simultaneous cognition actually dispatches more than one request at a time
+ok 33 - simultaneous cognition actually dispatches more than one request at a time
+  ---
+  duration_ms: 97.515509
+  type: 'test'
+  ...
+# Subtest: a failed action response cannot start any member of a failed initial cohort
+ok 34 - a failed action response cannot start any member of a failed initial cohort
+  ---
+  duration_ms: 16.898765
+  type: 'test'
+  ...
+# Subtest: request budget is checked before dispatching an unaffordable cohort
+ok 35 - request budget is checked before dispatching an unaffordable cohort
+  ---
+  duration_ms: 0.246796
+  type: 'test'
+  ...
+# Subtest: pause cancels uncommitted decisions while retaining existing activity progress
+ok 36 - pause cancels uncommitted decisions while retaining existing activity progress
+  ---
+  duration_ms: 3.705198
+  type: 'test'
+  ...
+# Subtest: person perceptions do not include another person private memory or intent
+ok 37 - person perceptions do not include another person private memory or intent
+  ---
+  duration_ms: 0.334065
+  type: 'test'
+  ...
+# Subtest: newborn IDs are accepted by optional planner validation
+ok 38 - newborn IDs are accepted by optional planner validation
+  ---
+  duration_ms: 1.261939
+  type: 'test'
+  ...
+1..38
+# tests 38
+# suites 0
+# pass 37
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 367.10255
