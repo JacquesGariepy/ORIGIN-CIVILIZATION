@@ -18,7 +18,7 @@ function safeSnapshot(x){
 function createServer({fixture=false,env=process.env,fetchImpl=global.fetch,planImpl=Planner.plan,dataDir=path.join(ROOT,'data'),recoveryPath=path.join(ROOT,'recovery','supplied-v6.snapshot.json')}={}){
  const worldService=new WorldService({fixture,env,fetchImpl,planImpl,dataDir});
  const token=crypto.randomBytes(32).toString('hex');let jevAttempts=0,plannerAttempts=0,connectionChecks=0,inFlight=0,saveQueue=Promise.resolve();
- const jevCap=integer(env.SERVER_JEV_CAP,2000,1,10000),plannerCap=integer(env.SERVER_PLANNER_CAP,100,1,1000);
+ const jevCap=integer(env.SERVER_JEV_CAP,2000,1,100000),plannerCap=integer(env.SERVER_PLANNER_CAP,100,1,10000);
  const secrets=[env.OPENROUTER_API_KEY,env.TYPESAFE_API_KEY,env.PLANNER_API_KEY,env.LLM_API_KEY,env.ANTHROPIC_API_KEY,env.OPENAI_API_KEY,env.GEMINI_API_KEY,env.GOOGLE_API_KEY,token];
  const send=(res,status,data)=>{if(res.destroyed)return;const text=redact(data,secrets);res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(text);};
  const server=http.createServer(async(req,res)=>{

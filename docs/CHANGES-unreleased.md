@@ -10,7 +10,7 @@ Package version stays 6.1.0 until a release is cut.
   - `codex`: Codex CLI `exec` with a read-only sandbox, ephemeral session, output schema file and JSONL event checks (`CODEX_ENABLED=1`).
 - UI: three new **Cognitive mode** options, planner status in the connection dialog, updated help text.
 - Bootstrap flags `llmEnabled`, `llmStatus` (local/remote, never the URL), `llmModel`, `claudeEnabled`, `claudeModel`, `codexEnabled`, `codexModel`.
-- `tests/llm-planners.test.cjs`: 15 tests, plus one agy compatibility test (208 total).
+- `tests/llm-planners.test.cjs`: 15 tests, plus one agy compatibility test and one request-budget test (209 total).
 - `docs/LLM-PLANNERS.md`; the English README now opens with TypeSafe Jev decisions and AI planners ("Why TypeSafe + AI").
 
 ## Changed
@@ -22,6 +22,7 @@ Package version stays 6.1.0 until a release is cut.
 
 ## Fixed
 
+- A restored world keeps its historical Jev attempts in the total request budget, so a world with about 1,900 attempts could never run long under the old 2,000-call ceiling ("Request budget reached."). The explicit budget ceilings are now 100000 Jev calls and 10000 planner calls in the connection and budget dialogs and in `LivingSession`, and `SERVER_JEV_CAP` / `SERVER_PLANNER_CAP` accept up to 100000 / 10000. Defaults are unchanged; nothing is raised automatically, and TypeSafe charges still apply to every attempt.
 - agy 1.2.7 (auto-updated CLI) returns `--json-schema` output through its built-in terminal `finish` tool before the `SUCCESS` result. ORIGIN rejected every tool event, so every agy proposal was refused and the planner looked unresponsive. Exactly that `finish` step (tool name and tool info both `finish`, no subagent) is now accepted; any other tool or subagent event is still rejected and the child is stopped. Verified with the real agy 1.2.7 on Windows.
 
 - `tests/v41.test.cjs` started a server without a temporary `dataDir`, so running the suite inside the project wrote a fresh world into the real `data/` checkpoint (and could replace a live world). It now uses a temporary directory that is removed afterwards; no test writes to `data/`.
