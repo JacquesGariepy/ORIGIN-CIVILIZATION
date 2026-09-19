@@ -24,6 +24,8 @@ Package version stays 6.1.0 until a release is cut.
 
 - agy 1.2.7 (auto-updated CLI) returns `--json-schema` output through its built-in terminal `finish` tool before the `SUCCESS` result. ORIGIN rejected every tool event, so every agy proposal was refused and the planner looked unresponsive. Exactly that `finish` step (tool name and tool info both `finish`, no subagent) is now accepted; any other tool or subagent event is still rejected and the child is stopped. Verified with the real agy 1.2.7 on Windows.
 
+- `tests/v41.test.cjs` started a server without a temporary `dataDir`, so running the suite inside the project wrote a fresh world into the real `data/` checkpoint (and could replace a live world). It now uses a temporary directory that is removed afterwards; no test writes to `data/`.
+
 ## Unchanged
 
 - TypeSafe Jev is still the only source of executable decisions. Planners still require the local server bridge, share `SERVER_PLANNER_CAP` and the planner request allowance, and are grounded before Jev sees them.
