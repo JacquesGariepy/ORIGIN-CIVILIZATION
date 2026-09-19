@@ -31,3 +31,12 @@ test('a CLI tool event is rejected and the child is stopped',async()=>{
  const program="console.log(JSON.stringify({event:'step_update',step_update:{step_type:'tool',tool_name:'run_command'}}));setTimeout(()=>{},60000);";
  await assert.rejects(P.runAgy({prompt:'test',schema:P.schemaFor(['look']),subject:'S02',env:{PATH:process.env.PATH},spawnImpl:(cmd,args,opts)=>spawn(process.execPath,['-e',program],opts)}),/tool or subagent/);
 });
+test('agy 1.2.7 terminal finish tool carries the structured result and is accepted; other tools are not',async()=>{
+ const {spawn}=require('node:child_process'),out={ok:true};
+ const run=events=>P.runAgy({prompt:'test',schema:P.schemaFor(['look']),subject:'S02',env:{PATH:process.env.PATH},spawnImpl:(cmd,args,opts)=>spawn(process.execPath,['-e',`for(const e of ${JSON.stringify(events)})console.log(JSON.stringify(e));`],opts)});
+ const finishTool={event:'step_update',step_update:{step_index:2,state:'ACTIVE',step_type:'tool',tool_name:'finish',tool_info:{name:'finish',parameters:out}}};
+ const tail=[{event:'step_update',step_update:{step_index:2,state:'DONE',step_type:'finish'}},{event:'result',result:{status:'SUCCESS',response:JSON.stringify(out),structured_output:out}}];
+ const {result}=await run([finishTool,...tail]);assert.deepEqual(result.structured_output,out);
+ await assert.rejects(run([{...finishTool,step_update:{...finishTool.step_update,tool_info:{name:'run_command'}}},...tail]),/tool or subagent/);
+ await assert.rejects(run([{...finishTool,step_update:{...finishTool.step_update,subagent_info:{id:'x'}}},...tail]),/tool or subagent/);
+});

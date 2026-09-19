@@ -131,7 +131,9 @@ async function runAgy({prompt,schema,subject,signal,env=process.env,spawnImpl=sp
    const line=(text)=>{if(!text.trim())return;let event;try{event=JSON.parse(text);}catch{throw Error('AGY emitted non-JSON stdout. Update the CLI or inspect the ledger.');}
     audit.events.push(event);
     const step=event.step_update;
-    if(step&&(step.step_type==='tool'||step.tool_name||step.tool_info||step.subagent_info)){stop();throw Error('Planner attempted a tool or subagent. Proposal rejected. Configure deny permissions; ORIGIN does not provide a full OS sandbox.');}
+    // agy >=1.2.7 delivers --json-schema output through its built-in terminal `finish` tool; that step is the structured result, not an action.
+    const finishStep=step&&step.step_type==='tool'&&step.tool_name==='finish'&&(!step.tool_info||step.tool_info.name==='finish')&&!step.subagent_info;
+    if(step&&!finishStep&&(step.step_type==='tool'||step.tool_name||step.tool_info||step.subagent_info)){stop();throw Error('Planner attempted a tool or subagent. Proposal rejected. Configure deny permissions; ORIGIN does not provide a full OS sandbox.');}
     if(event.event==='result'){if(result)throw Error('AGY returned more than one result.');result=event.result||event;}
    };
    try{

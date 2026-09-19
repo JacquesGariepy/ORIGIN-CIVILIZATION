@@ -10,8 +10,8 @@ Package version stays 6.1.0 until a release is cut.
   - `codex`: Codex CLI `exec` with a read-only sandbox, ephemeral session, output schema file and JSONL event checks (`CODEX_ENABLED=1`).
 - UI: three new **Cognitive mode** options, planner status in the connection dialog, updated help text.
 - Bootstrap flags `llmEnabled`, `llmStatus` (local/remote, never the URL), `llmModel`, `claudeEnabled`, `claudeModel`, `codexEnabled`, `codexModel`.
-- `tests/llm-planners.test.cjs`: 15 tests (207 total).
-- `docs/LLM-PLANNERS.md`; README section "Why TypeSafe + LLMs" and "En bref (FR)".
+- `tests/llm-planners.test.cjs`: 15 tests, plus one agy compatibility test (208 total).
+- `docs/LLM-PLANNERS.md`; the English README now opens with TypeSafe Jev decisions and AI planners ("Why TypeSafe + AI").
 
 ## Changed
 
@@ -19,6 +19,10 @@ Package version stays 6.1.0 until a release is cut.
 - The OpenRouter cloud planner now uses `redirect: "error"` and reports non-JSON responses explicitly.
 - `LLM_API_KEY`, `ANTHROPIC_API_KEY` and `OPENAI_API_KEY` are redacted from responses, audits and checkpoints.
 - Server banner shows the package version instead of "v6.0"; `.env.example` header says 6.1.
+
+## Fixed
+
+- agy 1.2.7 (auto-updated CLI) returns `--json-schema` output through its built-in terminal `finish` tool before the `SUCCESS` result. ORIGIN rejected every tool event, so every agy proposal was refused and the planner looked unresponsive. Exactly that `finish` step (tool name and tool info both `finish`, no subagent) is now accepted; any other tool or subagent event is still rejected and the child is stopped. Verified with the real agy 1.2.7 on Windows.
 
 ## Unchanged
 

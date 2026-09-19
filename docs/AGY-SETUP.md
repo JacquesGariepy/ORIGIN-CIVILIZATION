@@ -49,7 +49,7 @@ In that dedicated agy profile, disable unnecessary plugins/MCP and configure too
 
 Check these rules against your installed platform/version. The official documentation distinguishes Windows behavior from newer macOS/Linux permissions [2]. Do not overwrite unrelated settings blindly. ORIGIN does **not** rewrite your global profile or assume that a prompt is a security boundary.
 
-The adapter enables `--sandbox` by default, starts in an empty temporary working directory, strips unrelated provider secrets from the child environment, never uses `--dangerously-skip-permissions`, and rejects tool/subagent events. **Observing a tool event is not the same as preventing that tool's first side effect.** The adapter is not a substitute for OS isolation or correctly configured permissions. Existing global instructions/plugins may also affect the CLI, which is why a clean profile is recommended.
+The adapter enables `--sandbox` by default, starts in an empty temporary working directory, strips unrelated provider secrets from the child environment, never uses `--dangerously-skip-permissions`, and rejects tool/subagent events. The only exception is agy's built-in terminal `finish` tool, which agy 1.2.7 and later use to deliver the `--json-schema` result; it performs no action. **Observing a tool event is not the same as preventing that tool's first side effect.** The adapter is not a substitute for OS isolation or correctly configured permissions. Existing global instructions/plugins may also affect the CLI, which is why a clean profile is recommended.
 
 ## Enable ORIGIN
 
