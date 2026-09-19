@@ -107,4 +107,4 @@ Everything sent to a planner and everything it returned (prompt, arguments or HT
 
 ## Verification
 
-`tests/llm-planners.test.cjs` covers URL rules, headers, strict schema, tool-call and grounding rejections, opt-in, redaction, bootstrap disclosure, and real child processes that stand in for the CLIs (arguments, stdin, isolated directory, environment allowlist, tool-event rejection). No authenticated call to an OpenAI-compatible provider, a local LLM, Claude Code or Codex was made for this update.
+`tests/llm-planners.test.cjs` covers URL rules, headers, strict schema, tool-call and grounding rejections, opt-in, redaction, bootstrap disclosure, and real child processes that stand in for the CLIs (arguments, stdin, isolated directory, environment allowlist, tool-event rejection). On 2026-09-19 the Claude Code (2.1.278), Codex (0.154.0) and agy (1.2.7) planners were each run live on Windows with a fictional subject and returned proposals that passed grounding; the OpenAI-compatible planner has not been run against a real server or local LLM.

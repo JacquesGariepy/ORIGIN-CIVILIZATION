@@ -62,7 +62,7 @@ Keys are redacted, paths under your user profile appear as `~`, and each stored 
 
 Choose the planner in **Connect TypeSafe → Cognitive mode**. Setup and security details: `docs/LLM-PLANNERS.md`.
 
-**Limits.** Probabilities and confidence are model outputs, not truth or inner experience. The OpenAI-compatible, Claude Code and Codex planners are covered by fixture tests and local stand-in processes only; no authenticated call to any of them was made for this update. A planner can propose a useless plan and Jev can still choose poorly; both remain visible in the ledger instead of being hidden or replaced.
+**Limits.** Probabilities and confidence are model outputs, not truth or inner experience. Planners are covered by fixture tests and local stand-in processes. On 2026-09-19 the Claude Code (2.1.278), Codex (0.154.0) and agy (1.2.7) planners were each run live on Windows with a fictional subject and returned proposals that passed grounding; the OpenAI-compatible planner has not been run against a real server or local LLM. A planner can propose a useless plan and Jev can still choose poorly; both remain visible in the ledger instead of being hidden or replaced.
 
 ## Start
 

@@ -40,4 +40,4 @@ Package version stays 6.1.0 until a release is cut.
 
 ## Not validated
 
-- No authenticated call to an OpenAI-compatible provider, a local LLM, Claude Code or Codex was made. Browser checks were not rerun for this update. The AI live drawer and the Budget dialog were checked through the shared view builders in Node and by parsing every script block of the built `ORIGIN.html`; no browser session was run.
+- On 2026-09-19 the Claude Code (2.1.278), Codex (0.154.0) and agy (1.2.7) planners were each run live on Windows with a fictional subject and returned proposals that passed grounding; the OpenAI-compatible planner has not been run against a real server or local LLM. No full browser session of the new drawer was run. Browser checks were not rerun for this update. The AI live drawer and the Budget dialog were checked through the shared view builders in Node and by parsing every script block of the built `ORIGIN.html`; no browser session was run.
