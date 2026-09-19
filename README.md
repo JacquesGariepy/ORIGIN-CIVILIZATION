@@ -1,10 +1,14 @@
-# ORIGIN / CIVILIZATION - v6.1
+# ORIGIN / CIVILIZATION — AI lives decided by TypeSafe Jev
 
-An original, inspectable life-and-civilization simulation. HTML, JavaScript and an authoritative Node.js server. A bundled isometric renderer works without a CDN; optional Three.js shows the same world. This is not an EA product or a reproduction of proprietary Sims assets.
+**An AI-driven life-and-civilization simulation. Every new voluntary action is a typed, auditable decision by [TypeSafe](https://docs.typesafe.ai/introduction) Jev. LLMs — any OpenAI-compatible API, local models, Claude Code, Codex or agy — can plan, but never decide.**
 
-**New voluntary actions require valid Jev decisions.** Rendering, navigation, physical consequences and an already authorized activity are executed by the simulation. There is no production local-policy fallback, synthetic model response, or invented conversation. Tests have explicitly labeled fixtures in `tests/` only.
+- **TypeSafe Jev decides.** Each person's next action is a Choice with a probability for every option and a confidence value. Code checks the answer before anything happens, and every call is kept as a receipt in the ledger.
+- **AI plans.** Optional LLM planners propose goals, multi-step intentions and speech, grounded in the person's own memories and currently feasible actions.
+- **Nothing is faked.** There is no production local-policy fallback, synthetic model response or invented conversation. If Jev cannot answer, the world pauses. Rendering, navigation, physical consequences and an already authorized activity are executed by the simulation; test fixtures are explicitly labeled and live only in `tests/`.
 
-## Why TypeSafe + LLMs
+Version 6.1 · HTML, JavaScript and an authoritative Node.js server · bundled isometric renderer (no CDN), optional Three.js view of the same world · original work, not an EA product or a reproduction of proprietary Sims assets.
+
+## Why TypeSafe + AI
 
 ORIGIN separates two jobs that are often blurred together: **deciding** what a person does next, and **imagining** what could be worth doing. TypeSafe Jev does the first. Language models (LLMs) can help with the second. Neither can change the world by assertion: the simulation executes only feasible, physically checked actions.
 
