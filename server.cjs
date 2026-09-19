@@ -41,6 +41,8 @@ function createServer({fixture=false,env=process.env,fetchImpl=global.fetch,plan
      if(req.method==='GET'&&url.pathname==='/api/world'){send(res,200,worldService.state());return;}
      if(req.method==='GET'&&url.pathname==='/api/world/export'){send(res,200,JSON.parse(worldService.clean(worldService.session.export())));return;}
      if(req.method==='GET'&&url.pathname==='/api/world/ledger'){send(res,200,{log:JSON.parse(worldService.clean(worldService.session.log))});return;}
+     if(req.method==='GET'&&url.pathname==='/api/world/ai'){send(res,200,worldService.aiFeed(url.searchParams.get('since'),url.searchParams.get('limit')));return;}
+     if(req.method==='GET'&&url.pathname==='/api/world/ai/row'){const row=worldService.aiRow(url.searchParams.get('id'));if(!row){send(res,404,{error:'Unknown ledger record.'});return;}send(res,200,{row});return;}
      if(req.method==='POST'&&url.pathname==='/api/world/control'){const body=await readJSON(req,70*1024*1024);send(res,200,await worldService.command(body));return;}
      if(req.method==='POST'&&url.pathname==='/api/world/terrain'){const body=await readJSON(req,3000);const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),20000);try{const dem=await TerrainLoader.load(body.lat,body.lon,{fetchImpl,signal:controller.signal});send(res,200,{dem});}finally{clearTimeout(timeout);}return;}
      send(res,404,{error:'Unknown world route.'});

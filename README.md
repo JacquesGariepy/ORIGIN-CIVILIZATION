@@ -41,6 +41,14 @@ one person's own perception + memories + feasible actions
 
 A planner proposal reaches Jev as data (`unverified_planner_proposal`). It is grounded first: action IDs must be currently available, and cited evidence must be the person's own recorded events. It never authorizes anything. Jev remains the only decision source, and ORIGIN runs completely with Jev alone.
 
+### Full transparency: AI live
+
+Open **AI live** in the header to watch every Jev and planner call as it happens, newest first. A call appears the moment it is sent (pending) and updates when it completes. Each line shows the person, the phase (intent, action, receiver, learning, planner and so on), the engine, the model, the status (pending, ok, rejected, error, cancelled), latency, tokens, and the chosen option with its confidence or the proposed actions. Counters show Jev and planner outcomes, tokens, total latency and both budgets, and a budget stop is named explicitly. Filter by engine, status or person.
+
+Open a line to read the call in full. For Jev: each question's instructions, every option with a probability bar, the chosen option and the confidence, then the perception sent, the exact request body, the raw response, the validation result and whether the decision was applied (and, if not, why). For a planner: the verdict (accepted, or rejected by grounding, tool policy or the engine, with the reason), the proposal, whether Jev followed it, the exact prompt, the CLI command and arguments or the HTTP request, the event stream, stderr and the raw output. Failed planner calls keep their audit too. **Copy JSON** copies the stored row. **Full ledger** uses the same readable view and still exports JSONL.
+
+Keys are redacted, paths under your user profile appear as `~`, and each stored row is capped (200,000 characters per prompt, output or body; 500 events; the last 16,000 characters of stderr), with every truncation recorded in the row. This is what was sent and what came back, not a hidden chain of thought.
+
 ### Engines
 
 | Role | Engine | Configure in `.env` | Notes |
@@ -110,7 +118,7 @@ Choose through **Help**. Advanced scenario buildings, techniques and family link
 
 **Life audit** reads individual progress and interruptions without inference. **Live** follows actual ongoing activities. **People** and **Families** show individual stories and genealogy. **Build** proposes rooms/furniture, including a two-click ground drawing tool. **World** holds the Earth map, local layers and terrain imports. **Economy** shows stores, funded work and exchanges. **Civilization** shows works, techniques and infrastructure. **Conversations** contains only completed signals/messages; **Chronicle** records causal events. The person editor changes appearance and declared traits with a visible observer-intervention record.
 
-All model requests and responses, confidence/probabilities, planner proposals, reservations, executed effects and errors remain available in **Full ledger**. Its raw form is an audit tool, not a substitute for the scene. Keys are excluded from exports. Do not enter private real-person information.
+**AI live** follows every Jev and planner call as it happens. All model requests and responses, confidence/probabilities, planner proposals, reservations, executed effects and errors remain available in **Full ledger**. Its raw form is an audit tool, not a substitute for the scene. Keys are excluded from exports. Do not enter private real-person information.
 
 ## Optional planner and 3D
 
@@ -123,6 +131,8 @@ All model requests and responses, confidence/probabilities, planner proposals, r
 ## Persistence and spending
 
 The server writes `data/world-v6.json` automatically and on explicit saves. Export remains available as an additional portable checkpoint. A recovered server world is always paused and requires reconnection and a new explicit run authorization. Existing request counters persist. The UI does not auto-increase budgets.
+
+**Request budgets are explicit and separate.** Jev decisions and planner proposals each have a total limit for the world, and restored historical attempts count toward both. Before a cohort starts, ORIGIN checks that both budgets cover what it needs. If not, nothing is sent and the status line says which budget stopped the run, for example: "Planner budget reached: 12 / 12 planner calls used; the next cohort needs 6 planner proposals. Jev: 1869 / 2000 decision calls used." **Budget** shows the usage beside each limit, prefills a higher value only when a limit is used up (usage + 500 for Jev, usage + 100 for the planner), and offers **Continue with Jev only**, which turns the planner off for this run when you click it. The ceilings are 100,000 Jev calls and 10,000 planner calls; the default planner limit is 100.
 
 Without **Allow server to continue when this browser closes**, the server pauses after 30 seconds without a viewer. With approval, it continues only while the Node process remains running and both the approved time window and request limits allow it. A computer that is asleep/off cannot run the simulation. Time does not fast-forward to compensate after restart.
 

@@ -55,6 +55,16 @@ Loopback host/origin checks, request-size limits and a local CSRF token protect 
 
 A run requires a finite simulated-time window and Jev/planner request allowances. Time is checked before every physical clock advance, not merely on a timer. No viewer for 30 seconds pauses operation unless detached operation was explicitly approved. Save/restore does not choose behavior and no HTTP retry auto-increases budgets.
 
+## AI transparency
+
+Every Jev request and planner call is a ledger row that is created at dispatch (`status: pending`) and completed in place. Jev rows keep the exact request (perception and questions), the raw response, model identity, HTTP status, provider request ID, latency, usage, cost when reported, a `validation` result and an `outcome` (`ok`; `rejected` when a response fails validation or the confidence gate; `error` when the provider call fails; `cancelled`). Planner rows keep the engine, model, latency, a `verdict` (accepted, or rejected at `grounding`, `policy`, `engine` or `cancelled`, with the reason) and the redacted audit: the exact prompt, the CLI command and arguments (temporary paths shown relative to the isolated directory) or the HTTP endpoint and request, the event stream, stderr and the raw output. The authoritative server keeps this audit when a planner fails, as the bridge route already did. `jevChoices` on a planner row and `plannerProposal` on a Jev row record whether Jev followed the proposal. A valid row that was not applied gets a `notApplied` reason (cohort stopped, paused, stale or conflicting choice).
+
+Sizes are bounded so checkpoints stay manageable: 200,000 characters per prompt, output, request or response (questions, answers and options are always kept), 500 events up to about 200 KB, and the last 16,000 characters of stderr. Every truncation is recorded in `truncated`. Paths under the user's profile are replaced by `~`.
+
+`LivingSession` gives each change of a Jev or planner row a revision number. `GET /api/world/ai?since=<rev>&limit=<n>` (local token required) returns compact summaries: the newest rows when `since=0`, otherwise only the rows created or changed after that revision, plus counters and the current budget stop. `GET /api/world/ai/row?id=<R...>` returns one full redacted row. The **AI live** drawer polls the summaries once a second only while it is open, and loads a full row only when opened. `LivingSession.aiSummary` and `LivingSession.aiDetail` build the same views for the server and the browser; they read rows and never decide.
+
+Before a cohort starts, both the Jev and the planner budgets are checked against what the cohort needs, so a cohort that cannot finish sends nothing. A budget stop records which budget, the usage and the need (`budgetStop`), and the status line, the Budget dialog and the AI live counters show it.
+
 ## Limits
 
 One active local region; no inter-region population migration or globe-wide simulation. Bounded population and coordinated cognition cohorts. Geometry is coarse and ground-floor. The finite action/process vocabulary must be expanded in code, not by accepting arbitrary LLM scripts. These limits are implementation boundaries, not claims about scientific impossibility.

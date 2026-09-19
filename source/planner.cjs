@@ -31,6 +31,21 @@ function cleanEnv(env,cli='agy'){
  const out={};for(const k of [...BASE_ENV,...(CLI_ENV[cli]||[])])if(env[k])out[k]=env[k];
  return out;
 }
+// Transparency without unbounded checkpoints: audits keep the exact prompt, events and output up to fixed caps and record every truncation.
+const AUDIT_LIMITS={text:200000,events:500,eventBytes:200000,stderr:16000};
+function boundAudit(audit){
+ if(!audit||typeof audit!=='object')return audit;const truncated={...(audit.truncated||{})};
+ for(const k of ['prompt','output','stdoutNoise'])if(typeof audit[k]==='string'&&audit[k].length>AUDIT_LIMITS.text){truncated[k]=audit[k].length;audit[k]=audit[k].slice(0,AUDIT_LIMITS.text);}
+ if(Array.isArray(audit.events)){const total=audit.events.length+(audit.eventsDropped||0);let bytes=0,keep=0;for(const e of audit.events.slice(0,AUDIT_LIMITS.events)){bytes+=JSON.stringify(e)?.length||0;if(bytes>AUDIT_LIMITS.eventBytes)break;keep++;}if(keep<total){truncated.events=total;audit.events=audit.events.slice(0,keep);}delete audit.eventsDropped;}
+ for(const k of ['request','response','result']){if(audit[k]===undefined)continue;const text=JSON.stringify(audit[k]);if(text&&text.length>AUDIT_LIMITS.text){truncated[k]=text.length;audit[k]={truncatedPreview:text.slice(0,AUDIT_LIMITS.text)};}}
+ if(typeof audit.stderr==='string'&&audit.stderr.length>AUDIT_LIMITS.stderr)audit.stderr=audit.stderr.slice(-AUDIT_LIMITS.stderr);
+ if(Object.keys(truncated).length)audit.truncated=truncated;
+ // Absolute paths under the user's home (temporary directories, CLI configuration) become "~": the ledger never shows the Windows user name.
+ const home=os.homedir();if(!home||home.length<3)return audit;const text=JSON.stringify(audit);let out=text;
+ for(const v of new Set([JSON.stringify(home).slice(1,-1),home.replace(/\\/g,'/')]))out=out.split(v).join('~');
+ return out===text?audit:JSON.parse(out);
+}
+function verdictStage(message){return /unavailable action|outside this individual|Unexpected proposal|Invalid proposal|proposed utterance|shared language/i.test(message)?'grounding':/attempted a (tool|command)|tool calls|command, tool|subagent/i.test(message)?'policy':/cancel|timed out|discarded/i.test(message)?'cancelled':'engine';}
 function cliCommand(value,fallback,name){const command=String(value||'').trim()||fallback;if(/\.(cmd|bat)$/i.test(command))throw Error(name+' must point to the executable, not a .cmd/.bat shell wrapper.');return command;}
 function cliModel(value,name){const model=String(value||'').trim();if(model&&!/^[A-Za-z0-9][A-Za-z0-9._:\/@\[\]-]{0,119}$/.test(model))throw Error(name+' contains unsupported characters.');return model;}
 // Inline schemas travel in argv; very large action menus fall back to an unconstrained item type. validateProposal still enforces current IDs.
@@ -67,7 +82,7 @@ async function runClaude({prompt,schema,subject,signal,env=process.env,spawnImpl
  try{
   const lines=await runProcess({label:'Claude Code',command,args,input:prompt.slice(SYSTEM.length).trimStart(),cwd,env:cleanEnv(env,'claude'),signal,spawnImpl,audit});
   let out;try{out=JSON.parse(lines.join('\n'));}catch{throw Error('Claude Code returned non-JSON output. Update the CLI or inspect the ledger.');}
-  const messages=Array.isArray(out)?out:[out];out=messages.find(m=>m?.type==='result');audit.result=out;
+  const messages=Array.isArray(out)?out:[out];out=messages.find(m=>m?.type==='result');audit.result=out;audit.events=messages.slice(0,AUDIT_LIMITS.events);if(messages.length>AUDIT_LIMITS.events)audit.eventsDropped=messages.length-AUDIT_LIMITS.events;if(typeof out?.result==='string')audit.output=out.result;
   if(messages.some(m=>m?.type==='assistant'&&(m.message?.content||[]).some(b=>b?.type==='tool_use'&&b.name!=='StructuredOutput'))||(Array.isArray(out?.permission_denials)&&out.permission_denials.length))throw Error('Planner attempted a tool. Proposal rejected.');
   if(!out||out.is_error||out.subtype!=='success')throw Error('Claude Code did not return a successful result'+(out?.subtype?' ('+out.subtype+')':'')+'.');
   let proposal;try{proposal=out.structured_output??JSON.parse(out.result);}catch{throw Error('Claude Code returned no valid structured proposal.');}
@@ -81,18 +96,19 @@ async function runCodex({prompt,schema,subject,signal,env=process.env,spawnImpl=
  // Read-only sandbox, no session files, no user config/rules unless explicitly allowed, JSONL events so commands and file changes can be rejected. Prompt via stdin ('-').
  const args=['exec','--sandbox','read-only','--skip-git-repo-check','--ephemeral','--ignore-rules','--color','never','--json','--output-schema',schemaFile,'-o',outFile,'-C',cwd];
  if(env.CODEX_USER_CONFIG!=='1')args.push('--ignore-user-config');if(model)args.push('-m',model);args.push('-');
- const audit={mode:'codex',model:model||'CLI configured model (not independently verified)',command:path.basename(command),args:args.slice(),prompt,events:[],stderr:'',conversationPolicy:'Fresh ephemeral exec run; read-only sandbox; tool, command and file events are rejected.',workingDirectory:'isolated temporary directory'};
+ // Temporary paths are shown relative to the isolated directory; the absolute path contains the user's profile.
+ const audit={mode:'codex',model:model||'CLI configured model (not independently verified)',command:path.basename(command),args:args.map(a=>a.startsWith(cwd)?'<isolated temp dir>'+a.slice(cwd.length).replace(/\\/g,'/'):a),prompt,events:[],stderr:'',conversationPolicy:'Fresh ephemeral exec run; read-only sandbox; tool, command and file events are rejected.',workingDirectory:'isolated temporary directory'};
  let failure='',last='';
  try{
   await runProcess({label:'Codex',command,args,input:prompt,cwd,env:cleanEnv(env,'codex'),signal,spawnImpl,audit,onLine:text=>{
    let event;try{event=JSON.parse(text);}catch{audit.stdoutNoise=((audit.stdoutNoise||'')+text+'\n').slice(-4000);return;}
-   if(audit.events.length<200)audit.events.push(event);
+   if(audit.events.length<AUDIT_LIMITS.events)audit.events.push(event);else audit.eventsDropped=(audit.eventsDropped||0)+1;
    const item=event.item;if(item&&!['agent_message','reasoning','todo_list','error'].includes(item.type))throw Error('Planner attempted a command, tool or file change. Proposal rejected.');
    if(event.type==='turn.failed'||event.type==='error')failure=String(event.error?.message||event.message||'Codex turn failed.').slice(0,700);
    if(event.type==='item.completed'&&item?.type==='agent_message')last=String(item.text||'');
   }});
   if(failure)throw Error('Codex failed: '+failure);
-  const text=await fs.readFile(outFile,'utf8').catch(()=>last);if(text.length>1000000)throw Error('Codex output exceeds 1 MB.');
+  const text=await fs.readFile(outFile,'utf8').catch(()=>last);if(text.length>1000000)throw Error('Codex output exceeds 1 MB.');audit.output=text||last;
   let proposal;try{proposal=JSON.parse(text||last);}catch{throw Error('Codex returned no valid structured proposal.');}
   return {proposal,audit};
  }catch(e){e.audit=audit;throw e;}finally{await fs.rm(cwd,{recursive:true,force:true}).catch(()=>{});}
@@ -129,7 +145,7 @@ async function runAgy({prompt,schema,subject,signal,env=process.env,spawnImpl=sp
    const abort=()=>{stop();finish(Error(signal?.reason?.message||'Planner cancelled.'));};
    const timer=setTimeout(()=>{stop();finish(Error('AGY timed out after 125 seconds.'));},125000);
    const line=(text)=>{if(!text.trim())return;let event;try{event=JSON.parse(text);}catch{throw Error('AGY emitted non-JSON stdout. Update the CLI or inspect the ledger.');}
-    audit.events.push(event);
+    if(audit.events.length<AUDIT_LIMITS.events)audit.events.push(event);else audit.eventsDropped=(audit.eventsDropped||0)+1;
     const step=event.step_update;
     // agy >=1.2.7 delivers --json-schema output through its built-in terminal `finish` tool; that step is the structured result, not an action.
     const finishStep=step&&step.step_type==='tool'&&step.tool_name==='finish'&&(!step.tool_info||step.tool_info.name==='finish')&&!step.subagent_info;
@@ -150,13 +166,21 @@ async function runAgy({prompt,schema,subject,signal,env=process.env,spawnImpl=sp
   });
  }finally{await fs.rm(cwd,{recursive:true,force:true}).catch(()=>{});}
 }
-async function plan(data,{signal,env=process.env,fetchImpl=fetch,runAgyImpl=runAgy,runClaudeImpl=runClaude,runCodexImpl=runCodex}={}){
+// Every planner call leaves a bounded audit with its latency and an explicit verdict, including failures.
+async function plan(data,options={}){
+ const started=Date.now();
+ try{const out=await planOnce(data,options);out.audit=boundAudit({...(out.audit||{}),latencyMs:Date.now()-started,verdict:{accepted:true,stage:'grounding',reason:'Proposed actions are currently available and cited evidence belongs to this individual. Still an unverified proposal: Jev decides.'}});return out;}
+ catch(e){if(e.audit)e.audit=boundAudit({...e.audit,latencyMs:Date.now()-started,verdict:{accepted:false,stage:verdictStage(e.message),reason:e.message}});throw e;}
+}
+async function planOnce(data,{signal,env=process.env,fetchImpl=fetch,runAgyImpl=runAgy,runClaudeImpl=runClaude,runCodexImpl=runCodex}={}){
  validateInput(data);const ids=data.options.map(o=>o.id),schema=schemaFor(ids),prompt=promptFor(data);
  const evidenceIds=new Set([...(data.subject.recent_episodes||[]),...(data.subject.recent_witnesses||[])].map(m=>m.event));
  let proposal,audit;
  if(data.mode==='agy'){
   if(env.AGY_ENABLED!=='1')throw Error('AGY is disabled. Set AGY_ENABLED=1 in .env after configuring its permissions, then restart the server.');
   const output=await runAgyImpl({prompt,schema,subject:data.subject.subject,signal,env});audit=output.audit;
+  if(typeof output.result?.response==='string')audit.output=output.result.response;
+  if(output.result)audit.result={status:output.result.status,usage:output.result.usage,num_turns:output.result.num_turns,duration_seconds:output.result.duration_seconds};
   try{proposal=output.result.structured_output??JSON.parse(output.result.response);}catch{const error=Error('AGY returned no valid structured proposal.');error.audit=audit;throw error;}
  }else if(data.mode==='claude'||data.mode==='codex'){
   const claude=data.mode==='claude',flag=claude?'CLAUDE_ENABLED':'CODEX_ENABLED';
@@ -174,8 +198,12 @@ async function plan(data,{signal,env=process.env,fetchImpl=fetch,runAgyImpl=runA
   const request={model,messages:[{role:'system',content:SYSTEM},{role:'user',content:prompt.slice(SYSTEM.length)}],max_tokens:tokens,response_format:{type:'json_schema',json_schema:{name:'origin_proposal',strict:true,schema}},...(openai?{}:{provider:{require_parameters:true}})};
   audit={mode:data.mode,model,endpoint,request};
   try{proposal=await chat(audit,key,label,{signal,fetchImpl});}catch(e){e.audit=audit;throw e;}
+  finally{
+   // The sent body is exact; the stored copy points to audit.prompt instead of duplicating the same text twice.
+   audit.prompt=prompt;audit.output=audit.response?.choices?.[0]?.message?.content??null;audit.request={...request,messages:request.messages.map(m=>({role:m.role,content:'[exact text in the prompt above: '+(m.role==='system'?'system section':'STATE section and evidence rule')+']'}))};
+  }
  }
  if(proposal?.utterance&&!data.subject.shared_symbols_known){const e=Error('This subject has no learned shared language.');e.audit=audit;throw e;}
  try{return {proposal:validateProposal(proposal,ids,evidenceIds),audit};}catch(e){e.audit=audit;throw e;}
 }
-module.exports={plan,schemaFor,validateInput,validateProposal,promptFor,cleanEnv,runAgy,runClaude,runCodex,llmEndpoint,MODES};
+module.exports={plan,schemaFor,validateInput,validateProposal,promptFor,cleanEnv,runAgy,runClaude,runCodex,llmEndpoint,boundAudit,verdictStage,AUDIT_LIMITS,MODES};
