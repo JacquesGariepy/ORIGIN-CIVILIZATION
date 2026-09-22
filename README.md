@@ -1,5 +1,8 @@
 # ORIGIN / CIVILIZATION — AI lives decided by TypeSafe Jev
 
+<img width="1012" height="506" alt="image" src="https://github.com/user-attachments/assets/ed9bfdc0-dbf0-4b91-8839-f1d36747b299" />
+
+
 **An AI-driven life-and-civilization simulation. Every new voluntary action is a typed, auditable decision by [TypeSafe](https://docs.typesafe.ai/introduction) Jev. LLMs — any OpenAI-compatible API, local models, Claude Code, Codex or agy — can plan, but never decide.**
 
 - **TypeSafe Jev decides.** Each person's next action is a Choice with a probability for every option and a confidence value. Code checks the answer before anything happens, and every call is kept as a receipt in the ledger.
